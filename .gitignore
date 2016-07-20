@@ -1,0 +1,9 @@
+._*
+*.css.map
+*.js.map
+.DS_Store
+.sass-cache
+.Trashes
+Desktop.ini
+Thumbs.db
+node_modules
