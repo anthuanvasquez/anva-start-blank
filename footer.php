@@ -3,29 +3,24 @@
  * The template for displaying the footer.
  */
 
-				anva_content_after();
-				?>
-				
-			</div><!-- .main-content (end) -->
-		</div><!-- .main-inner (end) -->
-	</div><!-- MAIN (end) -->
+			anva_content_after();
+			?>		
+		</div>
+	</section><!-- MAIN (end) -->
 	
-	<!--BOTTOM (start) -->
-	<div id="bottom">
-		<footer id="footer">
-			<div class="footer-inner">
-				<div class="footer-content">
-					<?php anva_footer_content(); ?>
-				</div><!-- .footer-content (end) -->
+	<footer id="footer" class="footer footer--dark">	
+		<div class="container">
+			<?php anva_footer_content(); ?>
+		</div>
 
-				<div class="footer-copyright">
-					<?php anva_footer_text(); ?>
-				</div><!-- .footer-copyright (end) -->
+		<div id="copyrights" class="copyrights">
+			<div class="container clearfix">
+				<?php anva_footer_text(); ?>
 			</div>
-		</footer><!-- #footer (end) -->
-	</div><!-- BOTTOM (end) -->
+		</div>
+	</footer><!-- #footer (end) -->
 
-</div><!-- CONTAINER (end) -->
+</div><!-- WRAPPER (end) -->
 
 <?php anva_layout_after(); ?>
 <?php wp_footer(); ?>

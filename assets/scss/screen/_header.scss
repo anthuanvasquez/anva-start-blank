@@ -1,37 +1,29 @@
-#top {
-	position: relative;
-	padding: 0 30px;
-}
-
-/*
-/*
- * Header Content
- */
-.header-content {
-	padding: $padding 0;
-}
-
-.header-content-group {
-	padding: 10px 20px;
+.header {
 	position: relative;
 }
 
-/*
- * Logo
- */
-div.brand {
-	
-	a.logo {
+// Logo
+
+.logo {
+    float: left;
+    font-size: 36px;
+    line-height: 100%;
+    margin-right: $trim;
+	padding-right: $trim;
+
+	&__link,
+	&__image {
 		display: block;
-		max-width: $logo-size;
 	}
-	
+
+	&__image {
+		height: $logo-size;
+	}
 }
 
-/*
- * Addons
- */
-div.addon {
+// Addons
+
+.addon {
 	margin-top: -40px;
 	position: absolute;
 	right: 20px;

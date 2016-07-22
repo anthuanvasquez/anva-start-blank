@@ -4,10 +4,11 @@ $configuration: (
 	font-size: 14px,
 	line-height: 1.5,
 	layout: 12,
-	logo: 200px,
+	logo: 100px,
 	min-width: 320px,
-	max-width: 1000px,
+	max-width: 1200px,
 	padding: 20px,
+	trim: 30px,
 	border-radius: 4px,
 	boxed: true,
 	debug: false
@@ -26,15 +27,19 @@ $browser-minimum-versions: (
 // Colour Palette
 // ------------------------------------------------
 $palette: (
-	primary: 		#4285f4,
+	primary: 	#267DF4,
 	secondary: 	#cccccc,
-	tertiary: 	darken(#4285f4, 5%),
-	body: 			#f2f2f2,
-	base:				#333333,
+	tertiary: 	#111111,
+	body: 		#f2f2f2,
+	base:		#333333,
 	content:  	#ffffff,
-	link: 			#4285f4,
-	meta:				#999999
+	link: 		#4285f4,
+	meta:		#999999
 );
+
+$color__1: #267DF4;
+$color__2: #111111;
+$color__3: #cccccc;
 
 // Font Stacks
 // ------------------------------------------------
@@ -102,6 +107,7 @@ $border-radius: config(border-radius);
 $icon-font-family: $font-awesome;
 $logo-size: config(logo);
 $padding: config(padding);
+$trim: config(trim);
 
 // Neat
 // ------------------------------------------------

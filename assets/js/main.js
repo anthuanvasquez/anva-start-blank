@@ -145,7 +145,7 @@ var initialize = {
 	Init: function() {
 
 		initialize.Popup('.gallery > .gallery-item, .single .featured-image .thumbnail');
-		initialize.Menu('ul.navigation-menu, ul.off-canvas-menu');
+		initialize.Menu('navigation-menu, .off-canvas-menu');
 		initialize.RemoveEmpty('div.fl-thumbnail');
 		initialize.RemoveEmpty('p');
 		initialize.Toggle();

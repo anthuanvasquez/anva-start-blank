@@ -31,10 +31,14 @@
 // Boxed or Wide layout
 @mixin boxed-layout( $width ) {
 	@if config(boxed) {
-		margin: 0 auto;
+		box-shadow: 0 0 10px rgba(black, 0.1);
+		margin-left: auto;
+		margin-right: auto;
 		max-width: $width;
 	} @else {
-		max-width: 100%;
+		margin: 0;
+		box-shadow: none;
+		width: 100%;
 	}
 }
 

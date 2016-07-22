@@ -34,11 +34,8 @@ function anva_get_slideshows() {
 			slideshowSpeed: '$slider_speed',
 			controlNav: ( $slider_control == 1 ? true : false ),
 			directionNav: ( $slider_direction == 1 ? true : false ) ,
-			pausePlay: ( $slider_play == 1 ? true : false ),
-			pauseText: '',
-			playText: '',
-			prevText: '',
-			nextText: '',
+			prevText: '<i class=\"fa fa-angle-left\"></i>',
+			nextText: '<i class=\"fa fa-angle-right\"></i>',
 			useCSS: true,
 			touch: true,
 			video: true,
@@ -73,18 +70,18 @@ function anva_get_slideshows() {
 function anva_slideshows_register() {
 
 	$labels = array(
-		'name' 									=> __( 'Slideshows', ANVA_DOMAIN ),
-		'singular_name' 				=> __( 'Slide', ANVA_DOMAIN ),
-		'all_items' 						=> __( 'Todos los Slides', ANVA_DOMAIN ),
-		'add_new' 							=> __( 'A&ntilde;adir Nuevo Slide', ANVA_DOMAIN ),
-		'add_new_item' 					=> __( 'A&ntilde;adir Nuevo Slide', ANVA_DOMAIN ),
-		'edit_item' 						=> __( 'Editar Slide', ANVA_DOMAIN ),
-		'new_item' 							=> __( 'Nuevo Slide', ANVA_DOMAIN ),
-		'view_item' 						=> __( 'Ver Slide', ANVA_DOMAIN ),
-		'search_items' 					=> __( 'Buscar Slides', ANVA_DOMAIN ),
-		'not_found' 						=> __( 'Slide no Encontrado', ANVA_DOMAIN ),
-		'not_found_in_trash' 		=> __( 'No se Encontraron Slides en la Papelera', ANVA_DOMAIN ),
-		'parent_item_colon' 		=> '' );
+		'name'               => __( 'Slideshows', 'anva-start' ),
+		'singular_name'      => __( 'Slide', 'anva-start' ),
+		'all_items'          => __( 'Todos los Slides', 'anva-start' ),
+		'add_new'            => __( 'A&ntilde;adir Nuevo Slide', 'anva-start' ),
+		'add_new_item'       => __( 'A&ntilde;adir Nuevo Slide', 'anva-start' ),
+		'edit_item'          => __( 'Editar Slide', 'anva-start' ),
+		'new_item'           => __( 'Nuevo Slide', 'anva-start' ),
+		'view_item'          => __( 'Ver Slide', 'anva-start' ),
+		'search_items'       => __( 'Buscar Slides', 'anva-start' ),
+		'not_found'          => __( 'Slide no Encontrado', 'anva-start' ),
+		'not_found_in_trash' => __( 'No se Encontraron Slides en la Papelera', 'anva-start' ),
+		'parent_item_colon'  => '' );
 	
 	$args = array(
 		'labels'               	=> $labels,
@@ -123,18 +120,18 @@ function anva_slideshows_featured( $slug ) {
 	
 	// Set args
 	$image_size = isset( $slideshows[$slug]['size'] ) ? $slideshows[$slug]['size'] : 'large';
-	$orderby = isset( $slideshows[$slug]['orderby'] ) ? $slideshows[$slug]['orderby'] : "menu_order";
-	$order 	 = isset( $slideshows[$slug]['order'] ) ? $slideshows[$slug]['order'] : "ASC";
-	$limit 	 = isset( $slideshows[$slug]['limit'] ) ? $slideshows[$slug]['limit'] : "-1";
+	$orderby    = isset( $slideshows[$slug]['orderby'] ) ? $slideshows[$slug]['orderby'] : "menu_order";
+	$order      = isset( $slideshows[$slug]['order'] ) ? $slideshows[$slug]['order'] : "ASC";
+	$limit      = isset( $slideshows[$slug]['limit'] ) ? $slideshows[$slug]['limit'] : "-1";
 
 	// Default Query Args
 	$query_args = array(
-		'post_type' 			=> array( 'slideshows' ),
-		'order' 					=> $order,
-		'orderby' 				=> $orderby,
-		'meta_key' 				=> '_slider_id',
-		'meta_value' 			=> $slug,
-		'posts_per_page' 	=> $limit
+		'post_type'      => array( 'slideshows' ),
+		'order'          => $order,
+		'orderby'        => $orderby,
+		'meta_key'       => '_slider_id',
+		'meta_value'     => $slug,
+		'posts_per_page' => $limit
 	);
 	
 	// Attachments Query Args
@@ -153,9 +150,7 @@ function anva_slideshows_featured( $slug ) {
 	$the_query = anva_get_post_query( apply_filters( 'anva_slideshows_query_args', $query_args ) );
 
 	if ( $the_query->have_posts() ) {
-		$html .= '<div id="slider">';
-		$html .= '<div id="slider_wrapper_' . $slug . '" class="slider-wrapper slider-wrapper-' . $slug . '">';
-		$html .= '<div id="slider_inner_' . $slug . '" class="slider-inner slider-inner-' . $slug . '">';
+		$html .= '<div id="slider-wrap-' . $slug . '" class="slider__wrap slider__wrap--' . $slug . '">';
 		$html .= '<ul class="slides">';
 		
 		while ( $the_query->have_posts() ) {
@@ -167,10 +162,10 @@ function anva_slideshows_featured( $slug ) {
 			$url 	= ( isset( $meta['_slider_link_url'][0] ) ? $meta['_slider_link_url'][0] : '' );
 			$data = ( isset( $meta['_slider_data'][0] ) ? $meta['_slider_data'][0] : '' );
 
-			$a_tag_opening = '<a href="' . $url . '">';
+			$a_tag_opening = '<a class="slides__link" href="' . $url . '">';
 						
-			$html .= '<li>';
-			$html .= '<div id="slide-' . get_the_ID() . '" class="slide slide-'. get_the_ID() .' slide-type-image">';
+			$html .= '<li class="slides__item">';
+			$html .= '<div id="slide-' . get_the_ID() . '" class="slides__wrap slide__wrap--'. get_the_ID() . '">';
 			
 			if ( $slug == "attachments" ) {
 				$html .= wp_get_attachment_image( get_the_ID(), $image_size );
@@ -181,7 +176,7 @@ function anva_slideshows_featured( $slug ) {
 					$html .= $a_tag_opening;
 				}
 
-				$html .= get_the_post_thumbnail( get_the_ID(), $image_size , array( 'class' => 'slide-thumbnail' ) );
+				$html .= get_the_post_thumbnail( get_the_ID(), $image_size , array( 'class' => 'slides__image slide-thumbnail' ) );
 
 				if ( $url ) {
 					$html .= '</a>';
@@ -191,27 +186,27 @@ function anva_slideshows_featured( $slug ) {
 			switch ( $data ) {
 
 				case 'title':
-					$html .= '<div class="slide-caption no-description">';
-					$html .= '<h2 class="slide-title">';
+					$html .= '<div class="slides__caption slide__caption--no-desc">';
+					$html .= '<h2 class="slides__title">';
 					$html .= get_the_title();
 					$html .= '</h2>';
 					$html .= '</div>';
 					break;
 
 				case 'desc':
-					$html .= '<div class="slide-caption no-title">';
-					$html .= '<div class="slide-description">';
+					$html .= '<div class="slides__caption slide__caption--no-title">';
+					$html .= '<div class="slides__description">';
 					$html .= get_the_excerpt();
 					$html .= '</div>';
 					$html .= '</div>';
 					break;
 
 				case 'show':
-					$html .= '<div class="slide-caption">';
-					$html .= '<h2 class="slide-title">';
+					$html .= '<div class="slides__caption">';
+					$html .= '<h2 class="slides__title">';
 					$html .= get_the_title();
 					$html .= '</h2>';
-					$html .= '<div class="slide-description">';
+					$html .= '<div class="slides__description">';
 					$html .= get_the_excerpt();
 					$html .= '</div>';
 					$html .= '</div>';
@@ -223,10 +218,8 @@ function anva_slideshows_featured( $slug ) {
 			$html .= '</li>';
 		}
 
-		$html .= '</ul><!-- .slides (end) -->';
-		$html .= '</div><!-- #slider_inner_' . $slug . ' (end) -->';
-		$html .= '</div><!-- #slider_wrapper_' . $slug . ' (end) -->';
-		$html .= '</div><!-- #slider (end) -->';	
+		$html .= '</ul>';
+		$html .= '</div>';	
 	}
 	
 	// Reset wp query
@@ -238,14 +231,14 @@ function anva_slideshows_featured( $slug ) {
 		wp_enqueue_script( 'flexslider-js', get_template_directory_uri() . '/assets/js/vendor/jquery.flexslider.min.js', array( 'jquery' ), '', true );
 
 		$html .= '<script>';
-		$html .= 'jQuery(document).ready(function() {';
-		$html .= "jQuery('#slider_inner_{$slug}').addClass('loading');";
-		$html .= "jQuery('#slider_inner_{$slug}').flexslider({";
+		$html .= 'jQuery(document).ready(function($) {';
+		$html .= "$('#slider__wrap--{$slug}').addClass('loading');";
+		$html .= "$('#slider__wrap--{$slug}').flexslider({";
 			
 		if ( isset( $slideshows[$slug]['options'] ) && $slideshows[$slug]['options'] != "" ) { 
 			$html .= $slideshows[$slug]['options'];
 		} else {
-			$html .="prevText: '', nextText: '',";
+			$html .="prevText: '<i class=\"fa fa-angle-left\"></i>', nextText: '<i class=\"fa fa-angle-right\"></i>',";
 			$html .="start: function(slider){ slider.removeClass('loading'); }";
 		}
 		
@@ -259,8 +252,8 @@ function anva_slideshows_featured( $slug ) {
 		wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/js/vendor/slick.min.js', array( 'jquery' ), '', true );
 
 		$html .= '<script>';
-		$html .= 'jQuery(document).ready(function() {';
-		$html .= "jQuery('#slider_inner_{$slug} .slides').slick({";
+		$html .= 'jQuery(document).ready(function($) {';
+		$html .= "$('#slider_inner_{$slug} .slides').slick({";
 		$html .= "autoplay: true, autoplaySpeed: 7000, dots: true";
 		$html .= "});";
 		$html .= "});";

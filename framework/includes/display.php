@@ -19,10 +19,10 @@ function anva_header_logo_default() {
 	$image 	= get_template_directory_uri() . '/assets/images/logo.png';
 	$name 	= get_bloginfo( 'name' );
 	?>
-	<a id="logo" class="logo" href="<?php echo home_url(); ?>" title="<?php echo $name; ?>">
+	<a class="logo__link" href="<?php echo home_url(); ?>" title="<?php echo $name; ?>">
 		<?php
 			printf(
-				'<img src="%1$s" alt="%2$s" /><span class="sr-only">%2$s</span>',
+				'<img class="logo__image" src="%1$s" alt="%2$s" />',
 				( empty( $logo ) ? esc_url( $image ) : esc_url( $logo ) ),
 				get_bloginfo( 'name' )
 			);
@@ -35,30 +35,24 @@ function anva_header_logo_default() {
  * Display default main navigation
  */
 function anva_main_navigation_default() {
+	
+	if ( ! has_nav_menu( 'primary' ) ) :
+		printf( '<div class="well well-sm">' . anva_get_local( 'menu_message' ) . '</div>' );
+		return '';
+	endif;
+
 	?>
 	<a href="#" id="mobile-toggle" class="mobile-toggle" data-toggle="tooltip" data-placement="right" title="<?php echo anva_get_local( 'menu' ); ?>">
 		<i class="fa fa-bars"></i>
-		<span class="sr-only"><?php echo anva_get_local( 'menu' ); ?></span>
 	</a>
-
-	<?php if ( has_nav_menu( 'primary' ) ) : ?>
-		<nav id="navigation" class="navigation clearfix" role="navigation">
+	<nav id="navigation" class="navigation clearfix">
+		<div class="container">
 			<?php
-				wp_nav_menu( apply_filters( 'anva_main_navigation_default', array( 
-					'theme_location'  => 'primary',
-					'container'       => 'div',
-					'container_class' => 'navigation-inner',
-					'container_id'    => 'primary',
-					'menu_class'      => 'navigation-menu sf-menu clearfix',
-					'menu_id'         => 'primary-menu',
-					'echo'            => true,
-					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>' )
-				));
+				bem_menu( 'primary', 'navigation-menu', array( 'clearfix' ) );
 			?>
-		</nav><!-- #main-navigation (end) -->
-	<?php else : ?>
-		<div class="well well-sm"><?php echo anva_get_local( 'menu_message' ); ?></div>
-	<?php endif;
+		</div>
+	</nav><!-- #navigation (end) -->
+	<?php
 }
 
 /*
@@ -119,7 +113,7 @@ function anva_custom_css() {
  */
 function anva_footer_widget() {
 	?>
-	<div class="footer-widget">
+	<div class="footer-widgets">
 		<div class="grid-columns">
 			<?php if ( ! dynamic_sidebar( 'footer' ) ) : endif; ?>
 		</div>
@@ -132,31 +126,13 @@ function anva_footer_widget() {
  */
 function anva_footer_text_default() {
 	printf(
-		'<p>&copy; %1$s <strong>%2$s</strong> %3$s %4$s %5$s. <a id="gotop" href="#"><i class="fa fa-chevron-up"></i><span class="sr-only">Go Top</span></a></p>',
+		'<p class="copyrights__text">&copy; %1$s <strong>%2$s</strong> %3$s %4$s %5$s. <a id="gotop" class="gototop" href="#"><i class="fa fa-chevron-up"></i><span class="sr-only">Go Top</span></a></p>',
 		anva_get_current_year( apply_filters( 'anva_footer_year', date( 'Y' ) ) ),
 		get_bloginfo( 'name' ),
 		anva_get_local( 'footer_copyright' ),
 		apply_filters( 'anva_footer_credits', anva_get_local( 'footer_text' ) ),
 		apply_filters( 'anva_footer_author', '<a href="'. esc_url( 'http://anthuanvasquez.net/') .'">Anthuan Vasquez</a>' )
 	);
-}
-
-/*
- * Wrapper start
- */
-function anva_layout_before_default() {
-	?>
-	<div id="wrapper">
-	<?php
-}
-
-/*
- * Wrapper end
- */
-function anva_layout_after_default() {
-	?>
-	</div><!-- #wrapper (end) -->
-	<?php
 }
 
 /*
@@ -167,12 +143,10 @@ function anva_breadcrumbs() {
 	if ( 1 == $single_breadcrumb ) {
 		if ( function_exists( 'yoast_breadcrumb' ) && ! is_front_page() && ! is_home() ) {
 			?>
-			<div id="breadcrumbs">
-				<div class="breadcrumbs-inner">
-					<div class="breadcrumbs-content">
-						<?php yoast_breadcrumb( '<p>', '</p>' ); ?>
-					</div><!-- breadcrumbs-content (end) -->
-				</div><!-- breadcrumbs-inner (end) -->
+			<div id="breadcrumbs" class="breadcrumbs">
+				<div class="breadcrumbs__wrap">
+					<?php yoast_breadcrumb( '<p>', '</p>' ); ?>
+				</div>
 			</div><!-- #breadcrumbs (end) -->
 			<?php
 		}
@@ -185,7 +159,6 @@ function anva_breadcrumbs() {
 function anva_content_before_default() {
 	?>
 	<div id="sidebar-layout">
-		<div class="sidebar-layout-inner">
 	<?php
 }
 
@@ -194,7 +167,6 @@ function anva_content_before_default() {
  */
 function anva_content_after_default() {
 	?>
-			</div><!-- .sidebar-layout-inner (end) -->
 	</div><!-- #sidebar-layout (end) -->
 	<?php
 }
@@ -255,27 +227,27 @@ function anva_navigation() {
 	switch( $nav ) :
 	case 'off_canvas_navigation': ?>
 	<script type="text/javascript">
-	jQuery(document).ready( function() {
+	jQuery(document).ready( function($) {
 		// Off Canvas Navigation
-		var offCanvas = jQuery('#off-canvas-toggle'),
-			offCanvasNav = jQuery('#off-canvas'),
-			pageCanvas = jQuery('#container'),
-			bodyCanvas = jQuery('body');
+		var offCanvas = $('#off-canvas-trigger'),
+			offCanvasNav = $('#off-canvas'),
+			pageCanvas = $('#wrapper'),
+			bodyCanvas = $('body');
 
 		bodyCanvas.addClass('js-ready');
 
 		offCanvas.click( function(e) {
 			e.preventDefault();
-			offCanvasNav.toggleClass('is-active');
-			pageCanvas.toggleClass('is-active');
+			offCanvasNav.toggleClass('off-canvas--active');
+			pageCanvas.toggleClass('wrapper--active');
 		});
 
 		// Hide Off Canvas Nav on Windows Resize
-		jQuery(window).resize( function() {
-			var off_canvas_nav_display = jQuery('#off-canvas').css('display');
+		$(window).resize( function() {
+			var off_canvas_nav_display = $('#off-canvas').css('display');
 			if( off_canvas_nav_display === 'block' ) {
-				jQuery('#off-canvas').removeClass('is-active');
-				jQuery('#container').removeClass('is-active');
+				$('#off-canvas').removeClass('off-canvas--active');
+				$('#wrapper').removeClass('wrapper--active');
 			}
 		});
 	});
@@ -283,22 +255,22 @@ function anva_navigation() {
 	<?php break;
 	case 'toggle_navigation': ?>
 	<script type="text/javascript">
-	jQuery(document).ready( function() {
+	jQuery(document).ready( function($) {
 		// ---------------------------------------------------------
 		// Show main navigation with slidetoggle effect
 		// ---------------------------------------------------------
-		jQuery('#mobile-toggle').click( function(e) {
+		$('#mobile-toggle').click( function(e) {
 			e.preventDefault();
-			jQuery('nav#navigation').slideToggle();
+			$('#navigation').slideToggle();
 		});
 
 		// ---------------------------------------------------------
 		// Show main navigation if is hide
 		// ---------------------------------------------------------
-		jQuery(window).resize( function() {
-			var nav_display = jQuery('nav#navigation').css('display');
+		$(window).resize( function() {
+			var nav_display = $('#navigation').css('display');
 			if( nav_display === 'none' ) {
-				jQuery('nav#navigation').css('display', 'block');
+				$('#navigation').css('display', 'block');
 			}
 		});
 	});

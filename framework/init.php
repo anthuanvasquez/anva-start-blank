@@ -26,6 +26,7 @@ include_once( ANVA_FRAMEWORK . '/includes/shortcodes.php' );
 include_once( ANVA_FRAMEWORK . '/includes/login.php' );
 include_once( ANVA_FRAMEWORK . '/plugins/contact-email.php' );
 include_once( ANVA_FRAMEWORK . '/plugins/slideshows.php' );
+include_once( ANVA_FRAMEWORK . '/plugins/bem-menu.php' );
 
 // Validate if Woocommerce plugin is activated
 if ( class_exists( 'Woocommerce' ) ) :
@@ -80,8 +81,6 @@ add_action( 'anva_header_logo', 'anva_header_logo_default' );
 add_action( 'anva_main_navigation', 'anva_main_navigation_default' );
 add_action( 'anva_footer_content', 'anva_footer_widget' );
 add_action( 'anva_footer_text', 'anva_footer_text_default' );
-add_action( 'anva_layout_before', 'anva_layout_before_default' );
-add_action( 'anva_layout_after', 'anva_layout_after_default' );
 add_action( 'anva_layout_before', 'anva_ie_browser_message' );
 add_action( 'anva_layout_after', 'anva_debug_queries' );
 add_action( 'anva_content_before', 'anva_breadcrumbs' );
