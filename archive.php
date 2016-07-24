@@ -11,12 +11,6 @@ get_header();
 	<div class="content-area col-sm-8">
 		<div class="main">
 
-			<header class="entry-header">
-				<h1 class="entry-title">
-					<?php anva_archive_title(); ?>
-				</h1>
-			</header><!-- .page-header -->
-
 			<div class="archive-post-list post-list-paginated post-list">
 				<?php if ( have_posts() ) : ?>
 					<?php while ( have_posts() ) : the_post(); ?>

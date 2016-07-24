@@ -37,13 +37,16 @@ $palette: (
     'meta':      #999999
 );
 
-$color__1:       #267DF4;
-$color__2:       #111111;
-$color__3:       #cccccc;
-$color__content: #ffffff;
-$color__body:    #f2f2f2;
-$color__text:    #333333;
-$color__meta:    #999999;
+$color__1:           #267DF4;
+$color__2:           #111111;
+$color__3:           #cccccc;
+$color__content:     #ffffff;
+$color__body:        #f2f2f2;
+$color__text:        #333333;
+$color__meta:        #999999;
+$color__border:      #f5f5f5;
+$color__link:        $color__1;
+$color__link--hover: lighten($color__1, 10%);
 
 
 // Font Stacks
@@ -130,7 +133,7 @@ $all-breakpoints: (
     'handheld': 480px,
     'tablet':   768px,
     'laptop':   992px,
-    'desktop':  1200px
+    'desktop':  1199px
 );
 
 $all-layout-columns: (
@@ -139,6 +142,8 @@ $all-layout-columns: (
     desktop: 12
 );
 
+$desktop:       max-width break(desktop) layout-column(desktop);
+$desktop--min:  min-width break(desktop) layout-column(desktop);
 $laptop:        max-width break(laptop) layout-column(desktop);
 $laptop--min:   min-width break(laptop) layout-column(desktop);
 $tablet:        max-width break(tablet) layout-column(tablet);

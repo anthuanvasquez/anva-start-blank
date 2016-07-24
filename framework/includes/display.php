@@ -206,16 +206,16 @@ function anva_sidebar_layout_before_default() {
 		
 		// One sidebar
 		if ( 'left' == $sidebar ) {
-			anva_sidebars( 'left', '4' );
+			anva_sidebars( 'left' );
 
 		// Two sidebar
 		} elseif( 'double' == $sidebar ) {
-			anva_sidebars( 'left', '3' );
+			anva_sidebars( 'left' );
 
 		// Two sidebar left
 		} elseif ( 'double_left' == $sidebar ) {
-			anva_sidebars( 'left', '3' );
-			anva_sidebars( 'right', '3' );
+			anva_sidebars( 'left' );
+			anva_sidebars( 'right' );
 		}
 	}
 }
@@ -230,16 +230,16 @@ function anva_sidebar_layout_after_default() {
 		
 		// One sidebar
 		if ( 'right' == $sidebar ) {
-			anva_sidebars( 'right', '4' );
+			anva_sidebars( 'right' );
 
 		// Two sidebar
 		} elseif ( 'double' == $sidebar ) {
-			anva_sidebars( 'right', '3' );
+			anva_sidebars( 'right' );
 
 		// Two sidebar right
 		} elseif ( 'double_right' == $sidebar ) {
-			anva_sidebars( 'left', '3' );
-			anva_sidebars( 'right', '3' );
+			anva_sidebars( 'left' );
+			anva_sidebars( 'right' );
 		}
 	}
 }

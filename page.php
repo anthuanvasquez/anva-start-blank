@@ -6,8 +6,20 @@
 $classes = '';
 $sidebar = anva_get_post_meta( '_sidebar_column' );
 
-if ( 'double' == $sidebar || 'double_left' == $sidebar || 'double_right' == $sidebar  ) {
+if ( 'left' == $sidebar ) {
+	$classes = 'content-area--sidebar-left';
+
+} elseif ( 'right' == $sidebar ) {
+	$classes = 'content-area--sidebar-right';
+
+} elseif ( 'double' == $sidebar ) {
 	$classes = 'content-area--both';
+
+} elseif ( 'double_left' == $sidebar ) {
+	$classes = 'content-area--both content-area--both-left';
+
+} elseif ( 'double_right' == $sidebar ) {
+	$classes = 'content-area--both content-area--both-right';
 
 } elseif ( 'fullwidth' == $sidebar ) {
 	$classes = 'content-area--full';

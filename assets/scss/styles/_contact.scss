@@ -1,12 +1,25 @@
-#contactform {
+.contact-form {
 
-	div {
-		margin-bottom: 10px;
+	&__label {
+		display: block;
+		font-weight: bold;
+		margin: 10px 0 5px 0;
+	}
+
+	&__group {
+		margin-bottom: $padding;
+
+		&--name,
+		&--email,
+		&--subject {
+			float: left;
+			width: 33.33%;
+		}
 	}
 
 	@include group-inputs {
 		&:focus {
-			border-color: color(primary);
+			border-color: $color__1;
 		}
 	}
 
@@ -22,19 +35,9 @@
 		}
 	}
 	
-	.control-label {
-		display: block;
-		font-weight: bold;
-		margin: 10px 0 2px 0;
-	}
-	
 	label.error {
 		color: #ff0000;
 		margin: 0 0 2px;
-	}
-	
-	.form-submit {
-		text-align: right;
 	}
 
 }

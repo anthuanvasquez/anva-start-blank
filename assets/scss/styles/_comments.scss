@@ -1,13 +1,20 @@
 /*
  * Headings
  */
-h2.comments-title,
-h3.comment-reply-title {
+.comments-title,
+.comment-reply-title {
 	font-size: 18px;
 	margin: 0 0 $padding;
 }
 
-#respond {
+.comments-area {
+	&__title {
+		font-size: 18px;
+		margin: 0 0 $trim;
+	}
+}
+
+.comments-respond {
 	clear: both;
 }
 

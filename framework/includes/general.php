@@ -156,7 +156,7 @@ function anva_load_scripts() {
 	}
 
 	if ( is_page_template( 'template_contact-us.php' ) ) {
-		wp_enqueue_script( 'jquery-validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'jquery-validate', get_template_directory_uri() . '/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), '', true );
 	}
 
 	wp_enqueue_script( 'boostrap-js', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', array( 'jquery' ), '', true );

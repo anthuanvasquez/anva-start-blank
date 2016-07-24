@@ -93,22 +93,13 @@
 	}
 }
 
-.sep {
-	color: color(meta);
-	font-weight: normal;
-	padding: 0 7px;
-}
-
 .updated {
 	display: none;
 }
 
-
-/*
- * Pagination
- */
 .pagination {
 	margin: 20px 0 0;
+	
 	> .active {
 		> a,
 		> a:hover,

@@ -38,12 +38,49 @@
 		margin-right: 0;
 	}
 
+	&--sidebar-left {
+		margin-right: 0;
+	}
+
 	&--both {
-		width: 650px;
+		width: 580px;
+
+		@include media($desktop) {
+			width: 440px;
+		}
+
+		&-left {
+			margin: 0;
+			margin-left: 40px;
+		}
+	}
+
+	@include media($desktop) {
+		width: 690px;
+	}
+
+
+	@include media($laptop) {
+		float: none;
+		margin-right: 0;
+		width: 100%;
 	}
 }
 
 .widget-area {
 	float: left;
 	width: 240px;
+
+	&--left {
+		margin-right: 40px;
+	}
+
+	@include media($desktop) {
+		width: 210px;
+	}
+
+	@include media($laptop) {
+		float: none;
+		width: 100%;
+	}
 }

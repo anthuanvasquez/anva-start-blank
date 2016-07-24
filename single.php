@@ -6,9 +6,8 @@
 get_header();
 ?>
 
-<div class="row grid-columns">
-	<div class="content-area col-sm-8">
-		<div class="main" role="main">
+<div class="container clearfix">
+	<div class="content-area">
 		
 		<?php anva_post_before(); ?>
 
@@ -34,6 +33,6 @@ get_header();
 	
 	<?php anva_sidebars( 'right', '4' ); ?>
 	
-</div><!-- .grid-columns (end) -->
+</div><!-- .container (end) -->
 
 <?php get_footer(); ?>

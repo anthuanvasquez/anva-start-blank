@@ -308,14 +308,12 @@ function anva_post_nav() {
 		return;
 	}
 	?>
-	<nav class="post-navigation" role="navigation">
-		<div class="post-navigation-inner">
-			<div class="pager navigation-content">
-				<?php
-					previous_post_link( '<div class="previous">%link</div>', anva_get_local( 'prev' ) );
-					next_post_link( '<div class="next">%link</div>', anva_get_local( 'next' ) );
-				?>
-			</div>
+	<nav class="post-navigation">
+		<div class="post-navigation__wrap clearfix">
+			<?php
+				previous_post_link( '<div class="post-navigation__previous">%link</div>', anva_get_local( 'prev' ) );
+				next_post_link( '<div class="post-navigation__next">%link</div>', anva_get_local( 'next' ) );
+			?>
 		</div>
 	</nav><!-- .post-navigation (end) -->
 	<?php
@@ -426,41 +424,53 @@ function anva_contact_form() {
 	$answer = $s;
 	
 	?>
-	<div class="contact-form-container">
+	<div class="contact-form">
 		
 		<?php if ( ! empty( $email_sended_message ) ) : ?>
-			<div id="email_message" class="alert alert-block"><?php echo $email_sended_message; ?></div>
+			<div id="email_message" class="alert alert-block">
+				<?php echo $email_sended_message; ?>
+			</div>
 		<?php endif; ?>
 
-		<form id="contactform" class="contact-form"  role="form" method="post" action="<?php the_permalink(); ?>#contactform">
+		<form id="contactform" class="contact-form__form" method="post" action="<?php the_permalink(); ?>#contactform">
 
-			<div class="form-name form-group">
-				<label for="cname" class="control-label"><?php echo anva_get_local( 'name' ); ?>:</label>
-				<input id="name" type="text" placeholder="<?php echo anva_get_local( 'name_place' ); ?>" name="cname" class="form-control requiredField" value="<?php if ( isset( $_POST['cname'] ) ) echo esc_attr( $_POST['cname'] ); ?>">
+			<div class="contact-form__group contact-form__group--name form-group">
+				<label for="cname" class="contact-form__label control-label">
+					<?php echo anva_get_local( 'name' ); ?>:
+				</label>
+				<input id="name" type="text" name="cname" class="contact-form__field contact-form__field--text form-control requiredField" placeholder="<?php echo anva_get_local( 'name_place' ); ?>" value="<?php if ( isset( $_POST['cname'] ) ) echo esc_attr( $_POST['cname'] ); ?>">
 			</div>
 			
-			<div class="form-email form-group">
-				<label for="cemail" class="control-label"><?php echo anva_get_local( 'email' ); ?>:</label>
-				<input id="email" type="email" placeholder="<?php _e('Correo Electr&oacute;nico', 'anva-start'); ?>" name="cemail" class="form-control requiredField" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
+			<div class="contact-form__group contact-form__group--email form-group">
+				<label for="cemail" class="contact-form__label control-label">
+					<?php echo anva_get_local( 'email' ); ?>:
+				</label>
+				<input id="email" type="email" name="cemail" class="contact-form__field  contact-form__field--email form-control requiredField" placeholder="<?php _e('Correo Electr&oacute;nico', 'anva-start'); ?>" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
 			</div>
 
-			<div class="form-subject form-group">						
-				<label for="csubject" class="control-label"><?php echo anva_get_local( 'subject' ); ?>:</label>
-				<input id="subject" type="text" placeholder="<?php echo anva_get_local( 'subject' ); ?>" name="csubject" class="form-control requiredField" value="<?php if ( isset( $_POST['csubject'] ) ) echo esc_attr( $_POST['csubject'] ); ?>">
+			<div class="contact-form__group contact-form__group--subject form-group">						
+				<label for="csubject" class="contact-form__label control-label">
+					<?php echo anva_get_local( 'subject' ); ?>:
+				</label>
+				<input id="subject" type="text" name="csubject" class="contact-form__field contact-form__field--text form-control requiredField" placeholder="<?php echo anva_get_local( 'subject' ); ?>" value="<?php if ( isset( $_POST['csubject'] ) ) echo esc_attr( $_POST['csubject'] ); ?>">
 			</div>
 			
-			<div class="form-message form-group">
-				<label for="cmessage" class="control-label"><?php echo anva_get_local( 'message' ); ?>:</label>
-				<textarea id="message" name="cmessage" class="form-control" placeholder="<?php echo anva_get_local( 'message_place' ); ?>"><?php if ( isset( $_POST['cmessage'] ) ) echo esc_textarea( $_POST['cmessage'] ); ?></textarea>
+			<div class="contact-form__group contact-form__group--message form-group">
+				<label for="cmessage" class="contact-form__label control-label">
+					<?php echo anva_get_local( 'message' ); ?>:
+				</label>
+				<textarea id="message" name="cmessage" class="contact-form__field contact-form__field--textarea form-control" placeholder="<?php echo anva_get_local( 'message_place' ); ?>"><?php if ( isset( $_POST['cmessage'] ) ) echo esc_textarea( $_POST['cmessage'] ); ?></textarea>
 			</div>
 			
-			<div class="form-captcha form-group">
-				<label for="captcha" class="control-label"><?php echo $a . ' + '. $b . ' = ?'; ?>:</label>
-				<input type="text" name="ccaptcha" placeholder="<?php echo anva_get_local( 'captcha_place' ); ?>" class="form-control requiredField" value="<?php if ( isset( $_POST['ccaptcha'] ) ) echo $_POST['ccaptcha'];?>">
+			<div class="contact-form__group contact-form__group--captcha form-group">
+				<label for="captcha" class="contact-form__label control-label">
+					<?php echo $a . ' + '. $b . ' = ?'; ?>:
+				</label>
+				<input type="text" name="ccaptcha" placeholder="<?php echo anva_get_local( 'captcha_place' ); ?>" class="contact-form__field contact-form__field--text form-control requiredField" value="<?php if ( isset( $_POST['ccaptcha'] ) ) echo $_POST['ccaptcha'];?>">
 				<input type="hidden" id="answer" name="canswer" value="<?php echo esc_attr( $answer ); ?>">
 			</div>
 			
-			<div class="form-submit form-group">
+			<div class="contact-form__group contact-form__group--submit form-group">
 				<input type="hidden" id="submitted" name="contact-submission" value="1">
 				<input id="submit-contact-form" type="submit" class="btn btn-primary" value="<?php echo anva_get_local( 'submit' ); ?>">
 			</div>
@@ -468,14 +478,14 @@ function anva_contact_form() {
 	</div><!-- .contact-form-wrapper -->
 
 	<script>
-	jQuery(document).ready(function(){ 
+	jQuery(document).ready(function($) { 
 		
 		setTimeout(function(){
-			jQuery("#email_message").fadeOut("slow");
+			$("#email_message").fadeOut("slow");
 		}, 3000);
 
-		jQuery('#contactform input[type="text"]').attr('autocomplete', 'off');
-		jQuery('#contactform').validate({
+		$('#contactform input[type="text"]').attr('autocomplete', 'off');
+		$('#contactform').validate({
 			rules: {
 				cname: "required",
 				csubject: "required",

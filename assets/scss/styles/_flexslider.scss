@@ -84,6 +84,16 @@
     border: 0;
     border-radius: 0 3px 3px 0;
     transition: background-color .3s ease-in-out;
+
+    &:hover {
+    	background-color: rgba(black, 0.6);
+    }
+}
+
+.flex-next {
+	left: auto;
+	right: 0;
+	border-radius: 3px 0 0 3px;
 }
 
 .flex-prev i,
@@ -107,12 +117,6 @@
     margin-left: 11px;
 }
 
-.flex-next {
-	left: auto;
-	right: 0;
-	border-radius: 3px 0 0 3px;
-}
-
 .flex-direction-nav {
 	*height: 0;
 }
@@ -124,8 +128,7 @@
 }
 
 .flex-control-nav {
-	padding: 8px;
-	line-height: 11px;
+	padding: 0 0 15px;
 	width: 100%;
 	position: absolute;
     bottom: 0;
@@ -142,21 +145,20 @@
 .flex-control-paging {
 	li {
 		a {
-			width: 11px;
-			height: 11px; 
-			display: block; 
-			background: rgba(white, .6);
-			box-shadow: 0 0 1px rgba(black, .8);
+			width: 12px;
+			height: 12px;
+			display: block;
+			border: 1px solid #fff;
 			cursor: pointer; 
 			text-indent: -9999px;
 			border-radius: 50%;
 
 			&:hover {
-				background: rgba(white, 1);
+				background-color: #fff;
 			}
 
 			&.flex-active { 
-				background: rgba(white, 1);
+				background-color: #fff;
 				cursor: default;
 			}
 		}
@@ -244,4 +246,3 @@
 		margin-top: 10px;
 	}
 }
-
