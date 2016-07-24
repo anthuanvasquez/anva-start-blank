@@ -40,6 +40,7 @@ $palette: (
 $color__1:           #267DF4;
 $color__2:           #111111;
 $color__3:           #cccccc;
+$color__red:         #ff0000;
 $color__content:     #ffffff;
 $color__body:        #f2f2f2;
 $color__text:        #333333;
@@ -51,7 +52,7 @@ $color__link--hover: lighten($color__1, 10%);
 
 // Font Stacks
 // ------------------------------------------------
-$raleway:      'Raleway', sans-serif;
+$raleway:      "Raleway", sans-serif;
 $font-awesome: "FontAwesome";
 $helvetica:    "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia:      Georgia, Times, "Times New Roman", serif;
@@ -81,15 +82,16 @@ $menu__text-shadow:     none;
 $menu__text-transform:  uppercase;
 
 // Footer
-$footer__font-color:         $color__text;
-$footer__font-size:          config('font-size');
-$footer__link-color:         color(link);
-$footer__heading-font-size:  18px;
-$footer__heading-font-color: $color__text;
+$footer__font-color:         #ccc;
+$footer__font-size:          $base__font-size;
+$footer__link-color:         #aaa;
+$footer__heading-font-color: #eee;
+$footer__heading-font-size:  15px;
 
 // Widget
-$widget-heading-font-color: color(base);
-$widget-heading-font-size:  18px;
+$widget__heading-font-color:  $color__text;
+$widget__heading-font-size:   15px;
+$widget__heading-font-weight: 600;
 
 // Font Headings
 // ------------------------------------------------

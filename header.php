@@ -24,6 +24,9 @@
 
 <div id="off-canvas" class="off-canvas">	
 	<div  class="off-canvas__wrap">
+		<span class="off-canvas__title">
+			<?php _e( 'Menu', 'anva-start' ); ?>	
+		</span>
 		<?php
 			if ( has_nav_menu( 'primary' ) ) {
 				bem_menu( 'primary', 'off-canvas-menu' );

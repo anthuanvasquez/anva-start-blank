@@ -3,27 +3,6 @@
  * Change container width to 750px with 12 columns
  */
 @media screen and (max-width: 992px) {
-  /*
-	 * Off Canvas
-	 */
-  .off_canvas_navigation #off-canvas-toggle,
-  .off_canvas_navigation .off-canvas {
-    display: block;
-  }
-  .off_canvas_navigation a.mobile-toggle,
-  .off_canvas_navigation nav.navigation {
-    display: none;
-  }
-  .toggle_navigation #off-canvas-toggle,
-  .toggle_navigation .off-canvas {
-    display: none;
-  }
-  .toggle_navigation a.mobile-toggle {
-    display: inline-block;
-  }
-  .toggle_navigation nav.navigation {
-    display: none;
-  }
   .admin-bar .off-canvas {
     top: 32px;
   }
@@ -88,26 +67,6 @@
     -webkit-order: 2;
         -ms-flex-order: 2;
             order: 2;
-  }
-  /*
-	 * Footer
-	 */
-  .footer-inner {
-    margin: 20px auto 0;
-  }
-  .footer-widget .widget {
-    margin: 0 0 20px;
-    width: 100%;
-  }
-  /*
-	 * Grid Columns
-	 */
-  .grid-columns [class*="grid_"] {
-    display: block;
-    float: none;
-    margin-right: 0;
-    margin-bottom: 20px;
-    width: 100%;
   }
   /*
 	 * Slides

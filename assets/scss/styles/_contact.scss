@@ -1,100 +1,44 @@
 .contact-form {
 
 	&__label {
+		color: $color__text;
 		display: block;
 		font-weight: bold;
+		letter-spacing: 1px;
 		margin: 10px 0 5px 0;
+		text-transform: uppercase;
 	}
 
-	&__group {
-		margin-bottom: $padding;
-
-		&--name,
-		&--email,
-		&--subject {
-			float: left;
-			width: 33.33%;
-		}
-	}
-
-	@include group-inputs {
-		&:focus {
-			border-color: $color__1;
-		}
-	}
-
-	textarea {
-		min-height: 120px;
-		resize: vertical;
-	}
-
-	input,
-	textarea {
-		&.error {
-			border-color: #ff0000;
-		}
-	}
-	
-	label.error {
-		color: #ff0000;
-		margin: 0 0 2px;
-	}
-
-}
-
-/*
- * Contact Form 7
- */
-.wpcf7-form {
-	
-	.wpcf7-form-control-wrap {
+	&__field {
+		background-image: none;
+		background-color: #fff;
+		border-radius: 0;
+		border: 1px solid #ddd;
+		color: $color__text;
+		font-size: 15px;
+		line-height: 1.42857143;
+		padding: 8px 14px;
 		width: 100%;
-	}
 
-	@include group-inputs {
-		&.wpcf7-form-control {
-			border: 1px solid #c9c9c9;
-			padding: 5px;
-			width: 100%;
-			border-radius: 3px;
+		&--textarea {
+			min-height: 150px;
+		}
 
-			&:focus {
-				border-color: color(primary);
-			}
+		&.error {
+			border-color: $color__red;
 		}
 	}
-
-	label,
-	.wpc7-label {
-		font-weight: bold;
-	}
-
-	.wpcf7-radio {
-		border: 0;
-		padding: 8px 0 0;
-		@include inline-block();
-	}
-
-	.wpcf7-submit {
-		border: 0;
-		padding: 8px 15px;
-		width: auto;
-		@include inline-block();
-	}
-
-	span.wpcf7-not-valid-tip {
-		margin-top: 5px;
-		@include inline-block();
-	}
-
-	div.wpcf7-validation-errors {
-		border: 1px solid #ff0000;
-		color: #ff0000;
-		margin: $padding 0 5px;
-		padding: 10px 15px;
+	
+	.error:not(.contact-form__field) {
+		display: none;
+		color: $color__red;
+		font-weight: 400;
+		margin-bottom: 5px;
+		// Hide Message Error
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		text-indent: -9999px;
 	}
 
 }
-
-
-

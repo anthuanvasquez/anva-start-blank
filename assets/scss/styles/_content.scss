@@ -3,15 +3,15 @@
 	min-width: $min-width;
 	position: relative;
 	@include boxed-layout( $max-width );
-	
-	.wrapper {
-		&--js-ready {
-			left: 0;
-			transition: left .2s ease;	
-		}
+
+	.off_canvas_navigation & {
+		left: 0;
+		right: auto;
+		transition: left 0.4s ease;
 
 		&--active {
-			left: 21em;
+			left: 240px;
+			right: auto;
 		}
 	}
 }
@@ -26,61 +26,4 @@
 	&__wrap {
 		padding: $padding*4 0;
 	}	
-}
-
-.content-area {
-	float: left;
-	margin-right: 40px;
-	width: 860px;
-
-	&--full {
-		float: none;
-		margin-right: 0;
-	}
-
-	&--sidebar-left {
-		margin-right: 0;
-	}
-
-	&--both {
-		width: 580px;
-
-		@include media($desktop) {
-			width: 440px;
-		}
-
-		&-left {
-			margin: 0;
-			margin-left: 40px;
-		}
-	}
-
-	@include media($desktop) {
-		width: 690px;
-	}
-
-
-	@include media($laptop) {
-		float: none;
-		margin-right: 0;
-		width: 100%;
-	}
-}
-
-.widget-area {
-	float: left;
-	width: 240px;
-
-	&--left {
-		margin-right: 40px;
-	}
-
-	@include media($desktop) {
-		width: 210px;
-	}
-
-	@include media($laptop) {
-		float: none;
-		width: 100%;
-	}
 }

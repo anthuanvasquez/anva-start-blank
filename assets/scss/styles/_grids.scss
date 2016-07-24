@@ -1,35 +1,64 @@
-/*
- * Grid Columns
- */
-.grid-columns {
+.content-area {
+	float: left;
+	margin-right: 40px;
+	width: 860px;
 
-	&:before,
-	&:after {
-		display: table;
-		line-height: 0;
-		content: "";
+	&--full {
+		float: none;
+		margin-right: 0;
 	}
 
-	&:after {
-		clear: both;
+	&--sidebar-left {
+		margin-right: 0;
 	}
-	
-	[class*="grid_"] {
-		min-height: 30px;
-		&:last-child {
-			@include omega();
+
+	&--both {
+		width: 580px;
+
+		@include media($desktop) {
+			width: 440px;
 		}
+
+		&-left {
+			margin: 0;
+			margin-left: 40px;
+		}
+	}
+
+	@include media($desktop) {
+		width: 690px;
+	}
+
+
+	@include media($laptop) {
+		float: none;
+		margin-right: 0;
+		width: 100%;
 	}
 }
 
-.grid {
-	display: block;
+.widget-area {
 	float: left;
-	min-height: 1px;
+	width: 240px;
+
+	&--left {
+		margin-right: 40px;
+	}
+
+	@include media($desktop) {
+		width: 210px;
+	}
+
+	@include media($laptop) {
+		float: none;
+		width: 100%;
+	}
 }
 
 .grid_12 {
 	@include span-columns(12);
+	float: none;
+	margin-right: 0;
 }
 
 .grid_11 {
@@ -78,4 +107,28 @@
 
 .grid_last {
 	@include omega();
+}
+
+.grid_12,
+.grid_11,
+.grid_10,
+.grid_9,
+.grid_8,
+.grid_7,
+.grid_6,
+.grid_5,
+.grid_4,
+.grid_3,
+.grid_2,
+.grid_1 {
+	display: block;
+	float: left;
+	min-height: 1px;
+	margin-bottom: 25px;
+
+	@include media($tablet) {
+		float: none;
+		margin-right: 0;
+		width: 100%;
+	}
 }

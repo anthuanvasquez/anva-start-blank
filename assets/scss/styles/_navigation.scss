@@ -18,6 +18,14 @@
 
 	@include media($laptop) {
 		float: none;
+
+		.off_canvas_navigation & {
+			display: none;
+		}
+
+		.toggle_navigation & {
+			display: block;
+		}
 	}
 
 }
@@ -124,6 +132,16 @@
 	font-size: 18px;
 	margin-left: 10px;
 	padding: 10px;
+
+	@include media($laptop) {
+		.off_canvas_navigation & {
+			display: none;
+		}
+
+		.toggle_navigation & {
+			display: block;
+		}
+	}
 }
 
 .off-canvas-trigger {
@@ -133,20 +151,63 @@
 	position: absolute;
 	top: 20px;
 	z-index: 2;
+
+	@include media($laptop) {
+		.off_canvas_navigation & {
+			display: block;
+		}
+
+		.toggle_navigation & {
+			display: none;
+		}
+	}
 }
 
 .off-canvas {
 	display: none;
-	background: $color__2;
+	background-color: #fafafa;
 	height: 100%;
-	left: -21em;
+	max-height: 100%;
+	left: -240px;
 	position: absolute;
 	top: 0;
-	width: 21em;
-	transition: left .2s ease;
+	width: 240px;
+	box-shadow: 0 2px 2px 0 rgba(black, 0.14), 0 3px 1px -2px rgba(black, 0.2), 0 1px 5px 0 rgba(black, 0.12);
+	border-right: 1px solid #e0e0e0;
+	transition: left 0.4s ease;
+	overflow: visible;
+    overflow-y: auto;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 
 	&--active {
 		left: 0;
+	}
+
+	&__title {
+		display: block;
+	    position: relative;
+	    font-size: 20px;
+	    line-height: 56px;
+    	padding-left: 16px;
+	    letter-spacing: .02em;
+	    font-weight: 400;
+	}
+
+	.admin-bar & {
+		top: 32px;
+	}
+
+	@include media($laptop) {
+		.off_canvas_navigation & {
+			display: block;
+		}
+
+		.toggle_navigation & {
+			display: none;
+		}
 	}
 }
 
@@ -154,16 +215,20 @@
 	@include reset-list();
 	
 	&__item {
-		background: $color__1;
-		border-bottom: 1px solid darken($color__1, 10%);
-		display: block;
-		line-height: 38px;
-		color: #fff;
+		border-bottom: 1px solid rgba(black, 0.1);
 	}
 
 	&__link {
-		color: inherit;
-		padding: 0 10px;
+		color: #757575;
+		display: block;
+		padding: 15px;
+		font-size: $base__font-size;
+    	font-weight: 400;
+    	line-height: 24px;
+
+		&:hover {
+			background-color: #e0e0e0;
+		}
 	}
 
 	&__sub-menu {

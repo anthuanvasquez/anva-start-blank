@@ -22,6 +22,13 @@
 
 </div><!-- WRAPPER (end) -->
 
+<div id="gotop" class="gototop">
+	<i class="fa fa-chevron-up"></i>
+	<span class="sr-only">
+		<?php _e( 'Go Top', 'anva-start' ); ?>
+	</span>
+</div>
+
 <?php do_action( 'anva_layout_after' ); ?>
 <?php wp_footer(); ?>
 </body>

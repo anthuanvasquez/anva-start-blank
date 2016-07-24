@@ -151,7 +151,7 @@ function anva_footer_widget() {
  */
 function anva_footer_text_default() {
 	printf(
-		'<p class="copyrights__text">&copy; %1$s <strong>%2$s</strong> %3$s %4$s %5$s. <a id="gotop" class="gototop" href="#"><i class="fa fa-chevron-up"></i><span class="sr-only">Go Top</span></a></p>',
+		'<p class="copyrights__text">&copy; %1$s <strong>%2$s</strong> %3$s %4$s %5$s.</p>',
 		anva_get_current_year( apply_filters( 'anva_footer_year', date( 'Y' ) ) ),
 		get_bloginfo( 'name' ),
 		anva_get_local( 'footer_copyright' ),

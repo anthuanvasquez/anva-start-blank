@@ -126,9 +126,9 @@ function anva_get_sidebar_args( $id, $name, $description, $classes ) {
 	$args = array(
 		'id'            => $id,
 		'name'          => $name,
-		'description'		=> $description,
-		'before_widget' => '<aside id="%1$s" class="widget %2$s '.$classes.'"><div class="widget__wrap">',
-		'after_widget'  => '</div></aside>',
+		'description'   => $description,
+		'before_widget' => '<div id="%1$s" class="widget %2$s ' . $classes . '"><div class="widget__wrap">',
+		'after_widget'  => '</div></div>',
 		'before_title'  => '<h3 class="widget__title">',
 		'after_title'   => '</h3>',
 	);
@@ -142,6 +142,7 @@ function anva_get_sidebar_args( $id, $name, $description, $classes ) {
 function anva_load_scripts() {
 	
 	// Stylesheets
+	wp_enqueue_style( 'font-google', '//fonts.googleapis.com/css?family=Raleway:400,700,600' );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css' );
 	wp_enqueue_style( 'boostrap', get_template_directory_uri() . '/assets/css/bootstrap.css' );
 	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css' );

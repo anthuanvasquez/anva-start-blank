@@ -28,7 +28,6 @@ get_header();
 
 		<?php endwhile; ?>
 
-		</div><!-- .main (end) -->
 	</div><!-- .content-area (end) -->
 	
 	<?php anva_sidebars( 'right', '4' ); ?>

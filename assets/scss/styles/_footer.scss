@@ -1,11 +1,16 @@
 .footer {
 	background-color: #eee;
     border-top: 5px solid rgba(black,.2);
+    color: $footer__font-color;
 
 	&--dark {
 		background-color: #333;
     	border-top-color: rgba(black, .2);
     	color: #ccc;
+	}
+
+	a {
+		color: $footer__link-color;
 	}
 }
 
@@ -20,7 +25,8 @@
 		padding-top: 0;
 
 		&__title {
-			color: #fff;
+			color: $footer__heading-font-color;
+			font-size: $footer__heading-font-size;
 		}
 	}
 }
@@ -35,41 +41,5 @@
 
 	&__text {
 		margin: 0;
-	}
-}
-
-.gototop {
-	background-color: $color__1;
-	color: #fff;
-	font-size: 24px;
-	font-weight: 400;
-	opacity: 0.8;
-	border-radius: 50%;
-	position: fixed;
-	bottom: 24px;
-	right: 24px;
-	box-shadow: 0px 2px 10px rgba(black, 0.3), 0px 0px 1px rgba(black, 0.1), 0px 1px 0px rgba(white, 0.25) inset, 0px -1px 0px rgba(black, 0.15) inset;
-	cursor: pointer;
-	transition: background-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
-	height: 56px;
-	width: 56px;
-	z-index: 2;
-	line-height: normal;
-	text-align: center;
-
-	i {
-		vertical-align: middle;
-		position: absolute;
-    	top: 50%;
-    	left: 50%;
-    	-webkit-transform: translate(-12px,-12px);
-    	transform: translate(-12px,-12px);
-    	line-height: 24px;
-    	width: 24px;
-	}
-
-	&:hover {
-		color: #fff;
-		opacity: 1;
 	}
 }

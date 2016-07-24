@@ -427,101 +427,119 @@ function anva_contact_form() {
 	<div class="contact-form">
 		
 		<?php if ( ! empty( $email_sended_message ) ) : ?>
-			<div id="email_message" class="alert alert-block">
+			<div id="email_message" class="alert alert-success">
 				<?php echo $email_sended_message; ?>
 			</div>
 		<?php endif; ?>
 
 		<form id="contactform" class="contact-form__form" method="post" action="<?php the_permalink(); ?>#contactform">
 
-			<div class="contact-form__group contact-form__group--name form-group">
-				<label for="cname" class="contact-form__label control-label">
-					<?php echo anva_get_local( 'name' ); ?>:
-				</label>
-				<input id="name" type="text" name="cname" class="contact-form__field contact-form__field--text form-control requiredField" placeholder="<?php echo anva_get_local( 'name_place' ); ?>" value="<?php if ( isset( $_POST['cname'] ) ) echo esc_attr( $_POST['cname'] ); ?>">
+			<div class="grid_4">
+				<div class="contact-form__group contact-form__group--name">
+					<label for="cname" class="contact-form__label">
+						<?php echo anva_get_local( 'name' ); ?>:
+					</label>
+					<input id="name" type="text" name="cname" class="contact-form__field contact-form__field--text contact-form__field--required" placeholder="<?php echo anva_get_local( 'name_place' ); ?>" value="<?php if ( isset( $_POST['cname'] ) ) echo esc_attr( $_POST['cname'] ); ?>">
+				</div>
 			</div>
 			
-			<div class="contact-form__group contact-form__group--email form-group">
-				<label for="cemail" class="contact-form__label control-label">
-					<?php echo anva_get_local( 'email' ); ?>:
-				</label>
-				<input id="email" type="email" name="cemail" class="contact-form__field  contact-form__field--email form-control requiredField" placeholder="<?php _e('Correo Electr&oacute;nico', 'anva-start'); ?>" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
+			<div class="grid_4">
+				<div class="contact-form__group contact-form__group--email">
+					<label for="cemail" class="contact-form__label">
+						<?php echo anva_get_local( 'email' ); ?>:
+					</label>
+					<input id="email" type="email" name="cemail" class="contact-form__field  contact-form__field--email contact-form__field--required" placeholder="<?php _e('Correo Electr&oacute;nico', 'anva-start'); ?>" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
+				</div>
 			</div>
 
-			<div class="contact-form__group contact-form__group--subject form-group">						
-				<label for="csubject" class="contact-form__label control-label">
-					<?php echo anva_get_local( 'subject' ); ?>:
-				</label>
-				<input id="subject" type="text" name="csubject" class="contact-form__field contact-form__field--text form-control requiredField" placeholder="<?php echo anva_get_local( 'subject' ); ?>" value="<?php if ( isset( $_POST['csubject'] ) ) echo esc_attr( $_POST['csubject'] ); ?>">
+			<div class="grid_4 grid_last">
+				<div class="contact-form__group contact-form__group--subject">
+					<label for="csubject" class="contact-form__label">
+						<?php echo anva_get_local( 'subject' ); ?>:
+					</label>
+					<input id="subject" type="text" name="csubject" class="contact-form__field contact-form__field--text contact-form__field--required" placeholder="<?php echo anva_get_local( 'subject' ); ?>" value="<?php if ( isset( $_POST['csubject'] ) ) echo esc_attr( $_POST['csubject'] ); ?>">
+				</div>
 			</div>
+
+			<div class="clear"></div>
 			
-			<div class="contact-form__group contact-form__group--message form-group">
-				<label for="cmessage" class="contact-form__label control-label">
-					<?php echo anva_get_local( 'message' ); ?>:
-				</label>
-				<textarea id="message" name="cmessage" class="contact-form__field contact-form__field--textarea form-control" placeholder="<?php echo anva_get_local( 'message_place' ); ?>"><?php if ( isset( $_POST['cmessage'] ) ) echo esc_textarea( $_POST['cmessage'] ); ?></textarea>
+			<div class="grid_12">
+				<div class="contact-form__group contact-form__group--message">
+					<label for="cmessage" class="contact-form__label">
+						<?php echo anva_get_local( 'message' ); ?>:
+					</label>
+					<textarea id="message" name="cmessage" class="contact-form__field contact-form__field--textarea" placeholder="<?php echo anva_get_local( 'message_place' ); ?>"><?php if ( isset( $_POST['cmessage'] ) ) echo esc_textarea( $_POST['cmessage'] ); ?></textarea>
+				</div>
 			</div>
+
+			<div class="clear"></div>
 			
-			<div class="contact-form__group contact-form__group--captcha form-group">
-				<label for="captcha" class="contact-form__label control-label">
-					<?php echo $a . ' + '. $b . ' = ?'; ?>:
-				</label>
-				<input type="text" name="ccaptcha" placeholder="<?php echo anva_get_local( 'captcha_place' ); ?>" class="contact-form__field contact-form__field--text form-control requiredField" value="<?php if ( isset( $_POST['ccaptcha'] ) ) echo $_POST['ccaptcha'];?>">
-				<input type="hidden" id="answer" name="canswer" value="<?php echo esc_attr( $answer ); ?>">
+			<div class="grid_4 grid_last">
+				<div class="contact-form__group contact-form__group--captcha">
+					<label for="captcha" class="contact-form__label">
+						<?php echo $a . ' + '. $b . ' = ?'; ?>:
+					</label>
+					<input type="text" name="ccaptcha" class="contact-form__field contact-form__field--text contact-form__field--required" placeholder="<?php echo anva_get_local( 'captcha_place' ); ?>" value="<?php if ( isset( $_POST['ccaptcha'] ) ) echo $_POST['ccaptcha'];?>">
+					<input type="hidden" id="answer" name="canswer" value="<?php echo esc_attr( $answer ); ?>">
+				</div>
 			</div>
+
+			<div class="clear"></div>
 			
-			<div class="contact-form__group contact-form__group--submit form-group">
-				<input type="hidden" id="submitted" name="contact-submission" value="1">
-				<input id="submit-contact-form" type="submit" class="btn btn-primary" value="<?php echo anva_get_local( 'submit' ); ?>">
+			<div class="grid_12">
+				<div class="contact-form__group contact-form__group--submit">
+					<input type="hidden" id="submitted" name="contact-submission" value="1">
+					<input id="submit-contact-form" type="submit" class="btn btn-primary" value="<?php echo anva_get_local( 'submit' ); ?>">
+				</div>
 			</div>
 		</form>
 	</div><!-- .contact-form-wrapper -->
 
-	<script>
-	jQuery(document).ready(function($) { 
-		
-		setTimeout(function(){
-			$("#email_message").fadeOut("slow");
-		}, 3000);
+	<script type="text/javascript">
+		jQuery(document).ready(function($) { 
+			
+			setTimeout(function(){
+				$("#email_message").fadeOut("slow");
+			}, 3000);
 
-		$('#contactform input[type="text"]').attr('autocomplete', 'off');
-		$('#contactform').validate({
-			rules: {
-				cname: "required",
-				csubject: "required",
-				cemail: {
-					required: true,
-					email: true
+			$('#contactform input[type="text"]').attr('autocomplete', 'off');
+			$('#contactform').validate({
+				rules: {
+					cname: "required",
+					csubject: "required",
+					cemail: {
+						required: true,
+						email: true
+					},
+					cmessage: {
+						required: true,
+						minlength: 10
+					},
+					ccaptcha: {
+						required: true,
+						number: true,
+						equalTo: "#answer"
+					}
 				},
-				cmessage: {
-					required: true,
-					minlength: 10
-				},
-				ccaptcha: {
-					required: true,
-					number: true,
-					equalTo: "#answer"
+				messages: {			
+					cname: "<?php echo anva_get_local( 'name_required' ); ?>",
+					csubject: "<?php echo anva_get_local( 'subject_required' ); ?>",
+					cemail: {
+						required: "<?php echo anva_get_local( 'email_required' ); ?>",
+						email: "<?php echo anva_get_local( 'email_error' );  ?>"
+					},
+					cmessage: {
+						required: "<?php echo anva_get_local( 'message_required' ); ?>",
+						minlength: "<?php echo anva_get_local( 'message_min' ); ?>"
+					},
+					ccaptcha: {
+						required: "<?php echo anva_get_local( 'captcha_required' ); ?>",
+						number: "<?php echo anva_get_local( 'captcha_number' ); ?>",
+						equalTo: "<?php echo anva_get_local( 'captcha_equalto' );  ?>"
+					}
 				}
-			},
-			messages: {			
-				cname: "<?php echo anva_get_local( 'name_required' ); ?>",
-				csubject: "<?php echo anva_get_local( 'subject_required' ); ?>",
-				cemail: {
-					required: "<?php echo anva_get_local( 'email_required' ); ?>",
-					email: "<?php echo anva_get_local( 'email_error' );  ?>"
-				},
-				cmessage: {
-					required: "<?php echo anva_get_local( 'message_required' ); ?>",
-					minlength: "<?php echo anva_get_local( 'message_min' ); ?>"
-				},
-				ccaptcha: {
-					required: "<?php echo anva_get_local( 'captcha_required' ); ?>",
-					number: "<?php echo anva_get_local( 'captcha_number' ); ?>",
-					equalTo: "<?php echo anva_get_local( 'captcha_equalto' );  ?>"
-				}
-			}
+			});
 		});
-	});
 	</script>
 	<?php
 }

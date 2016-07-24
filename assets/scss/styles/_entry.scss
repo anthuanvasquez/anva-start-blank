@@ -1,6 +1,3 @@
-/*
- * Post Container
- */
 .entry {
     border-bottom: 1px solid #eee;
     margin: 0 0 $padding*2;
@@ -95,6 +92,22 @@
 
 .updated {
 	display: none;
+}
+
+.post-navigation {
+	margin-bottom: $trim;
+
+	&__previous,
+	&__next {
+		float: left;
+		margin-right: 4%;
+		width: 48%;
+	}
+
+	&__next {
+		margin-right: 0;
+		text-align: right;
+	}
 }
 
 .pagination {

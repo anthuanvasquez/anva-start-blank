@@ -1,44 +1,10 @@
-@import "bourbon";
 @import "framework";
-@import "neat";
-
-
 
 /*
  * Medium devices (desktops, 992px and below)
  * Change container width to 750px with 12 columns
  */
 @include media($laptop) {
-
-	/*
-	 * Off Canvas
-	 */
-	.off_canvas_navigation {
-		#off-canvas-toggle,
-		.off-canvas {
-			display: block;
-		}
-		
-		a.mobile-toggle,
-		nav.navigation {
-			display: none;
-		}
-	}
-	
-	.toggle_navigation {
-		#off-canvas-toggle,
-		.off-canvas {
-			display: none;
-		}
-		
-		a.mobile-toggle {
-			@include inline-block();
-		}
-
-		nav.navigation {
-			display: none;
-		}
-	}
 
 	// Is admin bar is present
 	.admin-bar {
@@ -116,33 +82,6 @@
 	
 	.sidebar-wrapper {
 		order: 2;
-	}
-
-	/*
-	 * Footer
-	 */
-	.footer-inner {
-		margin: $padding auto 0;
-	}
-
-	.footer-widget {
-		.widget {
-			margin: 0 0 $padding;
-			width: 100%;
-		}
-	}
-
-	/*
-	 * Grid Columns
-	 */
-	.grid-columns {
-		[class*="grid_"] {
-			display: block;
-			float: none;
-			margin-right: 0;
-			margin-bottom: $padding;
-			width: 100%;
-		}
 	}
 
 	/*
