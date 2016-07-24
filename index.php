@@ -8,7 +8,7 @@ get_header();
 
 <div class="container">
 	<div class="grid-columns clearfix">
-		<div class="content-area">
+		<div class="content-area col-sm-8">
 			<div class="main">
 				<div class="primary-post-list post-list-paginated post-list">
 					<?php

@@ -4,14 +4,25 @@
 
 	&--dark {
 		background-color: #333;
-    	color: #ccc;
     	border-top-color: rgba(black, .2);
+    	color: #ccc;
 	}
 }
 
 .footer-widgets {
 	padding: $padding*3 0;
 	position: relative;
+
+	.widget {
+		border: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+
+		&__title {
+			color: #fff;
+		}
+	}
 }
 
 .copyrights {
@@ -28,28 +39,37 @@
 }
 
 .gototop {
-	background-color: color(primary);
+	background-color: $color__1;
 	color: #fff;
 	font-size: 24px;
-	position: fixed;
-	opacity: .8;
+	font-weight: 400;
+	opacity: 0.8;
 	border-radius: 50%;
-	border: 0;
+	position: fixed;
 	bottom: 24px;
+	right: 24px;
 	box-shadow: 0px 2px 10px rgba(black, 0.3), 0px 0px 1px rgba(black, 0.1), 0px 1px 0px rgba(white, 0.25) inset, 0px -1px 0px rgba(black, 0.15) inset;
 	cursor: pointer;
+	transition: background-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
 	height: 56px;
-	transition-duration: 0.25s;
-	transition-property: background-color, box-shadow, opacity;
-	right: 24px;
 	width: 56px;
 	z-index: 2;
+	line-height: normal;
+	text-align: center;
 
-	.fa {
-		line-height: 56px;
+	i {
+		vertical-align: middle;
+		position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	-webkit-transform: translate(-12px,-12px);
+    	transform: translate(-12px,-12px);
+    	line-height: 24px;
+    	width: 24px;
 	}
 
 	&:hover {
+		color: #fff;
 		opacity: 1;
 	}
 }

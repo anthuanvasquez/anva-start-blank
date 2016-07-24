@@ -1,13 +1,13 @@
 // Font Family for HTML Doc and Body
 @mixin font-stack-body {
-	font-family: $base-font-family;
-	font-weight: $base-font-weight;
+	font-family: $base__font-family;
+	font-weight: $base__font-weight;
 }
 
 // Font for Headings
 @mixin font-stack-headers {
-	font-family: $heading-font-family;
-	font-weight: $heading-font-weight;
+	font-family: $heading__font-family;
+	font-weight: $heading__font-weight;
 }
 
 // Font Icons
@@ -32,12 +32,8 @@
 @mixin boxed-layout( $width ) {
 	@if config(boxed) {
 		box-shadow: 0 0 10px rgba(black, 0.1);
-		margin-left: auto;
-		margin-right: auto;
-		max-width: $width;
+		@include outer-container($width);
 	} @else {
-		margin: 0;
-		box-shadow: none;
 		width: 100%;
 	}
 }
@@ -81,15 +77,6 @@
 		/* IE7/8 Hack */
 		*display: inline;
 		*zoom: 1;
-	}
-}
-
-// Container inner classes
-@mixin container-class() {
-	#header,
-	#footer,
-	.main-inner {
-		@content;
 	}
 }
 

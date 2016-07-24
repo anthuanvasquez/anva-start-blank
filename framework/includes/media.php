@@ -142,23 +142,23 @@ function anva_post_thumbnails( $thumb ) {
 
 	// Default
 	$size = 'blog_large';
-	$classes = 'large-thumbnail';
+	$classes = 'entry__thumbnail--large';
 
 	if ( 0 == $thumb ) {
-		$classes = 'medium-thumbnail';
+		$classes = 'entry__thumbnail--medium';
 		$size = 'blog_medium';
 
 	} elseif ( 1 == $thumb ) {
-		$classes = 'large-thumbnail';
+		$classes = 'entry__thumbnail--large';
 		$size = 'blog_large';
 	}
 
 	if ( $thumb != 2 && has_post_thumbnail() ) {
-		$output .= '<div class="entry-thumbnail ' . $classes . ' thumbnail">';
+		$output .= '<div class="entry__thumbnail ' . $classes . ' thumbnail">';
 		if ( is_single() ) {
-			$output .= '<a href="' . anva_get_featured_image( $post->ID, 'large' ) . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+			$output .= '<a class="entry__thumbnail-link" href="' . anva_get_featured_image( $post->ID, 'large' ) . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size, array( 'class' => 'entry__image' ) ) . '</a>';
 		} else {
-			$output .= '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+			$output .= '<a class="entry__thumbnail-link" href="' . get_permalink() . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size, array( 'class' => 'entry__image' ) ) . '</a>';
 		}
 		$output .= '</div>';
 	}
@@ -176,8 +176,8 @@ function anva_post_grid_thumbnails( $size ) {
 	$output  = '';
 
 	if ( has_post_thumbnail() ) {
-		$output .= '<div class="entry-thumbnail large-thumbnail thumbnail">';
-		$output .= '<a href="' . get_permalink( $post->ID ) . '" title="' . get_the_title( $post->ID ) . '">' .get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+		$output .= '<div class="entry__thumbnail entry__thumbnail--large thumbnail">';
+		$output .= '<a class="entry__thumbnail-link" href="' . get_permalink( $post->ID ) . '" title="' . get_the_title( $post->ID ) . '">' .get_the_post_thumbnail( $post->ID, $size ) . '</a>';
 		$output .= '</div>';
 	}
 	

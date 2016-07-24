@@ -1,0 +1,184 @@
+.navigation {
+	float: right;
+	
+	&--style-2 {
+		float: none;
+    	max-width: none;
+    	border-top: 1px solid #F5F5F5;
+
+    	.navigation-menu__link {
+    		padding-top: 19px;
+    		padding-bottom: 19px;
+
+    		@include media($laptop) {
+				padding: 14px 5px;
+    		}
+    	}
+	}
+
+	@include media($laptop) {
+		float: none;
+	}
+
+}
+
+.navigation-menu {
+	@include reset-list();
+
+	&__item {
+		
+		&--active {
+			color: $color__1;
+		}
+
+		@include media($laptop--min) {
+			color: $color__2;
+			float: left;
+			position: relative;
+			margin-left: 2px;
+		}
+
+		@include media($laptop) {
+    		text-align: left;
+		}
+	}
+		
+	&__link {
+		color: inherit;
+		display: block;
+		font-family: $menu__font-family;
+		font-size: $menu__font-size;
+		font-weight: $menu__font-weight;
+		line-height: 22px;
+		letter-spacing: 1px;
+		padding: 39px 15px;
+		text-align: center;
+		text-shadow: $menu__text-shadow;
+		text-transform: $menu__text-transform;
+		transition: margin 0.4s ease, padding 0.4s ease;
+
+		@include media($laptop) {
+    		margin: 0;
+			padding: 14px 5px;
+			text-align: left;
+		}
+	}
+
+	&__sub-menu {
+		@include reset-list();
+		display: none;
+		position: absolute;
+	    width: 220px;
+	    background-color: #ff;
+	    box-shadow: 0px 13px 42px 11px rgba(black, 0.05);
+	    border: 1px solid #eee;
+	    border-top: 2px solid $color__1;
+	    height: auto;
+	    z-index: 199;
+	    top: 100%;
+	    left: 0;
+	    margin: 0;
+
+		&--1 {
+			border-top: 0;
+			margin: 0;
+			padding: 0;
+		}
+
+		&--2 {
+			left: 100%;
+			margin: 0;
+			top: 0;
+		}
+
+		&__item {
+			display: block;
+			position: relative;
+		}
+
+		&__link {
+			color: color(base);
+			display: block;
+			font-size: $menu__font-size--sub;
+			padding: 8px 10px;
+			text-align: left;
+		}
+
+		@include media($laptop) {
+			border: 0;
+			margin: 0;
+			position: relative;				
+			width: auto;
+		}
+	}
+}
+
+.navigation-trigger {
+	background-color: $color__1;
+	border-radius: $border-radius $border-radius 0 0;
+	color: #333;
+	display: none;
+	font-size: 18px;
+	margin-left: 10px;
+	padding: 10px;
+}
+
+.off-canvas-trigger {
+	display: none;
+	font-size: 24px;
+	left: 20px;
+	position: absolute;
+	top: 20px;
+	z-index: 2;
+}
+
+.off-canvas {
+	display: none;
+	background: $color__2;
+	height: 100%;
+	left: -21em;
+	position: absolute;
+	top: 0;
+	width: 21em;
+	transition: left .2s ease;
+
+	&--active {
+		left: 0;
+	}
+}
+
+.off-canvas-menu {
+	@include reset-list();
+	
+	&__item {
+		background: $color__1;
+		border-bottom: 1px solid darken($color__1, 10%);
+		display: block;
+		line-height: 38px;
+		color: #fff;
+	}
+
+	&__link {
+		color: inherit;
+		padding: 0 10px;
+	}
+
+	&__sub-menu {
+		background: darken($color__2, 3%);
+		padding-left: 0;
+	}
+}
+
+.breadcrumbs {
+	background: transparent;
+	margin: 0 0 5px 0;
+	padding: 7px 5px;
+
+	p {
+		margin: 0;
+	}
+}
+
+.breadcrumb_last {
+	color: #999;
+}

@@ -75,7 +75,6 @@ add_action( 'wp_head', 'anva_apple_touch_icon' );
 add_action( 'wp_head', 'anva_custom_css' );
 add_action( 'wp_head', 'anva_navigation' );
 add_action( 'wp_head', 'anva_viewport', 8 );
-add_action( 'anva_header_addon', 'anva_social_icons' );
 add_action( 'anva_header_addon', 'anva_site_search' );
 add_action( 'anva_header_logo', 'anva_header_logo_default' );
 add_action( 'anva_main_navigation', 'anva_main_navigation_default' );

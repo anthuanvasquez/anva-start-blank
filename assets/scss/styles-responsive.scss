@@ -2,87 +2,13 @@
 @import "framework";
 @import "neat";
 
-/*
- * Only apply if responsive is disabled
- * in the theme options
- */
-@include container-class() {
-	@include outer-container();
-	width: auto;
-}
+
 
 /*
  * Medium devices (desktops, 992px and below)
  * Change container width to 750px with 12 columns
  */
-@include media($desktop) {
-
-	/*
-	 * Layout
-	 */
-	@include container-class() {
-		@include outer-container( break(tablet-small) );
-	}
-	
-	#container {
-		@include boxed-layout(break(tablet-small));
-	}
-
-	#top,
-	#featured,
-	#main,
-	#bottom {
-		padding-right: 20px;
-		padding-left: 20px;
-	}
-
-	/*
-	 * Remove padding in boxed layout
-	 */
-	@if config(boxed) != true {
-		#featured {
-			padding-right: 0;
-			padding-left: 0;
-		}
-	}
-	
-	/*
-	 * Header
-	 */
-	div.brand {
-		margin: 0;
-		text-align: center;
-		
-		a.logo {
-			margin: 0 auto;
-		}
-	}
-
-	div.addon {
-		margin: 10px auto 0;
-		position: static;
-		text-align: center;
-
-		form.search-form,
-		form#searchform,
-		.social-media {
-			margin: 0 auto;
-			width: 70%;
-		}
-
-		.social-media {
-			margin-bottom: 15px;
-			text-align: center;
-		}
-
-		.input-group {
-			max-width: 100%;
-		}
-	}
-
-	.header-bottom {
-		border-bottom: 1px solid #eee;
-	}
+@include media($laptop) {
 
 	/*
 	 * Off Canvas
@@ -124,48 +50,13 @@
 	/*
 	 * Navigation
 	 */
-	nav.navigation {
-		float: none;
-		text-align: center;
-	}
-
-	ul.navigation-menu {
-		> li {
-			border-right: 0;
-			border-top: 1px solid rgba(#ddd, .4);
-			display: block;
-			float: none;
-			margin-left: 0px;
-						
-			> a {
-				line-height: 38px;
-				padding: 0 12px;
-				text-align: left;
-				text-transform: uppercase;
-			}
-
-			ul.sub-menu {
-				border: 0;
-				margin: 0;
-				position: relative;				
-				width: auto;
-				
-				li {
-					 ul.sub-menu {
-						left: 0;
-						position: relative;
-						width: auto;
-					}
-				}
-			}				
-		}
-	}
+	
 	
 	/*
 	 * Slides
 	 */
 	 .slide-caption {
-	 		display: none;
+	 	display: none;
 	 }
 
 	.flex-direction-nav {
@@ -198,20 +89,6 @@
  */
 @include media($tablet) {
 
-	/*
-	 * Layout
-	 */
-	@include container-class() {
-		@include outer-container( break(phone-medium) );
-	}
-
-	#container {
-		@include boxed-layout( break(phone-medium) );
-	}
-
-	#featured {
-		margin: 0 0 $padding;	
-	}
 
 	// Is admin bar is present
 	.admin-bar {
@@ -223,7 +100,7 @@
 	/*
 	 * Order columns
 	 */
-	#sidebar-layout {
+	.sidebar-layout {
 		.sidebar-layout-inner {
 			.grid-columns {
 				box-orient: vertical;

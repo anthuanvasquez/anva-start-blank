@@ -149,7 +149,7 @@ function anva_get_page_title() {
 function anva_posted_on() {
 
 	// Get the time
-	$time_string = '<time class="entry-date published" datetime="%1$s"><i class="fa fa-calendar"></i> %2$s</time>';
+	$time_string = '<time class="entry__date published" datetime="%1$s"><i class="fa fa-calendar"></i> %2$s</time>';
 	
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string .= '<time class="updated" datetime="%3$s"><i class="fa fa-calendar"></i> %4$s</time>';
@@ -167,29 +167,29 @@ function anva_posted_on() {
 
 	if ( comments_open() ) {
 		if ( $num_comments == 0 ) {
-			$comments = __( 'No hay Comentarios', ANVA_DOMAIN );
+			$comments = __( 'No hay Comentarios', 'anva-start' );
 		} elseif ( $num_comments > 1 ) {
-			$comments = $num_comments . __( ' Comentarios', ANVA_DOMAIN );
+			$comments = $num_comments . __( ' Comentarios', 'anva-start' );
 		} else {
-			$comments = __( '1 Comentario', ANVA_DOMAIN );
+			$comments = __( '1 Comentario', 'anva-start' );
 		}
-		$write_comments = '<a href="' . get_comments_link() .'"><span class="leave-reply">'.$comments.'</span></a>';
+		$write_comments = '<a href="' . get_comments_link() . '"><span class="leave-reply">'.$comments.'</span></a>';
 	} else {
-		$write_comments =  __( 'Comentarios cerrado', ANVA_DOMAIN );
+		$write_comments =  __( 'Comentarios cerrado', 'anva-start' );
 	}
 
 	$sep = ' / ';
 
 	printf(
-		'<div class="entry-meta">
-			<span class="posted-on">%1$s</span>
-			<span class="sep">%5$s</span>
-			<span class="byline"><i class="fa fa-user"></i> %2$s</span>
-			<span class="sep">%5$s</span>
-			<span class="category"><i class="fa fa-bars"></i> %3$s</span>
-			<span class="sep">%5$s</span>
-			<span class="comments-link"><i class="fa fa-comments"></i> %4$s</span>
-		</div><!-- .entry-meta (end) -->',
+		'<ul class="meta clearfix">
+			<li class="meta__item meta__item--posted-on">%1$s</li>
+			<li class="meta__item meta__item--sep">%5$s</li>
+			<li class="meta__item meta__item--byline"><i class="fa fa-user"></i> %2$s</li>
+			<li class="meta__item meta__item--sep">%5$s</li>
+			<li class="meta__item meta__item--category"><i class="fa fa-bars"></i> %3$s</li>
+			<li class="meta__item meta__item--sep">%5$s</li>
+			<li class="meta__item meta__item--comments-link"><i class="fa fa-comments"></i> %4$s</li>
+		</ul>',
 		sprintf(
 			'%1$s', $time_string
 		),
@@ -199,12 +199,17 @@ function anva_posted_on() {
 			esc_html( get_the_author() )
 		),
 		sprintf(
-			'%1$s', get_the_category_list( ', ' )
+			'%1$s',
+			get_the_category_list( ', ' )
 		),
 		sprintf(
-			'%1$s', $write_comments
+			'%1$s',
+			$write_comments
 		),
-		sprintf( '%1$s', $sep )
+		sprintf(
+			'%1$s',
+			$sep
+		)
 	);
 }
 
@@ -213,18 +218,18 @@ function anva_posted_on() {
  */
 function anva_social_media() {
 	
-	$html 			= '';
-	$facebook 	= anva_get_option('social_facebook');
-	$twitter 		= anva_get_option('social_twitter');
-	$instagram 	= anva_get_option('social_instagram');
-	$gplus 			= anva_get_option('social_gplus');
-	$youtube 		= anva_get_option('social_youtube');
-	$linkedin 	= anva_get_option('social_linkedin');	
-	$vimeo 			= anva_get_option('social_vimeo');
-	$pinterest 	= anva_get_option('social_pinterest');
-	$digg 			= anva_get_option('social_digg');
-	$dribbble 	= anva_get_option('social_dribbble');
-	$rss 				= anva_get_option('social_rss');
+	$html      = '';
+	$facebook  = anva_get_option('social_facebook');
+	$twitter   = anva_get_option('social_twitter');
+	$instagram = anva_get_option('social_instagram');
+	$gplus     = anva_get_option('social_gplus');
+	$youtube   = anva_get_option('social_youtube');
+	$linkedin  = anva_get_option('social_linkedin');	
+	$vimeo     = anva_get_option('social_vimeo');
+	$pinterest = anva_get_option('social_pinterest');
+	$digg      = anva_get_option('social_digg');
+	$dribbble  = anva_get_option('social_dribbble');
+	$rss       = anva_get_option('social_rss');
 
 	if ( ! empty( $facebook ) ) {
 		$html .= '<li><a href="'. esc_url( $facebook ) .'" class="social social-facebook"><span class="sr-only">Facebook</span></a></li>';
@@ -278,11 +283,17 @@ function anva_social_media() {
  * Header search
  */
 function anva_site_search() {
-	if ( class_exists( 'Woocommerce' ) ) :
-		anva_get_product_search_form();
-	else :
-		anva_get_search_form();
-	endif;
+	?>
+	<li class="header-addon__item">
+	<?php
+		if ( class_exists( 'Woocommerce' ) ) :
+			anva_get_product_search_form();
+		else :
+			anva_get_search_form();
+		endif;
+	?>
+	</li>
+	<?php
 }
 
 /**
@@ -430,7 +441,7 @@ function anva_contact_form() {
 			
 			<div class="form-email form-group">
 				<label for="cemail" class="control-label"><?php echo anva_get_local( 'email' ); ?>:</label>
-				<input id="email" type="email" placeholder="<?php _e('Correo Electr&oacute;nico', ANVA_DOMAIN); ?>" name="cemail" class="form-control requiredField" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
+				<input id="email" type="email" placeholder="<?php _e('Correo Electr&oacute;nico', 'anva-start'); ?>" name="cemail" class="form-control requiredField" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
 			</div>
 
 			<div class="form-subject form-group">						

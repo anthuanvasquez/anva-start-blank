@@ -30,14 +30,14 @@
 }
 
 .btn-primary {
-	background: $button-bg-color;
+	background-color: $button__bg-color;
 	background-image: none;
-	border-color:$button-border-color;
-	color: $button-font-color;
+	border-color: $button__border-color;
+	color: $button__font-color;
 
 	&:hover {
-		background: darken($button-bg-color, 10%);
-		border-color:$button-border-color;
-		color: $button-font-color;
+		background-color: darken($button__bg-color, 10%);
+		border-color: $button__border-color;
+		color: $button__font-color;
 	}
 }

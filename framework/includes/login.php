@@ -13,7 +13,7 @@ add_filter( 'login_headerurl', 'anva_login_logo_url' );
  * Custom login stylesheet.
  */
 function anva_login_stylesheet() {
-	wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/assets/css/screen-login.css', array(), '', 'all' );
+	wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/assets/css/styles-login.css', array(), '', 'all' );
 }
 
 /**
@@ -35,7 +35,7 @@ function anva_login_logo_url_title() {
  */
 function anva_login_footer() {
 	$url = 'http://anthuanvasquez.net/';
-	$author = 'Anthuan Vasquez';	
+	$author = 'Anthuan Vasquez';
 	printf(
 		'<div id="login-footer"><p id="login-credits">&copy %1$s %2$s %3$s.</p></div>',
 		date('Y'),

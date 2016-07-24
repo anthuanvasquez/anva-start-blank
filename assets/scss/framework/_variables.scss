@@ -1,86 +1,92 @@
 // Configuration
 // ------------------------------------------------
 $configuration: (
-	font-size: 14px,
-	line-height: 1.5,
-	layout: 12,
-	logo: 100px,
-	min-width: 320px,
-	max-width: 1200px,
-	padding: 20px,
-	trim: 30px,
-	border-radius: 4px,
-	boxed: true,
-	debug: false
+    'font-size':     14px,
+    'line-height':   1.5,
+    'layout':        12,
+    'logo':          100px,
+    'min-width':     320px,
+    'max-width':     1200px,
+    'padding':       20px,
+    'trim':          30px,
+    'border-radius': 4px,
+    'boxed':         true,
+    'debug':         false
 );
 
 // Minimum Browser Support
 // ------------------------------------------------
 $browser-minimum-versions: (
-	'chrome':  '30',
-	'firefox': '30',
-	'ie':      '8',
-	'safari':  '5',
-	'opera':   '12'
+    'chrome':  '40',
+    'firefox': '40',
+    'ie':      '9',
+    'safari':  '6',
+    'opera':   '12'
 ) !global;
 
 // Colour Palette
 // ------------------------------------------------
 $palette: (
-	primary: 	#267DF4,
-	secondary: 	#cccccc,
-	tertiary: 	#111111,
-	body: 		#f2f2f2,
-	base:		#333333,
-	content:  	#ffffff,
-	link: 		#4285f4,
-	meta:		#999999
+    'primary':   #267DF4,
+    'secondary': #cccccc,
+    'tertiary':  #111111,
+    'body':      #f2f2f2,
+    'base':      #333333,
+    'content':   #ffffff,
+    'link':      #4285f4,
+    'meta':      #999999
 );
 
-$color__1: #267DF4;
-$color__2: #111111;
-$color__3: #cccccc;
+$color__1:       #267DF4;
+$color__2:       #111111;
+$color__3:       #cccccc;
+$color__content: #ffffff;
+$color__body:    #f2f2f2;
+$color__text:    #333333;
+$color__meta:    #999999;
+
 
 // Font Stacks
 // ------------------------------------------------
+$raleway:      'Raleway', sans-serif;
 $font-awesome: "FontAwesome";
-$helvetica: 	 "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: 		 Georgia, Times, "Times New Roman", serif;
+$helvetica:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia:      Georgia, Times, "Times New Roman", serif;
 
 // Fonts
 // ------------------------------------------------
 
 // Base
-$base-font-size: config(font-size);
-$base-line-height: config(line-height);
-$base-font-color: color(base);
-$base-font-family: $helvetica;
-$base-font-weight: 400;
+$base__font-size:   config(font-size);
+$base__line-height: config(line-height);
+$base__font-color:  $color__text;
+$base__font-family: $helvetica;
+$base__font-weight: 400;
 
 // Headings
-$heading-font-color: color(base);
-$heading-font-family: $helvetica;
-$heading-font-line-height: 1.1;
-$heading-font-weight: 700;
+$heading__font-color:  $color__text;
+$heading__font-family: $helvetica;
+$heading__font-weight: 700;
+$heading__line-height: 1.1;
 
 // Menu
-$menu-font-size: config(font-size);
-$menu-font-weight: normal;
-$menu-font-family: $helvetica;
-$menu-text-shadow: none;
-$menu-text-transform: capitalize;
-$sub-menu-font-size: config(font-size);
+$menu__font-size:       config('font-size');
+$menu__font-size--sub:  config('font-size');
+$menu__font-weight:     600;
+$menu__font-family:     $helvetica;
+$menu__text-shadow:     none;
+$menu__text-transform:  uppercase;
 
 // Footer
-$footer-font-color: color(base);
-$footer-font-size: config(font-size);
-$footer-link-color: color(link);
-$footer-heading-font-size: 18px;
-$footer-heading-font-color: color(base);
+$footer__font-color:         $color__text;
+$footer__font-size:          config('font-size');
+$footer__link-color:         color(link);
+$footer__heading-font-size:  18px;
+$footer__heading-font-color: $color__text;
 
 // Widget
 $widget-heading-font-color: color(base);
-$widget-heading-font-size: 18px;
+$widget-heading-font-size:  18px;
 
 // Font Headings
 // ------------------------------------------------
@@ -93,61 +99,59 @@ $h6: 11px;
 
 // Buttons
 // ------------------------------------------------
-$button-bg-color: color(primary);
-$button-border-radius: 4px;
-$button-border-color: darken($button-bg-color, 8%);
-$button-font-color: #fff;
-$button-font-size: 14px;
-$button-font-weight: normal;
-$button-padding-box: 6px 12px;
+$button__bg-color:      $color__1;
+$button__border-radius: 4px;
+$button__border-color:  darken($button__bg-color, 8%);
+$button__font-color:    #fff;
+$button__font-size:     14px;
+$button__font-weight:   normal;
+$button__padding-box:   6px 12px;
 
 // Others
 // ------------------------------------------------
-$border-radius: config(border-radius);
+$border-radius:    config(border-radius);
 $icon-font-family: $font-awesome;
-$logo-size: config(logo);
-$padding: config(padding);
-$trim: config(trim);
+$logo-size:        config(logo);
+$padding:          config(padding);
+$trim:             config(trim);
 
 // Neat
 // ------------------------------------------------
-$min-width: config(min-width) !default;
-$max-width: config(max-width) !default;
-$grid-columns: config(layout) !default;
+$min-width:         config('min-width') !default;
+$max-width:         config('max-width') !default;
+$grid-columns:      config('layout') !default;
 $border-box-sizing: false !default;
-$default-feature: max-width !default;
-$gutter: $padding !default;
-$column: 60px !default;
+$default-feature:   max-width !default;
+$gutter:            $padding !default;
+$column:            60px !default;
 
 $all-breakpoints: (
-	phone-small: 320px,
-	phone-medium: 480px,
-	tablet-small: 750px,
-	tablet-medium: 768px,
-	desktop-small: 992px,
-	desktop-medium: 1200px,
-	desktop-large: 1600px
+    'smallest': 320px,
+    'handheld': 480px,
+    'tablet':   768px,
+    'laptop':   992px,
+    'desktop':  1200px
 );
 
 $all-layout-columns: (
-	phone: 4,
-	tablet: 8,
-	desktop: 12
+    phone:   4,
+    tablet:  8,
+    desktop: 12
 );
 
-// Medium devices (desktops, 992px and below)
-$desktop: max-width break(desktop-small) layout-column(desktop);
-
-// Small devices (tablets, 768px and below)
-$tablet: max-width break(tablet-medium) layout-column(tablet);
-
-// Extra small devices (phones, less than 768px)
-$phone: max-width break(phone-medium) layout-column(phone);
+$laptop:        max-width break(laptop) layout-column(desktop);
+$laptop--min:   min-width break(laptop) layout-column(desktop);
+$tablet:        max-width break(tablet) layout-column(tablet);
+$tablet--min:   min-width break(tablet) layout-column(tablet);
+$handheld:      max-width break(handheld) layout-column(phone);
+$handheld--min: min-width break(handheld) layout-column(phone);
+$smallest:      max-width break(smallest) layout-column(smallest);
+$smallest--min: min-width break(smallest) layout-column(smallest);
 
 // Debug grid columns
 @if config(debug) {
-	$visual-grid: true !default;
-	$visual-grid-color: red !default;
-	$visual-grid-index: front !default;
-	$visual-grid-opacity: 0.1 !default;
+    $visual-grid:         true !default;
+    $visual-grid-color:   red !default;
+    $visual-grid-index:   front !default;
+    $visual-grid-opacity: 0.1 !default;
 }

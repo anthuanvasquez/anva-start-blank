@@ -1,13 +1,13 @@
 html, body {
-	color: $base-font-color;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
+	color: $base__font-color;
+	font-size: $base__font-size;
+	line-height: $base__line-height;
 	@include font-stack-body();
 	overflow-x: hidden;
 }
 
 body {
-	background: color('body');
+	background: $color__body;
 }
 
 html,
@@ -15,7 +15,7 @@ button,
 input,
 select,
 textarea {
-  color: $base-font-color;
+  color: $base__font-color;
 }
 
 /*
@@ -33,6 +33,10 @@ a {
  * Fix ul and ol list in article tags
  */
 article {
+
+	ul, ol {
+		padding-left: 20px;
+	}
 	
 	ul, ol ul, ul ul {
 		list-style: disc;

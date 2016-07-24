@@ -232,8 +232,8 @@ function anva_slideshows_featured( $slug ) {
 
 		$html .= '<script>';
 		$html .= 'jQuery(document).ready(function($) {';
-		$html .= "$('#slider__wrap--{$slug}').addClass('loading');";
-		$html .= "$('#slider__wrap--{$slug}').flexslider({";
+		$html .= "$('#slider-wrap-{$slug}').addClass('loading');";
+		$html .= "$('#slider-wrap-{$slug}').flexslider({";
 			
 		if ( isset( $slideshows[$slug]['options'] ) && $slideshows[$slug]['options'] != "" ) { 
 			$html .= $slideshows[$slug]['options'];
@@ -253,7 +253,7 @@ function anva_slideshows_featured( $slug ) {
 
 		$html .= '<script>';
 		$html .= 'jQuery(document).ready(function($) {';
-		$html .= "$('#slider_inner_{$slug} .slides').slick({";
+		$html .= "$('#slider-wrap-{$slug} .slides').slick({";
 		$html .= "autoplay: true, autoplaySpeed: 7000, dots: true";
 		$html .= "});";
 		$html .= "});";

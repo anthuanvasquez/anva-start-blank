@@ -20,7 +20,7 @@
 
 <body <?php body_class(); ?>>
 
-<?php anva_layout_before(); ?>
+<?php do_action( 'anva_layout_before' ); ?>
 
 <div id="off-canvas" class="off-canvas">	
 	<div  class="off-canvas__wrap">
@@ -43,7 +43,7 @@
 			<div id="logo" class="logo">
 				<?php anva_header_logo(); ?>
 			</div>
-			<div id="addon" class="addon">
+			<div class="header-addon">
 				<?php anva_header_addon(); ?>
 			</div>
 		</div>
@@ -68,7 +68,9 @@
 	<?php if ( ! is_front_page() ) : ?>
 		<section class="page-title">
 			<div class="container clearfix">
-				<h1 class="page-title__heading"><?php anva_the_page_title(); ?></h1>
+				<h1 class="page-title__heading">
+					<?php anva_the_page_title(); ?>
+				</h1>
 			</div>
 		</section>
 	<?php endif; ?>
@@ -76,4 +78,4 @@
 	<!-- CONTENT (start) -->
 	<section id="content" class="content">
 		<div class="content__wrap">		
-			<?php anva_content_before(); ?>
+			<?php do_action( 'anva_content_before' ); ?>

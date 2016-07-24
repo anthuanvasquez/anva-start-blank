@@ -42,10 +42,10 @@ function anva_main_navigation_default() {
 	endif;
 
 	?>
-	<a href="#" id="mobile-toggle" class="mobile-toggle" data-toggle="tooltip" data-placement="right" title="<?php echo anva_get_local( 'menu' ); ?>">
+	<a href="#" id="navigation-trigger" class="navigation-trigger" title="<?php echo anva_get_local( 'menu' ); ?>">
 		<i class="fa fa-bars"></i>
 	</a>
-	<nav id="navigation" class="navigation clearfix">
+	<nav id="navigation" class="navigation navigation--style-2 clearfix">
 		<div class="container">
 			<?php
 				bem_menu( 'primary', 'navigation-menu', array( 'clearfix' ) );
@@ -112,10 +112,35 @@ function anva_custom_css() {
  * Display footer widgets
  */
 function anva_footer_widget() {
+	$footer_cols = anva_get_option( 'footer_cols', '4' );
+	$cols = 3;
+	
+	switch ( $footer_cols ) {
+		
+		case '12':
+			$cols = 1;
+			break;
+		
+		case '6':
+			$cols = 2;
+			break;
+
+		case '4':
+			$cols = 3;
+			break;
+
+		case '3':
+			$cols = 4;
+			break;
+	}
 	?>
 	<div class="footer-widgets">
 		<div class="grid-columns">
-			<?php if ( ! dynamic_sidebar( 'footer' ) ) : endif; ?>
+			<?php for ( $i = 1; $i <= $cols; $i++ ) : ?>
+				<div class="grid_<?php echo $footer_cols; ?>">
+					<?php if ( ! dynamic_sidebar( 'footer_' . $i  ) ) : endif; ?>
+				</div>
+			<?php endfor; ?>
 		</div>
 	</div>
 	<?php
@@ -158,7 +183,7 @@ function anva_breadcrumbs() {
  */
 function anva_content_before_default() {
 	?>
-	<div id="sidebar-layout">
+	<div class="sidebar-layout">
 	<?php
 }
 
@@ -167,7 +192,7 @@ function anva_content_before_default() {
  */
 function anva_content_after_default() {
 	?>
-	</div><!-- #sidebar-layout (end) -->
+	</div><!-- .sidebar-layout (end) -->
 	<?php
 }
 

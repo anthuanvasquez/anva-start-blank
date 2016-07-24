@@ -1,5 +1,5 @@
 .wrapper {
-	background: color('content');
+	background-color: $color__content;
 	min-width: $min-width;
 	position: relative;
 	@include boxed-layout( $max-width );
@@ -26,4 +26,24 @@
 	&__wrap {
 		padding: $padding*4 0;
 	}	
+}
+
+.content-area {
+	float: left;
+	margin-right: 40px;
+	width: 860px;
+
+	&--full {
+		float: none;
+		margin-right: 0;
+	}
+
+	&--both {
+		width: 650px;
+	}
+}
+
+.widget-area {
+	float: left;
+	width: 240px;
 }

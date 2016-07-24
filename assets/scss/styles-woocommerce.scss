@@ -1,7 +1,7 @@
 @import "bourbon";
 @import "framework";
 @import "neat";
-@import "screen/buttons"; // need default theme buttons styles
+@import "styles/buttons"; // need default theme buttons styles
 
 // Place SKU below price
 div.product-meta-wrapper {
@@ -54,24 +54,24 @@ div.product-meta-wrapper {
 			}
 
 			h3 {
-				color: $base-font-color;
-				font-size: $base-font-size;
+				color: $base__font-color;
+				font-size: $base__font-size;
 				font-weight: 400;
 				margin: 0 0 10px;
 				padding: 0;
 			}
 
 			span.price {
-				color: color(primary) !important;
+				color: $color__1 !important;
 				display: block;
-				font-size: $base-font-size !important;
+				font-size: $base__font-size !important;
 				font-weight: 400 !important;
 				margin: 0 0 8px !important;
 				text-align: center;
 
 				del {
-					color: rgba(color(primary), .5);
-					font-size: $base-font-size !important;
+					color: rgba($color__1, .5);
+					font-size: $base__font-size !important;
 					@include inline-block();
 				}
 				
@@ -88,7 +88,7 @@ div.product-meta-wrapper {
 
 			.button,
 			.add_to_cart_button {
-				background: color(primary);
+				background: $color__1;
 				border: 0;
 				box-shadow: none;
 				color: #fff;
@@ -101,7 +101,7 @@ div.product-meta-wrapper {
 				width: 75%;
 				
 				&:hover {
-					background: darken(color(primary), 8%);
+					background: darken($color__1, 8%);
 					color: #fff;
 				}
 			}
@@ -245,14 +245,14 @@ div.product-meta-wrapper {
 
 		p.price,
 		span.price {
-			color: color(primary);
+			color: $color__1;
 			font-size: 18px;
 			font-weight: bold;
 			margin: 15px 0;
 			padding: 0;
 
 			del {
-				color: rgba(color(primary), .5);
+				color: rgba($color__1, .5);
 				font-size: 18px;
 			}
 
@@ -276,7 +276,7 @@ div.product-meta-wrapper {
 			margin-bottom: 1em;
 
 			.button {
-				background: color(primary);
+				background: $color__1;
 				background-image: none;
 				font-size: 1em;
 				height: 40px;
@@ -285,7 +285,7 @@ div.product-meta-wrapper {
 				text-shadow: none;
 
 				&:hover {
-					background: darken(color(primary), 8%);
+					background: darken($color__1, 8%);
 				}
 			}
 
@@ -322,8 +322,8 @@ div.product-meta-wrapper {
 		@extend .button;
 
 		&:hover {
-			background: darken(color(primary), 5%);
-			border-color: darken(color(primary), 5%);
+			background: darken($color__1, 5%);
+			border-color: darken($color__1, 5%);
 			color: #fff;
 		}
 
@@ -340,9 +340,9 @@ div.product-meta-wrapper {
 		}
 
 		&.alt {
-			background: color(primary);
+			background: $color__1;
 			background: linear-gradient(left top, left bottom, #fe4304, #ce3501);
-			border-color: color(primary);
+			border-color: $color__1;
 			color: #ffffff;
 		}
 
@@ -451,7 +451,7 @@ div.product-meta-wrapper {
 				a:focus,
 				a:hover,
 				span.current {
-					background: color(primary);
+					background: $color__1;
 					color: #fff;
 				}
 
@@ -491,7 +491,7 @@ div.product-meta-wrapper {
 	.variations_form {
 		.variations {
 			td.label {
-				color: color(base);
+				color: color(base__;
 				font-size: config(font-size);
 			}
 		}
@@ -536,7 +536,7 @@ div.single_variation {
 /*
  * Large Devices 992px - Change to 750px - 12
  */
-@include media($desktop) {
+@include media($laptop) {
 
 	.woocommerce,
 	.woocommerce-page {
@@ -633,7 +633,7 @@ div.single_variation {
 
 }
 
-@include media($phone) {
+@include media($handheld) {
 
 	.woocommerce,
 	.woocommerce-page {

@@ -8,25 +8,6 @@
  */
 
 /**
- * Remove Woocoomerce Stylesheets
- */
-function wc_change_styles( $styles ) {
-
-	unset( $styles['woocommerce-layout'] );
-	unset( $styles['woocommerce-smallscreen'] );
-	unset( $styles['woocommerce-general'] );
-	
-	$styles['woocommerce-general'] = array(
-		'src'     => get_stylesheet_directory_uri() . '/assets/css/woocommerce.css',
-		'deps'    => '',
-		'version' => '',
-		'media'   => 'all'
-	);
-	return $styles;
-}
-add_filter( 'woocommerce_enqueue_styles', 'wc_change_styles' );
-
-/**
  * Remove Woocommerce Scripts on unnecessary pages
  */
 function wc_remove_script() {
@@ -61,7 +42,7 @@ add_action( 'wp_enqueue_scripts', 'wc_remove_woocommerce_generator', 99 );
  * Load Woocoomerce Mod Stylesheet
  */
 function wc_load_scripts() {
-	wp_enqueue_style( 'woocommerce-screen', get_template_directory_uri() . '/assets/css/woocommerce-screen.css' );
+	wp_enqueue_style( 'woocommerce-screen', get_template_directory_uri() . '/assets/css/styles-woocommerce.css' );
 }
 add_action( 'wp_enqueue_scripts', 'wc_load_scripts' ); 
 
