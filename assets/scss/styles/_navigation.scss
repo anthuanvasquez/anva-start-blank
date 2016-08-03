@@ -31,16 +31,18 @@
 }
 
 .navigation-menu {
+	list-style: none;
+	margin: 0;
 	float: left;
 
 	&__item {
 		
 		&--active {
-			color: $color__1;
+			color: $color__primary;
 		}
 
 		@include media($laptop--min) {
-			color: $color__2;
+			color: $color__primary--black;
 			float: left;
 			position: relative;
 			margin-left: 2px;
@@ -76,10 +78,10 @@
 		display: none;
 		position: absolute;
 	    width: 220px;
-	    background-color: #ff;
+	    background-color: #fff;
 	    box-shadow: 0px 13px 42px 11px rgba(black, 0.05);
 	    border: 1px solid #eee;
-	    border-top: 2px solid $color__1;
+	    border-top: 2px solid $color__primary;
 	    height: auto;
 	    z-index: 199;
 	    top: 100%;
@@ -104,7 +106,7 @@
 		}
 
 		&__link {
-			color: color(base);
+			color: $color__text;
 			display: block;
 			font-size: $menu__font-size--sub;
 			padding: 8px 10px;
@@ -125,7 +127,7 @@
 }
 
 .navigation-trigger {
-	background-color: $color__1;
+	background-color: $color__primary;
 	border-radius: $border-radius $border-radius 0 0;
 	color: $color__text;
 	display: none;
@@ -232,7 +234,7 @@
 	}
 
 	&__sub-menu {
-		background: darken($color__2, 3%);
+		background: darken($color__primary--black, 3%);
 		padding-left: 0;
 	}
 }

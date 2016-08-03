@@ -120,8 +120,8 @@
 		> span:focus,
 		> span:hover,
 		> a:focus {
-			background: color(primary);
-			border-color: darken(color(primary), 8%);
+			background: $color__primary;
+			border-color: darken($color__primary, 8%);
 		}
 	}
 }

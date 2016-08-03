@@ -4,13 +4,13 @@
 .comments-title,
 .comment-reply-title {
 	font-size: 18px;
-	margin: 0 0 $padding;
+	margin: 0 0 $trim;
 }
 
-.comments-area {
+.comments {
 	&__title {
 		font-size: 18px;
-		margin: 0 0 $trim;
+		margin: 0;
 	}
 }
 
@@ -18,113 +18,154 @@
 	clear: both;
 }
 
-/*
- * Comment List
- */
-.comment-list {
-	@include reset-list();
-	margin: $padding 0;
+.comment {
 
-	ul.children {
+	.children {
 		clear: both;
 		list-style: none;
 		margin: 0;
 		padding-left: 10%;
 	}
 
-}
-
-/*
- * Commment Body
- */
-.comment-wrapper {
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	margin-bottom: 10px;
-	padding: 10px;
-	position: relative;
-	width: 100%;
-}
-
-.comment-body {
-	padding-left: 0;
-
-	p {
-		margin-bottom: 10px;
+	&__list {
+		list-style: none;
+		padding-left: 0;
+		margin: $trim 0;
 	}
-}
 
-.comment-text {
-	margin-top: 10px;
-}
-
-/*
- * Comment Author
- */
-.comment-author {
-	@include font-stack-headers();
-	margin: 0 0 5px;
-}
-
-.fn {
-	font-style: normal;
-}
-
-/* Hide 'says' */
-.says {
-	display: none;
-	visibility: hidden;
-}
-
-/* Meta */
-.comment-meta {
-	font-size: 12px;
-	font-style: italic;
-
-	a {
-		color: #999;
-		&:hover {
-			text-decoration: underline;
-		}	
+	&__item {
+    	margin: 30px 0 0 30px;
+		position: relative;
 	}
-}
+	
+	&__wrap {
+    	border: 1px solid #e5e5e5;
+    	border-radius: 5px;
+		position: relative;
+    	padding: $padding $padding $padding 35px;
 
-.reply {
-	margin-top: 20px;
-	text-align: right;
-}
-
-/* Hightlight Author Comments */
-.bypostauthor {
-	.comment-wrapper {
-		background: #f9f9f9;
+		.bypostauthor & {
+			background-color: #f9f9f9;
+		}
 	}
-}
 
-/* Moderation */
-.comment-awaiting-moderation {
-	display: block;
-	margin-top: 10px;
-	margin-bottom: 0;
-}
+	&__body {
+		padding: 0 0 0 15px;
+		position: relative;
+		overflow: hidden;
 
-/*
- * Comment Form
- */
-span.required {
-	color: #ff0000;
+		p {
+			margin: 20px 0 0 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&__text {
+		margin-top: 20px;
+	}
+
+	&__author {
+    	color: #555;
+    	font-size: 16px;
+    	font-weight: bold;
+		margin-bottom: -10px;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	&__date {
+		font-size: 12px;
+    	font-style: italic;
+    	font-weight: 400;
+		display: block;
+    	color: #AAA;
+
+    	a {
+			color: inherit;
+    	}
+	}
+
+	&__meta {
+		float: left;
+    	line-height: 1;
+    	margin-right: 0;
+
+		a {
+			color: #999;
+			&:hover {
+				text-decoration: underline;
+			}	
+		}
+	}
+
+	&__avatar {
+	    background-color: #fff;
+	    border: 1px solid #e5e5e5;
+	    border-radius: 50%;
+	    left: -35px;
+	    padding: 4px;
+		position: absolute;
+	    top: 15px;
+
+	    img {
+	    	display: block;
+    		border-radius: 50%;
+	    }
+	}
+
+	&__reply {    
+		display: block;
+	    position: absolute;
+	    top: 4px;
+	    left: auto;
+	    text-align: center;
+	    right: 0px;
+	    // width: 14px;
+	    // height: 14px;
+	    // color: #CCC;
+	    // font-size: 14px;
+	    line-height: 1;
+	}
+
+	&__awaiting-moderation {
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+
 }
 
 .comment-form {
 	
-	textarea {
-		width: 100%;
+	&__required {
+		color: $color__primary--red;
 	}
 
-	input.form-control {
-		display: inline-block;
+	&__field {
+		background-image: none;
+		background-color: #fff;
+		border-radius: 0;
+		border: 1px solid #ddd;
+		color: $color__text;
+		font-size: 15px;
+		line-height: 1.42857143;
 		margin-right: 10px;
+		padding: 8px 14px;
 		width: 40%;
+
+		&--textarea {
+			margin-right: 0;
+			width: 100%;
+		}
+	}
+	
+	&__allowed-tags {
+		// display: none;
 	}
 }
 
@@ -133,6 +174,3 @@ span.required {
 	margin: 0;
 }
 
-.form-allowed-tags {
-	display: none;
-}

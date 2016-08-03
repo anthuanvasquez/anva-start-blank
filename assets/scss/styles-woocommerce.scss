@@ -2,7 +2,7 @@
 @import "styles/buttons"; // need default theme buttons styles
 
 // Place SKU below price
-div.product-meta-wrapper {
+.product-meta-wrapper {
 	margin: 8px 0;
 }
 
@@ -60,7 +60,7 @@ div.product-meta-wrapper {
 			}
 
 			span.price {
-				color: $color__1 !important;
+				color: $color__primary !important;
 				display: block;
 				font-size: $base__font-size !important;
 				font-weight: 400 !important;
@@ -68,7 +68,7 @@ div.product-meta-wrapper {
 				text-align: center;
 
 				del {
-					color: rgba($color__1, .5);
+					color: rgba($color__primary, .5);
 					font-size: $base__font-size !important;
 					@include inline-block();
 				}
@@ -86,7 +86,7 @@ div.product-meta-wrapper {
 
 			.button,
 			.add_to_cart_button {
-				background: $color__1;
+				background: $color__primary;
 				border: 0;
 				box-shadow: none;
 				color: #fff;
@@ -99,7 +99,7 @@ div.product-meta-wrapper {
 				width: 75%;
 				
 				&:hover {
-					background: darken($color__1, 8%);
+					background: darken($color__primary, 8%);
 					color: #fff;
 				}
 			}
@@ -243,14 +243,14 @@ div.product-meta-wrapper {
 
 		p.price,
 		span.price {
-			color: $color__1;
+			color: $color__primary;
 			font-size: 18px;
 			font-weight: bold;
 			margin: 15px 0;
 			padding: 0;
 
 			del {
-				color: rgba($color__1, .5);
+				color: rgba($color__primary, .5);
 				font-size: 18px;
 			}
 
@@ -274,7 +274,7 @@ div.product-meta-wrapper {
 			margin-bottom: 1em;
 
 			.button {
-				background: $color__1;
+				background: $color__primary;
 				background-image: none;
 				font-size: 1em;
 				height: 40px;
@@ -283,7 +283,7 @@ div.product-meta-wrapper {
 				text-shadow: none;
 
 				&:hover {
-					background: darken($color__1, 8%);
+					background: darken($color__primary, 8%);
 				}
 			}
 
@@ -320,8 +320,8 @@ div.product-meta-wrapper {
 		@extend .button;
 
 		&:hover {
-			background: darken($color__1, 5%);
-			border-color: darken($color__1, 5%);
+			background: darken($color__primary, 5%);
+			border-color: darken($color__primary, 5%);
 			color: #fff;
 		}
 
@@ -338,9 +338,9 @@ div.product-meta-wrapper {
 		}
 
 		&.alt {
-			background: $color__1;
+			background: $color__primary;
 			background: linear-gradient(left top, left bottom, #fe4304, #ce3501);
-			border-color: $color__1;
+			border-color: $color__primary;
 			color: #ffffff;
 		}
 
@@ -449,7 +449,7 @@ div.product-meta-wrapper {
 				a:focus,
 				a:hover,
 				span.current {
-					background: $color__1;
+					background: $color__primary;
 					color: #fff;
 				}
 

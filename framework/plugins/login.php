@@ -5,15 +5,15 @@ if ( ! has_action( 'login_enqueue_scripts', 'wp_print_styles' ) )
 	add_action( 'login_enqueue_scripts', 'wp_print_styles', 11 );
 
 // Hooks
-add_action( 'login_footer', 'anva_login_footer' );
-add_action( 'login_enqueue_scripts', 'anva_login_stylesheet' );
+add_action( 'login_enqueue_scripts', 'anva_login_styles' );
 add_filter( 'login_headerurl', 'anva_login_logo_url' );
+add_action( 'login_footer', 'anva_login_footer' );
 
 /**
  * Custom login stylesheet.
  */
-function anva_login_stylesheet() {
-	wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/assets/css/styles-login.css', array(), '', 'all' );
+function anva_login_styles() {
+	wp_enqueue_style( 'anva-login-styles', get_template_directory_uri() . '/assets/css/styles-login.css', array(), '', 'all' );
 }
 
 /**
@@ -37,7 +37,7 @@ function anva_login_footer() {
 	$url = 'http://anthuanvasquez.net/';
 	$author = 'Anthuan Vasquez';
 	printf(
-		'<div id="login-footer"><p id="login-credits">&copy %1$s %2$s %3$s.</p></div>',
+		'<div class="login-footer"><p class="login-copyrights">&copy %1$s %2$s %3$s.</p></div>',
 		date('Y'),
 		apply_filters( 'anva_login_author', '<a href="'. esc_url( $url ) .'">' . esc_html( $author ) . '</a>'  ),
 		anva_get_local( 'footer_copyright' )

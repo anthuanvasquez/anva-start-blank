@@ -134,14 +134,12 @@ function anva_footer_widget() {
 			break;
 	}
 	?>
-	<div class="footer-widgets">
-		<div class="grid-columns">
-			<?php for ( $i = 1; $i <= $cols; $i++ ) : ?>
-				<div class="grid_<?php echo $footer_cols; ?>">
-					<?php if ( ! dynamic_sidebar( 'footer_' . $i  ) ) : endif; ?>
-				</div>
-			<?php endfor; ?>
-		</div>
+	<div class="footer-widgets clearfix">
+		<?php for ( $i = 1; $i <= $cols; $i++ ) : ?>
+			<div class="grid_<?php echo $footer_cols; ?>">
+				<?php if ( ! dynamic_sidebar( 'footer_' . $i  ) ) : endif; ?>
+			</div>
+		<?php endfor; ?>
 	</div>
 	<?php
 }

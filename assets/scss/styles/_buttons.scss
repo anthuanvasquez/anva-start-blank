@@ -2,30 +2,30 @@
  * Default Button Styles
  */
 @include group-buttons() {
-	background-color: #fff;
+	background-color: $button__bg-color;
 	background-image: none;
 	border: 1px solid transparent;
-	border-color: #ccc;
-	color: #333;
-	display: inline-block;
-	margin-bottom: 0;
-	font-weight: normal;
-	text-align: center;
-	vertical-align: middle;
+	border-color: $button__border-color;
+	border-radius: $button__border-radius;
+	color: $button__font-color;
 	cursor: pointer;
-	white-space: nowrap;
-	padding: 6px 12px;
-	font-size: 14px;
+	display: inline-block;
+	font-size: $button__font-size;
+	font-weight: normal;
 	line-height: 1.428571429;
-	border-radius: 4px;
+	margin-bottom: 0;
+	padding: 6px 12px;
+	transition: background 0.1s linear;
+	text-align: center;
 	user-select: none;
-	transition: background .1s linear;
+	white-space: nowrap;
+	vertical-align: middle;
 	-webkit-font-smoothing: antialiased;
 
 	&:hover {
 		background-color: #ebebeb;
 		border-color: #adadad;
-		color: color(base);
+		color: $color__text;
 	}
 }
 

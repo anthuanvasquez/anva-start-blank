@@ -40,15 +40,6 @@
 	@return null;
 }
 
-// Return the color from $palette map
-@function color($key) {
-	@if map-has-key($palette, $key) {
-		@return map-get($palette, $key);
-	}
-	@warn "Unknown `#{$key}` in $palette.";
-	@return null;
-}
-
 @function config($key) {
 	@if map-has-key($configuration, $key) {
 		@return map-get($configuration, $key);

@@ -597,58 +597,61 @@ function anva_comment_list( $comment, $args, $depth ) {
 		$tag = 'li';
 		$add_below = 'div-comment';
 	}
-?>
-	<<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+
+	$classes  = empty( $args['has_children'] ) ? '' : 'parent';
+	$classes .= ' comment__item';
+	?>
+
+	<<?php echo $tag ?> <?php comment_class( $classes ) ?> id="comment-<?php comment_ID() ?>">
 	
 	<?php if ( 'div' != $args['style'] ) : ?>
-		<div id="div-comment-<?php comment_ID() ?>" class="comment-wrapper">
-			<div class="row">
+		<div id="div-comment-<?php comment_ID() ?>" class="comment__wrap">
 	<?php endif; ?>
-	
-	<div class="comment-avatar col-xs-3 col-sm-2">
-		<a href="<?php echo comment_author_url( $comment->comment_ID ); ?>">
-			<?php
-				if ( $args['avatar_size'] != 0 ) {
-					echo get_avatar( $comment, 64 );
-				}
-			?>
-		</a>
+
+	<div class="comment__meta">
+		<div class="comment__avatar">
+			<a href="<?php echo comment_author_url( $comment->comment_ID ); ?>" class="comment__avatar-link">
+				<?php
+					if ( $args['avatar_size'] != 0 ) {
+						echo get_avatar( $comment, 60 );
+					}
+				?>
+			</a>
+		</div>
 	</div>
 
-	<div class="comment-body col-xs-9 col-sm-10">
-		<h4 class="comment-author vcard">
-		<?php
-			printf(
-				'<cite class="fn">%s</cite> <span class="says sr-only">says:</span>',
-				get_comment_author_link()
-			);
-		?>
-		</h4>
+	<div class="comment__body">
 
-		<div class="comment-meta">
-			<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
-				<?php printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?>
-				<?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
-			</a>
+		<div class="comment__author vcard">
+			<span class="comment__author-name">
+				<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+			</span>
+			<span class="comment__date">
+				<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+					<?php printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?>
+					<?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+				</a>
+			</span>
 		</div>
 
 		<?php if ( $comment->comment_approved == '0' ) : ?>
-		<em class="comment-awaiting-moderation well well-sm"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+			<em class="comment__awaiting-moderation well well-sm">
+				<?php _e( 'Your comment is awaiting moderation.', 'anva-start' ); ?>
+			</em>
 		<?php endif; ?>
 		
-		<div class="comment-text">
+		<div class="comment__text">
 			<?php comment_text(); ?>
 		</div>
-		
-		<div class="reply">
+
+		<div class="comment__reply">
 			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 		</div>
 	
 	</div>
 
 	<?php if ( 'div' != $args['style'] ) : ?>
-	</div>
-	</div>
+		</div>
 	<?php endif; ?>
 
 <?php

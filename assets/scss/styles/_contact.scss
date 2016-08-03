@@ -25,13 +25,13 @@
 		}
 
 		&.error {
-			border-color: $color__red;
+			border-color: $color__primary--red;
 		}
 	}
 	
 	.error:not(.contact-form__field) {
 		display: none;
-		color: $color__red;
+		color: $color__primary--red;
 		font-weight: 400;
 		margin-bottom: 5px;
 		// Hide Message Error

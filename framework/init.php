@@ -23,7 +23,7 @@ include_once( ANVA_FRAMEWORK . '/includes/parts.php' );
 include_once( ANVA_FRAMEWORK . '/includes/general.php' );
 include_once( ANVA_FRAMEWORK . '/includes/widgets.php' );
 include_once( ANVA_FRAMEWORK . '/includes/shortcodes.php' );
-include_once( ANVA_FRAMEWORK . '/includes/login.php' );
+include_once( ANVA_FRAMEWORK . '/plugins/login.php' );
 include_once( ANVA_FRAMEWORK . '/plugins/contact-email.php' );
 include_once( ANVA_FRAMEWORK . '/plugins/slideshows.php' );
 include_once( ANVA_FRAMEWORK . '/plugins/bem-menu.php' );

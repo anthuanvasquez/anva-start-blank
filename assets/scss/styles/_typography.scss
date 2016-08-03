@@ -10,14 +10,16 @@ a,
 	}
 }
 
+p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
+	margin-bottom: $trim;
+}
+
 /*
  * Lists
  */
-ul, ol {
-	list-style: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding-left: 0;
+dl, dt, dd, ol, ul, li {
+	margin: 0;
+	padding: 0;
 }
 
 /*
@@ -47,16 +49,6 @@ h6, .h6 {
 	font-size: $h6;
 }
 
-h1, .h1, h2, .h2, h3, .h3 {
-	margin-top: 0;
-	margin-bottom: $trim;
-}
-
-h4, .h4, h5, .h5, h6, .h6 {
-	margin-top: 0;
-	margin-bottom: $padding;
-}
-
 h1,
 h2,
 h3,
@@ -70,14 +62,15 @@ h6,
 .h5,
 .h6 {
 	color: $heading__font-color;
-	font-weight: bold;
+	line-height: 1.5;
+	margin: 0 0 $trim 0;
 	@include font-stack-headers();
 
 	a {
 		color: $heading__font-color;
 		
 		&:hover {
-			color: $color__1;
+			color: $color__primary;
 		}
 	}
 }
