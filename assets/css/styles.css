@@ -2666,3 +2666,11 @@ html[xmlns] .slides {
   height: auto;
   border: 1px solid transparent;
 }
+
+.fl-menu-toc__list {
+  background-color: #267DF4;
+}
+
+.fl-menu-section__heading {
+  background-color: #267DF4;
+}

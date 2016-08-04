@@ -33,11 +33,6 @@ if ( class_exists( 'Woocommerce' ) ) :
 	include_once( ANVA_FRAMEWORK . '/plugins/woocommerce-config.php' );
 endif;
 
-// Validate if Foodlist plugin is activated
-if ( defined( 'FOODLIST_VERSION' )) {
-	include_once( ANVA_FRAMEWORK . '/plugins/foodlist.php' );
-}
-
 // Admin
 if ( is_admin() ) {
 	include_once( get_template_directory() . '/framework/admin/settings.php' );
@@ -47,7 +42,7 @@ if ( is_admin() ) {
 add_action( 'init', 'anva_register_menus' );
 add_action( 'anva_texdomain', 'anva_theme_texdomain' );
 add_action( 'wp', 'anva_setup_author' );
-add_action( 'wp_enqueue_scripts', 'anva_load_scripts' );
+add_action( 'wp_enqueue_scripts', 'anva_load_scripts', 12 );
 add_action( 'widgets_init', 'anva_register_sidebars' );
 add_action( 'widgets_init', 'anva_register_widgets' );	
 add_action( 'admin_bar_menu', 'anva_settings_menu_link', 1000 );
