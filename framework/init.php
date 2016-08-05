@@ -4,38 +4,36 @@
 $theme_settings = get_option( 'anva_settings' );
 
 // Define constants
-define( 'ANVA_PATH', get_template_directory() );
-define( 'ANVA_URL', get_template_directory_uri() );
-define( 'ANVA_LOGO', get_template_directory_uri() . '/assets/images/logo.png' );
-define( 'ANVA_FRAMEWORK', get_template_directory() . '/framework' );
-define( 'ANVA_DOMAIN', 'anva' );
+define( 'ANVA_DIR', get_template_directory() );
+define( 'ANVA_URI', get_template_directory_uri() );
+define( 'ANVA_FRAMEWORK_DIR', get_template_directory() . '/framework' );
+define( 'ANVA_FRAMEWORK_URI', get_template_directory_uri() . '/framework' );
 define( 'ANVA_SETTINGS', serialize( $theme_settings ) );
 
 // Inlclude files
-include_once( ANVA_FRAMEWORK . '/includes/actions.php' );
-include_once( ANVA_FRAMEWORK . '/includes/display.php' );
-include_once( ANVA_FRAMEWORK . '/includes/meta.php' );
-include_once( ANVA_FRAMEWORK . '/includes/helpers.php' );
-include_once( ANVA_FRAMEWORK . '/includes/elements.php' );
-include_once( ANVA_FRAMEWORK . '/includes/media.php' );
-include_once( ANVA_FRAMEWORK . '/includes/locals.php' );
-include_once( ANVA_FRAMEWORK . '/includes/parts.php' );
-include_once( ANVA_FRAMEWORK . '/includes/general.php' );
-include_once( ANVA_FRAMEWORK . '/includes/widgets.php' );
-include_once( ANVA_FRAMEWORK . '/includes/shortcodes.php' );
-include_once( ANVA_FRAMEWORK . '/plugins/login.php' );
-include_once( ANVA_FRAMEWORK . '/plugins/contact-email.php' );
-include_once( ANVA_FRAMEWORK . '/plugins/slideshows.php' );
-include_once( ANVA_FRAMEWORK . '/plugins/bem-menu.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/actions.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/display.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/meta.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/helpers.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/elements.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/media.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/locals.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/parts.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/general.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/widgets.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/includes/shortcodes.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/plugins/contact-email.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/plugins/slideshows.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/plugins/bem-menu.php' );
 
 // Validate if Woocommerce plugin is activated
 if ( class_exists( 'Woocommerce' ) ) :
-	include_once( ANVA_FRAMEWORK . '/plugins/woocommerce-config.php' );
+	include_once( ANVA_FRAMEWORK_DIR . '/plugins/woocommerce-config.php' );
 endif;
 
 // Admin
 if ( is_admin() ) {
-	include_once( get_template_directory() . '/framework/admin/settings.php' );
+	include_once( ANVA_FRAMEWORK_DIR . '/admin/settings.php' );
 }
 
 // Initial actions
@@ -91,4 +89,4 @@ add_action( 'after_setup_theme', 'anva_slideshows_setup' );
 do_action( 'anva_texdomain' );
 
 // Load theme functions
-include_once( get_template_directory() . '/functions/theme-functions.php' );
+include_once( ANVA_DIR . '/functions/theme-functions.php' );

@@ -44,14 +44,14 @@
 	<header id="header" class="header">
 		<div class="container clearfix">
 			<div id="logo" class="logo">
-				<?php anva_header_logo(); ?>
+				<?php do_action( 'anva_header_logo' ); ?>
 			</div>
 			<div class="header-addon">
-				<?php anva_header_addon(); ?>
+				<?php do_action( 'anva_header_addon' ); ?>
 			</div>
 		</div>
 		<div class="header__wrap">
-			<?php anva_main_navigation(); ?>
+			<?php do_action( 'anva_main_navigation' ); ?>
 		</div>
 	</header><!-- #header (end) -->	
 	

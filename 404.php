@@ -6,12 +6,10 @@
 get_header();
 ?>
 
-<div class="row grid-columns">
-	<div class="content-area col-sm-12">
-		<div class="main">
-			<?php get_template_part( 'content', 'error' ); ?>
-		</div><!-- .main (end) -->
+<div class="container clearfix">
+	<div class="content-area">
+		<?php get_template_part( 'content', 'error' ); ?>
 	</div><!-- .content-area (end) -->
-</div><!-- .grid-columns (end) -->
+</div><!-- .container (end) -->
 
 <?php get_footer(); ?>

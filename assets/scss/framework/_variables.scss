@@ -12,7 +12,7 @@ $configuration: (
     'padding':       20px,
     'trim':          30px,
     'border-radius': 4px,
-    'boxed':         true,
+    'boxed':         false,
     'debug':         false
 );
 
@@ -32,7 +32,7 @@ $browser-minimum-versions: (
 // Colour Palette
 // ------------------------------------------------
 
-$color__primary:        #267DF4;
+$color__primary:        #00A0D2;
 $color__primary--black: #111111;
 $color__primary--gray:  #CCCCCC;
 $color__primary--red:   #FF0000;
@@ -71,13 +71,12 @@ $heading__font-color:  $color__text;
 $heading__font-family: $raleway;
 $heading__font-weight: 600;
 $heading__line-height: 1.1;
-
-$h1: 27px;
-$h2: 24px;
-$h3: 18px;
-$h4: 14px;
-$h5: 13px;
-$h6: 11px;
+$heading__h1: 27px;
+$heading__h2: 24px;
+$heading__h3: 18px;
+$heading__h4: 14px;
+$heading__h5: 13px;
+$heading__h6: 11px;
 
 // Menu
 
@@ -90,10 +89,10 @@ $menu__text-transform:  uppercase;
 
 // Footer
 
-$footer__font-color:         #ccc;
+$footer__font-color:         #CCC;
 $footer__font-size:          $base__font-size;
-$footer__link-color:         #aaa;
-$footer__heading-font-color: #eee;
+$footer__link-color:         #AAA;
+$footer__heading-font-color: #EEE;
 $footer__heading-font-size:  15px;
 
 // Widget
@@ -109,13 +108,13 @@ $widget__heading-font-weight: 600;
 $button__bg-color:      $color__primary;
 $button__border-radius: 4px;
 $button__border-color:  darken($button__bg-color, 8%);
-$button__font-color:    #fff;
+$button__font-color:    #FFF;
 $button__font-size:     14px;
 $button__font-weight:   normal;
 $button__padding-box:   6px 12px;
 
 // ------------------------------------------------
-// Others
+// Default Variables
 // ------------------------------------------------
 
 $border-radius:    config(border-radius);
@@ -125,32 +124,20 @@ $padding:          config(padding);
 $trim:             config(trim);
 
 // ------------------------------------------------
-// Login
-// ------------------------------------------------
-
-$login__logo-width:      200px;
-$login__logo-height:     100px;
-$login__font-color:      #2d2e2f;
-$login__border-radius:   4px;
-$login__background:      $color__body;
-$login__form-background: #fff;
-$login__form-border:     1px solid #ddd;
-$login__nav-link-color:  $color__text;
-$login__nav-background:  #f9f9f9;
-$login__nav-border:      1px solid #ddd;
-$login__width:           380px;
-
-// ------------------------------------------------
 // Neat and Bouron Frameworks
 // ------------------------------------------------
 
-$min-width:         config('min-width') !default;
-$max-width:         config('max-width') !default;
-$grid-columns:      config('layout') !default;
+$grid-columns:      config('layout');
+$gutter:            golden-ratio($base__font-size, 1); // $padding !default;
+
+$min-width:         config('min-width');
+$max-width:         config('max-width');
+
 $border-box-sizing: false !default;
 $default-feature:   max-width !default;
-$gutter:            $padding !default;
 $column:            60px !default;
+
+// Responsive Breakpoints
 
 $all-breakpoints: (
     'smallest': 320px,
@@ -160,24 +147,32 @@ $all-breakpoints: (
     'desktop':  1199px
 );
 
+// Layout Columns
+
 $all-layout-columns: (
-    smallest: 4,
-    handheld: 8,
+    phone: 4,
+    tablet: 8,
     desktop:  12
 );
 
-$desktop:       max-width break(desktop) layout-column(desktop);
-$desktop--min:  min-width break(desktop) layout-column(desktop);
+// Breakpoints
+
+$smallest:      max-width break(smallest) layout-column(phone);
+$smallest--min: min-width break(smallest) layout-column(phone);
+
+$handheld:      max-width break(handheld) layout-column(phone);
+$handheld--min: min-width break(handheld) layout-column(phone);
+
+$tablet:        max-width break(tablet) layout-column(tablet);
+$tablet--min:   min-width break(tablet) layout-column(tablet);
+
 $laptop:        max-width break(laptop) layout-column(desktop);
 $laptop--min:   min-width break(laptop) layout-column(desktop);
-$tablet:        max-width break(tablet) layout-column(handheld);
-$tablet--min:   min-width break(tablet) layout-column(handheld);
-$handheld:      max-width break(handheld) layout-column(smallest);
-$handheld--min: min-width break(handheld) layout-column(smallest);
-$smallest:      max-width break(smallest) layout-column(smallest);
-$smallest--min: min-width break(smallest) layout-column(smallest);
 
-// Debug grid columns
+$desktop:       max-width break(desktop) layout-column(desktop);
+$desktop--min:  min-width break(desktop) layout-column(desktop);
+
+// Debug Grid Columns
 
 @if config(debug) {
     $visual-grid:         true !default;

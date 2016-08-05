@@ -3,7 +3,7 @@
  * The template used for displaying page content in 404.php
  */
 ?>
-<div class="article-wrapper">
+<div class="entry">
 	<article id="post-not-found" class="post post-not-found">
 		<header class="entry-header">
 			<h1 class="entry-title"><?php echo anva_get_local( 'not_found' ); ?></h1>

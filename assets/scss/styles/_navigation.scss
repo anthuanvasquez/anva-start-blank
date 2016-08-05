@@ -200,6 +200,14 @@
 
 	.admin-bar & {
 		top: 32px;
+
+		@include media($laptop) {
+			top: 32px;
+		}
+
+		@include media($tablet) {
+			top: 46px;
+		}
 	}
 
 	@include media($laptop) {

@@ -31,17 +31,17 @@ get_header();
 
 <div class="container">
 
-	<?php anva_sidebar_layout_before(); ?>
+	<?php do_action( 'anva_sidebar_layout_before' ); ?>
 
 	<div class="content-area <?php echo esc_attr( $classes ); ?>">
 
-			<?php anva_post_before(); ?>
+			<?php do_action( 'anva_post_before' ); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
 			
-				<?php anva_post_after(); ?>
+				<?php do_action( 'anva_post_after' ); ?>
 
 				<?php
 					$single_comment = anva_get_option( 'single_comment' );
@@ -56,7 +56,7 @@ get_header();
 
 	</div><!-- .content-area (end) -->
 	
-	<?php anva_sidebar_layout_after(); ?>
+	<?php do_action( 'anva_sidebar_layout_after' ); ?>
 		
 </div>
 

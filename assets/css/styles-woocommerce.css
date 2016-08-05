@@ -11,13 +11,13 @@
 .woocommerce-page input.button,
 .woocommerce-page #respond input#submit,
 .woocommerce-page #content input.button {
-  background-color: #267DF4;
+  background-color: #00A0D2;
   background-image: none;
   border: 1px solid transparent;
-  border-color: #0c68e6;
+  border-color: #0081a9;
   -webkit-border-radius: 4px;
           border-radius: 4px;
-  color: #fff;
+  color: #FFF;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -53,16 +53,16 @@
 }
 
 .btn-primary {
-  background-color: #267DF4;
+  background-color: #00A0D2;
   background-image: none;
-  border-color: #0c68e6;
-  color: #fff;
+  border-color: #0081a9;
+  color: #FFF;
 }
 
 .btn-primary:hover {
-  background-color: #0b63dc;
-  border-color: #0c68e6;
-  color: #fff;
+  background-color: #00799f;
+  border-color: #0081a9;
+  color: #FFF;
 }
 
 .product-meta-wrapper {
@@ -78,19 +78,19 @@
 
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
-  border: 1px solid #eee;
+  border: 1px solid #EEE;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-bottom: 20px;
-  min-height: 0;
+  min-height: 1px;
   padding: 10px;
   position: relative;
-  -webkit-border-radius: 4px;
-          border-radius: 4px;
   float: left;
   display: block;
-  margin-right: 2.12766%;
-  width: 31.91489%;
+  margin-right: 2.33725%;
+  width: 31.77516%;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
 }
 
 .woocommerce ul.products li.product:last-child,
@@ -130,7 +130,7 @@
 
 .woocommerce ul.products li.product span.price,
 .woocommerce-page ul.products li.product span.price {
-  color: #267DF4 !important;
+  color: #00A0D2 !important;
   display: block;
   font-size: 14px !important;
   font-weight: 400 !important;
@@ -140,9 +140,9 @@
 
 .woocommerce ul.products li.product span.price del,
 .woocommerce-page ul.products li.product span.price del {
-  color: rgba(38, 125, 244, 0.5);
-  font-size: 14px !important;
   display: inline-block;
+  color: rgba(0, 160, 210, 0.5);
+  font-size: 14px !important;
 }
 
 .woocommerce ul.products li.product span.price ins,
@@ -174,7 +174,7 @@
 .woocommerce-page ul.products li.product #content input.button,
 .woocommerce-page #content ul.products li.product input.button,
 .woocommerce-page ul.products li.product .add_to_cart_button {
-  background: #267DF4;
+  background: #00A0D2;
   border: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -206,7 +206,7 @@
 .woocommerce-page ul.products li.product #content input.button:hover,
 .woocommerce-page #content ul.products li.product input.button:hover,
 .woocommerce-page ul.products li.product .add_to_cart_button:hover {
-  background: #0c68e6;
+  background: #0081a9;
   color: #fff;
 }
 
@@ -222,8 +222,8 @@
 .woocommerce-page ul.products li.product {
   float: left;
   display: block;
-  margin-right: 2.12766%;
-  width: 23.40426%;
+  margin-right: 2.33725%;
+  width: 23.24706%;
 }
 
 .latest-products .woocommerce ul.products li.product:last-child, .latest-products
@@ -243,7 +243,7 @@
 
 .woocommerce span.onsale,
 .woocommerce-page span.onsale {
-  background: #ddd;
+  background: #DDD;
   background-image: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -280,8 +280,8 @@
 .woocommerce-page .upsells.products ul.products li.product {
   float: left;
   display: block;
-  margin-right: 2.12766%;
-  width: 31.91489%;
+  margin-right: 2.33725%;
+  width: 31.77516%;
 }
 
 .woocommerce .related.products ul.products li.product:last-child,
@@ -309,8 +309,8 @@
 .woocommerce-page .cart-collaterals .cross-sells li.product {
   float: left;
   display: block;
-  margin-right: 2.12766%;
-  width: 48.93617%;
+  margin-right: 2.33725%;
+  width: 48.83137%;
 }
 
 .woocommerce .cart-collaterals .cross-sells li.product:last-child,
@@ -443,7 +443,7 @@
 .woocommerce-page div.product span.price,
 .woocommerce-page #content div.product p.price,
 .woocommerce-page #content div.product span.price {
-  color: #267DF4;
+  color: #00A0D2;
   font-size: 18px;
   font-weight: bold;
   margin: 15px 0;
@@ -458,7 +458,7 @@
 .woocommerce-page div.product span.price del,
 .woocommerce-page #content div.product p.price del,
 .woocommerce-page #content div.product span.price del {
-  color: rgba(38, 125, 244, 0.5);
+  color: rgba(0, 160, 210, 0.5);
   font-size: 18px;
 }
 
@@ -542,7 +542,7 @@
 .woocommerce-page #content div.product form.cart input#submit,
 .woocommerce-page #content div.product form.cart #respond input#submit,
 .woocommerce-page #respond #content div.product form.cart input#submit {
-  background: #267DF4;
+  background: #00A0D2;
   background-image: none;
   font-size: 1em;
   height: 40px;
@@ -577,7 +577,7 @@
 .woocommerce-page #content div.product form.cart input#submit:hover,
 .woocommerce-page #content div.product form.cart #respond input#submit:hover,
 .woocommerce-page #respond #content div.product form.cart input#submit:hover {
-  background: #0c68e6;
+  background: #0081a9;
 }
 
 .woocommerce div.product form.cart div.quantity,
@@ -637,8 +637,8 @@
 .woocommerce-page #content #respond input#submit:hover,
 .woocommerce-page #respond #content input#submit:hover,
 .woocommerce-page #content input.button:hover {
-  background: #0e6ef3;
-  border-color: #0e6ef3;
+  background: #008db9;
+  border-color: #008db9;
   color: #fff;
 }
 
@@ -743,11 +743,11 @@
 .woocommerce-page #content #respond input.alt#submit,
 .woocommerce-page #respond #content input.alt#submit,
 .woocommerce-page #content input.alt.button {
-  background: #267DF4;
+  background: #00A0D2;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(bottom, left), color-stop(bottom, #fe4304), color-stop(bottom, #ce3501));
   background: -webkit-linear-gradient(left top, left bottom, #fe4304, #ce3501);
   background: linear-gradient(left top, left bottom, #fe4304, #ce3501);
-  border-color: #267DF4;
+  border-color: #00A0D2;
   color: #ffffff;
 }
 
@@ -899,7 +899,7 @@
 .woocommerce-page #content nav.woocommerce-pagination ul li a:focus,
 .woocommerce-page #content nav.woocommerce-pagination ul li a:hover,
 .woocommerce-page #content nav.woocommerce-pagination ul li span.current {
-  background: #267DF4;
+  background: #00A0D2;
   color: #fff;
 }
 
@@ -982,8 +982,8 @@ div.single_variation {
     clear: none;
     float: left;
     display: block;
-    margin-right: 2.12766%;
-    width: 48.93617%;
+    margin-right: 2.33725%;
+    width: 48.83137%;
   }
   .woocommerce ul.products li.product:last-child,
   .woocommerce-page ul.products li.product:last-child {
@@ -991,7 +991,7 @@ div.single_variation {
   }
   .woocommerce ul.products li.product:nth-child(3n),
   .woocommerce-page ul.products li.product:nth-child(3n) {
-    margin-right: 2.12766%;
+    margin-right: 2.33725%;
   }
   .woocommerce ul.products li.product:nth-child(2n),
   .woocommerce-page ul.products li.product:nth-child(2n) {
@@ -1001,8 +1001,8 @@ div.single_variation {
   .woocommerce-page ul.products li.product {
     float: left;
     display: block;
-    margin-right: 2.12766%;
-    width: 23.40426%;
+    margin-right: 2.33725%;
+    width: 23.24706%;
   }
   .home .woocommerce ul.products li.product:last-child, .home
   .woocommerce-page ul.products li.product:last-child {
@@ -1026,8 +1026,8 @@ div.single_variation {
   .woocommerce-page .upsells.products ul.products li.product {
     float: left;
     display: block;
-    margin-right: 2.12766%;
-    width: 48.93617%;
+    margin-right: 2.33725%;
+    width: 48.83137%;
   }
   .woocommerce .related.products ul.products li.product:last-child,
   .woocommerce .upsells.products ul.products li.product:last-child,
@@ -1051,7 +1051,7 @@ div.single_variation {
   .woocommerce .upsells.products ul.products li.product:nth-child(3n),
   .woocommerce-page .related.products ul.products li.product:nth-child(3n),
   .woocommerce-page .upsells.products ul.products li.product:nth-child(3n) {
-    margin-right: 2.12766%;
+    margin-right: 2.33725%;
   }
   .woocommerce .related.products ul.products li.product:nth-child(3n+1),
   .woocommerce .upsells.products ul.products li.product:nth-child(3n+1),
@@ -1073,8 +1073,8 @@ div.single_variation {
   .woocommerce-page ul.products li.product {
     float: left;
     display: block;
-    margin-right: 3.22581%;
-    width: 48.3871%;
+    margin-right: 3.54733%;
+    width: 48.22633%;
   }
   .home .woocommerce ul.products li.product:last-child, .home
   .woocommerce-page ul.products li.product:last-child {

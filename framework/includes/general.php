@@ -57,14 +57,6 @@ function anva_get_sidebar_locations() {
 				'description' => __( 'Sidebar left.', 'anva-start' ),
 			)
 		),
-		'homepage' => array(
-			'args' => array(
-				'id' => 'homepage',
-				'name' => __( 'Homepage', 'anva-start' ),
-				'description' => __( 'Homepage sidebar below content.', 'anva-start' ),
-				'class' => 'grid_4',
-			)
-		),
 		'footer_1' => array(
 			'args' => array(
 				'id' => 'footer_1',
@@ -146,10 +138,6 @@ function anva_load_scripts() {
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css' );
 	wp_enqueue_style( 'boostrap', get_template_directory_uri() . '/assets/css/bootstrap.css' );
 	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css' );
-	
-	if ( 1 == anva_get_option( 'responsive' ) ) {
-		wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/styles-responsive.css', array( 'screen' ), false, 'all' );
-	}
 	
 	// Scripts
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

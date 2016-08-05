@@ -55,8 +55,8 @@ function wc_add_sidebar_locations( $locations ) {
 	$locations['shop'] = array(
 		'args' => array(
 			'id' => 'shop',
-			'name' => __( 'Shop', ANVA_DOMAIN ),
-			'description' => __( 'Shop Sidebar.', ANVA_DOMAIN ),
+			'name' => __( 'Shop', anva-start ),
+			'description' => __( 'Shop Sidebar.', anva-start ),
 		),
 	);
 
@@ -64,8 +64,8 @@ function wc_add_sidebar_locations( $locations ) {
 	$locations['product'] = array(
 		'args' => array(
 			'id' => 'product',
-			'name' => __( 'Product', ANVA_DOMAIN ),
-			'description' => __( 'Product Sidebar.', ANVA_DOMAIN ),
+			'name' => __( 'Product', anva-start ),
+			'description' => __( 'Product Sidebar.', anva-start ),
 		),
 	);
 

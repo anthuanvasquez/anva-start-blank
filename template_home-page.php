@@ -10,7 +10,7 @@ $hide_title = anva_get_post_meta( '_hide_title' );
 get_header();
 ?>
 
-<div class="container">
+<div class="container clearfix">
 	<div class="content-area">
 		
 		<?php while ( have_posts() ) : the_post(); ?>

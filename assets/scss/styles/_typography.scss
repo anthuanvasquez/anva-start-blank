@@ -26,27 +26,27 @@ dl, dt, dd, ol, ul, li {
  * Fix font headings size
  */
 h1, .h1 {
-	font-size: $h1;
+	font-size: $heading__h1;
 }
 
 h2, .h2 {
-	font-size: $h2;
+	font-size: $heading__h2;
 }
 
 h3, .h3 {
-	font-size: $h3;
+	font-size: $heading__h3;
 }
 
 h4, .h4 {
-	font-size: $h4;
+	font-size: $heading__h4;
 }
 
 h5, .h5 {
-	font-size: $h5;
+	font-size: $heading__h5;
 }
 
 h6, .h6 {
-	font-size: $h6;
+	font-size: $heading__h6;
 }
 
 h1,

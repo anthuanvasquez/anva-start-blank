@@ -21,8 +21,8 @@ add_action( 'after_setup_theme', 'anva_theme_setup' );
 // 		'sidebar_front' => array(
 // 			'args' => array(
 // 				'id' => 'sidebar_front',
-// 				'name' => __( 'Sidebar Front', ANVA_DOMAIN ),
-// 				'description' => __( 'Sidebar front.', ANVA_DOMAIN ),
+// 				'name' => __( 'Sidebar Front', anva-start ),
+// 				'description' => __( 'Sidebar front.', anva-start ),
 // 			)
 // 		),
 // 	);
@@ -56,7 +56,7 @@ add_filter( 'anva_footer_year', 'anva_theme_start_year' );
  * Change footer credits.
  */
 function anva_theme_footer_credits() {
-	return __( 'Development by', 'anva' );
+	return __( 'Development by', 'anva-start' );
 }
 add_filter( 'anva_footer_credits', 'anva_theme_footer_credits' );
 
@@ -64,7 +64,7 @@ add_filter( 'anva_footer_credits', 'anva_theme_footer_credits' );
  * Change footer author.
  */
 function anva_theme_footer_author() {
-	return  '<a href="'. esc_url( 'http://anthuanvasquez.het/') .'">'. __( 'Anthuan Vasquez' ) .'</a>.';
+	return  '<a href="'. esc_url( 'http://anthuanvasquez.het/') .'">'. __( 'Anthuan Vasquez', 'anva-start' ) .'</a>.';
 }
 add_filter( 'anva_footer_author', 'anva_theme_footer_author' );
 add_filter( 'anva_login_author', 'anva_theme_footer_author' );

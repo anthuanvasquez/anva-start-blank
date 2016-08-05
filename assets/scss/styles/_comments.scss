@@ -158,6 +158,12 @@
 		padding: 8px 14px;
 		width: 40%;
 
+		@include media($tablet) {
+			margin-right: 0;
+			margin-bottom: 5px;
+			width: 100%;
+		}
+
 		&--textarea {
 			margin-right: 0;
 			width: 100%;

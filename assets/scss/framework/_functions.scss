@@ -13,6 +13,15 @@
 	@return #{$remSize}rem;
 }
 
+// Return Configuration values
+@function config($key) {
+	@if map-has-key($configuration, $key) {
+		@return map-get($configuration, $key);
+	}
+	@warn "Unknown `#{$key}` in $configuration.";
+	@return null;
+}
+
 // Return minimum browser version
 @function browser($key) {
 	@if map-has-key($browser-minimum-versions, $key) {
@@ -37,13 +46,5 @@
 		@return map-get($all-layout-columns, $key);
 	}
 	@warn "Unknown `#{$key}` in $all-layout-columns.";
-	@return null;
-}
-
-@function config($key) {
-	@if map-has-key($configuration, $key) {
-		@return map-get($configuration, $key);
-	}
-	@warn "Unknown `#{$key}` in $configuration.";
 	@return null;
 }

@@ -245,7 +245,7 @@ function column_one_last_func( $atts, $content ) {
 function toggle_func( $atts, $content ) {
 	$content = wpautop( trim( $content ) );
 	extract( shortcode_atts( array(
-		'title' => __( 'Click para Abrir', ANVA_DOMAIN ),
+		'title' => __( 'Click para Abrir', anva-start ),
 		'id' => 'default',
 		'collapse' => '',
 		''
