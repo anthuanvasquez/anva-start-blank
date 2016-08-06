@@ -54,7 +54,7 @@ class Custom_Posts extends WP_Widget {
 		
 		/* Default Value */
 		$instance = wp_parse_args( (array) $instance, array(
-			'title' => __( 'Artículos Recientes', anva-start ),
+			'title' => __( 'Artículos Recientes', 'anva-start' ),
 			'number' 	=> '3',
 			'order' => 'desc',
 			'orderby' => 'date',

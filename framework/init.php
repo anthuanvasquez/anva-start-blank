@@ -27,8 +27,8 @@ include_once( ANVA_FRAMEWORK_DIR . '/plugins/slideshows.php' );
 include_once( ANVA_FRAMEWORK_DIR . '/plugins/bem-menu.php' );
 
 // Validate if Woocommerce plugin is activated
-if ( class_exists( 'Woocommerce' ) ) :
-	include_once( ANVA_FRAMEWORK_DIR . '/plugins/woocommerce-config.php' );
+if ( class_exists( 'WooCommerce' ) ) :
+	include_once( ANVA_FRAMEWORK_DIR . '/plugins/woocommerce.php' );
 endif;
 
 // Admin

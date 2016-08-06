@@ -44,8 +44,8 @@ function anva_admin_init() {
  */
 function anva_settings_page_init() {
 	$settings_page = add_theme_page(
-		__( 'Opciones', anva-start ),
-		__( 'Opciones', anva-start ),
+		__( 'Opciones', 'anva-start' ),
+		__( 'Opciones', 'anva-start' ),
 		'edit_theme_options',
 		'theme-settings',
 		'anva_settings_page'

@@ -1798,6 +1798,7 @@ img.mfp-img {
 .content-area--full {
   float: none;
   margin-right: 0;
+  width: 100%;
 }
 
 .content-area--sidebar-left {

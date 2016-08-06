@@ -286,7 +286,7 @@ function anva_site_search() {
 	?>
 	<li class="header-addon__item">
 	<?php
-		if ( class_exists( 'Woocommerce' ) ) :
+		if ( class_exists( 'WooCommerce' ) ) :
 			anva_get_product_search_form();
 		else :
 			anva_get_search_form();

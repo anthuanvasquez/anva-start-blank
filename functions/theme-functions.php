@@ -21,8 +21,8 @@ add_action( 'after_setup_theme', 'anva_theme_setup' );
 // 		'sidebar_front' => array(
 // 			'args' => array(
 // 				'id' => 'sidebar_front',
-// 				'name' => __( 'Sidebar Front', anva-start ),
-// 				'description' => __( 'Sidebar front.', anva-start ),
+// 				'name' => __( 'Sidebar Front', 'anva-start' ),
+// 				'description' => __( 'Sidebar front.', 'anva-start' ),
 // 			)
 // 		),
 // 	);
