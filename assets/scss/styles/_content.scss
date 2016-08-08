@@ -1,0 +1,23 @@
+.wrapper {
+	background-color: $color__content;
+	min-width: $min-width;
+	position: relative;
+	@include boxed-layout( $max-width );
+
+	.off_canvas_navigation & {
+		left: 0;
+		right: auto;
+		transition: left 0.4s ease;
+
+		&--active {
+			left: 240px;
+			right: auto;
+		}
+	}
+}
+
+.content {
+	&__wrap {
+		padding: $padding*4 0;
+	}	
+}

@@ -1,147 +1,182 @@
+// ------------------------------------------------
 // Configuration
 // ------------------------------------------------
+
 $configuration: (
-	font-size: 14px,
-	line-height: 1.5,
-	layout: 12,
-	logo: 200px,
-	min-width: 320px,
-	max-width: 1000px,
-	padding: 20px,
-	border-radius: 4px,
-	boxed: true,
-	debug: false
+    'font-size':     14px,
+    'line-height':   1.5,
+    'layout':        12,
+    'logo':          100px,
+    'min-width':     320px,
+    'max-width':     1200px,
+    'padding':       20px,
+    'trim':          30px,
+    'border-radius': 4px,
+    'boxed':         true,
+    'debug':         false
 );
 
+// ------------------------------------------------
 // Minimum Browser Support
 // ------------------------------------------------
+
 $browser-minimum-versions: (
-	'chrome':  '30',
-	'firefox': '30',
-	'ie':      '8',
-	'safari':  '5',
-	'opera':   '12'
+    'chrome':  '40',
+    'firefox': '40',
+    'ie':      '9',
+    'safari':  '6',
+    'opera':   '12'
 ) !global;
 
+// ------------------------------------------------
 // Colour Palette
 // ------------------------------------------------
-$palette: (
-	primary: 		#4285f4,
-	secondary: 	#cccccc,
-	tertiary: 	darken(#4285f4, 5%),
-	body: 			#f2f2f2,
-	base:				#333333,
-	content:  	#ffffff,
-	link: 			#4285f4,
-	meta:				#999999
-);
 
-// Font Stacks
+$color__primary:        #00A0D2;
+$color__primary--black: #111111;
+$color__primary--gray:  #CCCCCC;
+$color__primary--red:   #FF0000;
+$color__primary--green: #23CF5F;
+$color__primary--white: #FFFFFF;
+$color__content:        #ffffff;
+$color__body:           #f2f2f2;
+$color__text:           #333333;
+$color__meta:           #999999;
+$color__border:         #f5f5f5;
+$color__link:           $color__primary;
+$color__link--hover:    lighten($color__primary, 10%);
+
 // ------------------------------------------------
-$font-awesome: "FontAwesome";
-$helvetica: 	 "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: 		 Georgia, Times, "Times New Roman", serif;
-
 // Fonts
 // ------------------------------------------------
 
+// Stacks
+
+$raleway:      "Raleway", sans-serif;
+$font-awesome: "FontAwesome";
+$helvetica:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia:      Georgia, Times, "Times New Roman", serif;
+
 // Base
-$base-font-size: config(font-size);
-$base-line-height: config(line-height);
-$base-font-color: color(base);
-$base-font-family: $helvetica;
-$base-font-weight: 400;
+
+$base__font-size:   config(font-size);
+$base__line-height: config(line-height);
+$base__font-color:  $color__text;
+$base__font-family: $raleway;
+$base__font-weight: 400;
 
 // Headings
-$heading-font-color: color(base);
-$heading-font-family: $helvetica;
-$heading-font-line-height: 1.1;
-$heading-font-weight: 700;
+
+$heading__font-color:  $color__text;
+$heading__font-family: $raleway;
+$heading__font-weight: 600;
+$heading__line-height: 1.1;
+$heading__h1: 27px;
+$heading__h2: 24px;
+$heading__h3: 18px;
+$heading__h4: 14px;
+$heading__h5: 13px;
+$heading__h6: 11px;
 
 // Menu
-$menu-font-size: config(font-size);
-$menu-font-weight: normal;
-$menu-font-family: $helvetica;
-$menu-text-shadow: none;
-$menu-text-transform: capitalize;
-$sub-menu-font-size: config(font-size);
+
+$menu__font-size:       config('font-size');
+$menu__font-size--sub:  config('font-size');
+$menu__font-weight:     600;
+$menu__font-family:     $raleway;
+$menu__text-shadow:     none;
+$menu__text-transform:  uppercase;
 
 // Footer
-$footer-font-color: color(base);
-$footer-font-size: config(font-size);
-$footer-link-color: color(link);
-$footer-heading-font-size: 18px;
-$footer-heading-font-color: color(base);
+
+$footer__font-color:         #CCC;
+$footer__font-size:          $base__font-size;
+$footer__link-color:         #AAA;
+$footer__heading-font-color: #EEE;
+$footer__heading-font-size:  15px;
 
 // Widget
-$widget-heading-font-color: color(base);
-$widget-heading-font-size: 18px;
 
-// Font Headings
+$widget__heading-font-color:  $color__text;
+$widget__heading-font-size:   15px;
+$widget__heading-font-weight: 600;
+
 // ------------------------------------------------
-$h1: 27px;
-$h2: 24px;
-$h3: 18px;
-$h4: 14px;
-$h5: 13px;
-$h6: 11px;
-
 // Buttons
 // ------------------------------------------------
-$button-bg-color: color(primary);
-$button-border-radius: 4px;
-$button-border-color: darken($button-bg-color, 8%);
-$button-font-color: #fff;
-$button-font-size: 14px;
-$button-font-weight: normal;
-$button-padding-box: 6px 12px;
 
-// Others
+$button__bg-color:      $color__primary;
+$button__border-radius: 4px;
+$button__border-color:  darken($button__bg-color, 8%);
+$button__font-color:    #FFF;
+$button__font-size:     14px;
+$button__font-weight:   normal;
+$button__padding-box:   6px 12px;
+
 // ------------------------------------------------
-$border-radius: config(border-radius);
+// Default Variables
+// ------------------------------------------------
+
+$border-radius:    config(border-radius);
 $icon-font-family: $font-awesome;
-$logo-size: config(logo);
-$padding: config(padding);
+$logo-size:        config(logo);
+$padding:          config(padding);
+$trim:             config(trim);
 
-// Neat
 // ------------------------------------------------
-$min-width: config(min-width) !default;
-$max-width: config(max-width) !default;
-$grid-columns: config(layout) !default;
+// Neat and Bouron Frameworks
+// ------------------------------------------------
+
+$grid-columns:      config('layout');
+$gutter:            golden-ratio($base__font-size, 1); // $padding !default;
+
+$min-width:         config('min-width');
+$max-width:         config('max-width');
+
 $border-box-sizing: false !default;
-$default-feature: max-width !default;
-$gutter: $padding !default;
-$column: 60px !default;
+$default-feature:   max-width !default;
+$column:            60px !default;
+
+// Responsive Breakpoints
 
 $all-breakpoints: (
-	phone-small: 320px,
-	phone-medium: 480px,
-	tablet-small: 750px,
-	tablet-medium: 768px,
-	desktop-small: 992px,
-	desktop-medium: 1200px,
-	desktop-large: 1600px
+    'smallest': 320px,
+    'handheld': 480px,
+    'tablet':   768px,
+    'laptop':   992px,
+    'desktop':  1199px
 );
+
+// Layout Columns
 
 $all-layout-columns: (
-	phone: 4,
-	tablet: 8,
-	desktop: 12
+    phone: 4,
+    tablet: 8,
+    desktop:  12
 );
 
-// Medium devices (desktops, 992px and below)
-$desktop: max-width break(desktop-small) layout-column(desktop);
+// Breakpoints
 
-// Small devices (tablets, 768px and below)
-$tablet: max-width break(tablet-medium) layout-column(tablet);
+$smallest:      max-width break(smallest) layout-column(phone);
+$smallest--min: min-width break(smallest) layout-column(phone);
 
-// Extra small devices (phones, less than 768px)
-$phone: max-width break(phone-medium) layout-column(phone);
+$handheld:      max-width break(handheld) layout-column(phone);
+$handheld--min: min-width break(handheld) layout-column(phone);
 
-// Debug grid columns
+$tablet:        max-width break(tablet) layout-column(tablet);
+$tablet--min:   min-width break(tablet) layout-column(tablet);
+
+$laptop:        max-width break(laptop) layout-column(desktop);
+$laptop--min:   min-width break(laptop) layout-column(desktop);
+
+$desktop:       max-width break(desktop) layout-column(desktop);
+$desktop--min:  min-width break(desktop) layout-column(desktop);
+
+// Debug Grid Columns
+
 @if config(debug) {
-	$visual-grid: true !default;
-	$visual-grid-color: red !default;
-	$visual-grid-index: front !default;
-	$visual-grid-opacity: 0.1 !default;
+    $visual-grid:         true !default;
+    $visual-grid-color:   red !default;
+    $visual-grid-index:   front !default;
+    $visual-grid-opacity: 0.1 !default;
 }

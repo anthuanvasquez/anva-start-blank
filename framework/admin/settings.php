@@ -44,8 +44,8 @@ function anva_admin_init() {
  */
 function anva_settings_page_init() {
 	$settings_page = add_theme_page(
-		__( 'Opciones', ANVA_DOMAIN ),
-		__( 'Opciones', ANVA_DOMAIN ),
+		__( 'Opciones', 'anva-start' ),
+		__( 'Opciones', 'anva-start' ),
 		'edit_theme_options',
 		'theme-settings',
 		'anva_settings_page'
@@ -81,7 +81,7 @@ function anva_settings_scripts() {
 	wp_enqueue_script( 'admin', get_template_directory_uri() . '/assets/js/admin.min.js', array('jquery'), false, false );
 	
 	if ( $pagenow == 'themes.php' && isset( $_GET['page'] ) && $_GET['page'] == 'theme-settings' ) {
-		wp_enqueue_style( 'admin', get_template_directory_uri() . '/assets/css/screen-admin.css');
+		wp_enqueue_style( 'admin', get_template_directory_uri() . '/assets/css/styles-admin.css');
 		add_thickbox();
 	}
 }
@@ -174,7 +174,7 @@ function anva_settings_page() {
 		
 		<?php
 			if( isset( $_GET['updated'] ) && 'true' == esc_attr( $_GET['updated'] ) ) {
-				echo '<div id="updated" class="updated" ><p>'.__('Cambios Realizados.', ANVA_DOMAIN).'</p></div>';
+				echo '<div id="updated" class="updated" ><p>'.__('Cambios Realizados.', 'anva-start' ).'</p></div>';
 			}
 			
 			if( isset ( $_GET['tab'] ) )
@@ -228,7 +228,7 @@ function anva_settings_page() {
 				
 				<div class="options-submit postbox">
 					<p class="submit" style="clear:both;">
-						<input type="submit" class="button-primary" name="settings-submit" value="<?php _e('Guardar Opciones', ANVA_DOMAIN); ?>" />
+						<input type="submit" class="button-primary" name="settings-submit" value="<?php _e('Guardar Opciones', 'anva-start' ); ?>" />
 					</p>
 					<p class="copyright-text">
 					<?php

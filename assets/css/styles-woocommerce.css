@@ -1,0 +1,68 @@
+/*
+ * Default Button Styles
+ */
+.button {
+  background-color: #00A0D2;
+  background-image: none;
+  border: 1px solid transparent;
+  border-color: #0081a9;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  color: #FFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  -webkit-transition: background 0.1s linear;
+  transition: background 0.1s linear;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+}
+
+.button:hover {
+  background-color: #ebebeb;
+  border-color: #adadad;
+  color: #333333;
+}
+
+.btn-primary {
+  background-color: #00A0D2;
+  background-image: none;
+  border-color: #0081a9;
+  color: #FFF;
+}
+
+.btn-primary:hover {
+  background-color: #00799f;
+  border-color: #0081a9;
+  color: #FFF;
+}
+
+body.woocommerce-demo-store {
+  margin-top: 49px;
+}
+
+.woocommerce ul.products,
+.woocommerce-page ul.products {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  border: 1px solid #f5f5f5;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  padding: 15px;
+  position: relative;
+}

@@ -1,59 +1,142 @@
 <?php
 
 /**
- * Archive titles
+ * Display the page title based on the queried object.
+ *
+ * @see anva_get_page_title()
+ *
+ * @since 1.0.0
  */
-function anva_archive_title() {
+function anva_the_page_title() {
+    echo anva_get_page_title();
+}
 
-	if ( is_category() ) :
-		single_cat_title();
+/**
+ * Retrieve the page title based on the queried object.
+ *
+ * @since  1.0.0
+ * @return string $title
+ */
+function anva_get_page_title() {
 
-	elseif ( is_tag() ) :
-		single_tag_title();
+    /* --------------------------------------- */
+    /* Home
+    /* --------------------------------------- */
 
-	elseif ( is_author() ) :
-		printf( anva_get_local( 'author' ) . ' %s', '<span class="vcard">' . get_the_author() . '</span>' );
+    if ( is_home() ) :
+        $title = __( 'Blog', 'anva' );
 
-	elseif ( is_day() ) :
-		printf( anva_get_local( 'day' ) . ' %s', '<span>' . get_the_date() . '</span>' );
+    /* --------------------------------------- */
+    /* Single Pages
+    /* --------------------------------------- */
 
-	elseif ( is_month() ) :
-		printf( anva_get_local( 'month' ) . ' %s', '<span>' . get_the_date( 'F Y' ) . '</span>' );
+    elseif ( is_singular( 'post' ) ) :
+        $title = __( 'Blog', 'anva' );
 
-	elseif ( is_year() ) :
-		printf( anva_get_local( 'year' ) . ' %s', '<span>' . get_the_date( 'Y' ) . '</span>' );
+    elseif ( is_singular( array( 'portfolio', 'galleries', 'team', 'slideshows' ) ) ) :
+        $title = get_the_title();
 
-	elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-		echo anva_get_local( 'asides' );
+    elseif ( is_page() ) :
+        $title = get_the_title();
 
-	elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-		echo anva_get_local( 'galleries' );
+    elseif ( is_attachment() ) :
+        $title = __( 'Attachment', 'anva' );
 
-	elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-		echo anva_get_local( 'images' );
+    /* --------------------------------------- */
+    /* Archive Pages
+    /* --------------------------------------- */
 
-	elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-		echo anva_get_local( 'videos' );
+    elseif ( is_category() ) :
+        $title = sprintf( '%s <span>%s</span>', anva_get_local( 'category' ), single_cat_title( '', false ) );
 
-	elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-		echo anva_get_local( 'quotes' );
+    elseif ( is_tag() ) :
+        $title = sprintf( '%s <span>%s</span>', anva_get_local( 'tag' ), single_tag_title( '', false ) );
 
-	elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-		echo anva_get_local( 'links' );
+    elseif ( is_author() ) :
+        $title = sprintf( '%s <span class="vcard">%s</span>', anva_get_local( 'author' ), get_the_author() );
 
-	elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-		echo anva_get_local( 'status' );
+    elseif ( is_year() ) :
+        $title = sprintf( '%s <span>%s</span>', anva_get_local( 'year' ), get_the_date( 'Y' ) );
 
-	elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-		echo anva_get_local( 'audios' );
+    elseif ( is_month() ) :
+        $title = sprintf( '%s <span>%s</span>', anva_get_local( 'month' ), get_the_date( 'F Y' ) );
 
-	elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-		echo anva_get_local( 'chats' );
+    elseif ( is_day() ) :
+        $title = sprintf( '%s <span>%s</span>', anva_get_local( 'day' ), get_the_date() );
 
-	else :
-		echo anva_get_local( 'archives' );
+    /* --------------------------------------- */
+    /* Post Format Archives
+    /* --------------------------------------- */
 
-	endif;
+    elseif ( is_tax( 'post_format' ) ) :
+
+        if ( is_tax( 'post_format', 'post-format-aside' ) ) :
+            $title = anva_get_local( 'asides' );
+
+        elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
+            $title = anva_get_local( 'galleries' );
+
+        elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
+            $title = anva_get_local( 'images' );
+
+        elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
+            $title = anva_get_local( 'videos' );
+
+        elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
+            $title = anva_get_local( 'quotes' );
+
+        elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
+            $title = anva_get_local( 'links' );
+
+        elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
+            $title = anva_get_local( 'status' );
+
+        elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
+            $title = anva_get_local( 'audios' );
+
+        elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
+            $title = anva_get_local( 'chats' );
+        endif;
+
+
+    /* --------------------------------------- */
+    /* Post Type Archives
+    /* --------------------------------------- */
+
+    elseif ( is_post_type_archive() ) :
+        $title = sprintf( '%s <span>%s</span>', anva_get_local( 'archives' ), post_type_archive_title( '', false ) );
+
+    /* --------------------------------------- */
+    /* Taxonomies Archives
+    /* --------------------------------------- */
+
+    elseif ( is_tax() ) :
+        $tax = get_taxonomy( get_queried_object()->taxonomy );
+        $title = sprintf( '%s <span>%s</span>', $tax->labels->singular_name, single_term_title( '', false ) );
+
+    /* --------------------------------------- */
+    /* Search
+    /* --------------------------------------- */
+
+    elseif ( is_search() ) :
+        $title = sprintf( '%s <span>%s</span>', __( 'Search results for', 'anva' ), get_search_query() );
+
+    /* --------------------------------------- */
+    /* 404 Error
+    /* --------------------------------------- */
+
+    elseif ( is_404() ) :
+        $title = anva_get_local( '404_title' );
+
+    /* --------------------------------------- */
+    /* Default Archives
+    /* --------------------------------------- */
+    else :
+        $title = anva_get_local( 'archives' );
+    endif;
+
+    // Filter page title
+    return apply_filters( 'anva_page_title', $title );
 
 }
 
@@ -63,7 +146,7 @@ function anva_archive_title() {
 function anva_posted_on() {
 
 	// Get the time
-	$time_string = '<time class="entry-date published" datetime="%1$s"><i class="fa fa-calendar"></i> %2$s</time>';
+	$time_string = '<time class="entry__date published" datetime="%1$s"><i class="fa fa-calendar"></i> %2$s</time>';
 	
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string .= '<time class="updated" datetime="%3$s"><i class="fa fa-calendar"></i> %4$s</time>';
@@ -81,29 +164,29 @@ function anva_posted_on() {
 
 	if ( comments_open() ) {
 		if ( $num_comments == 0 ) {
-			$comments = __( 'No hay Comentarios', ANVA_DOMAIN );
+			$comments = __( 'No hay Comentarios', 'anva-start' );
 		} elseif ( $num_comments > 1 ) {
-			$comments = $num_comments . __( ' Comentarios', ANVA_DOMAIN );
+			$comments = $num_comments . __( ' Comentarios', 'anva-start' );
 		} else {
-			$comments = __( '1 Comentario', ANVA_DOMAIN );
+			$comments = __( '1 Comentario', 'anva-start' );
 		}
-		$write_comments = '<a href="' . get_comments_link() .'"><span class="leave-reply">'.$comments.'</span></a>';
+		$write_comments = '<a href="' . get_comments_link() . '"><span class="leave-reply">'.$comments.'</span></a>';
 	} else {
-		$write_comments =  __( 'Comentarios cerrado', ANVA_DOMAIN );
+		$write_comments =  __( 'Comentarios cerrado', 'anva-start' );
 	}
 
 	$sep = ' / ';
 
 	printf(
-		'<div class="entry-meta">
-			<span class="posted-on">%1$s</span>
-			<span class="sep">%5$s</span>
-			<span class="byline"><i class="fa fa-user"></i> %2$s</span>
-			<span class="sep">%5$s</span>
-			<span class="category"><i class="fa fa-bars"></i> %3$s</span>
-			<span class="sep">%5$s</span>
-			<span class="comments-link"><i class="fa fa-comments"></i> %4$s</span>
-		</div><!-- .entry-meta (end) -->',
+		'<ul class="meta clearfix">
+			<li class="meta__item meta__item--posted-on">%1$s</li>
+			<li class="meta__item meta__item--sep">%5$s</li>
+			<li class="meta__item meta__item--byline"><i class="fa fa-user"></i> %2$s</li>
+			<li class="meta__item meta__item--sep">%5$s</li>
+			<li class="meta__item meta__item--category"><i class="fa fa-bars"></i> %3$s</li>
+			<li class="meta__item meta__item--sep">%5$s</li>
+			<li class="meta__item meta__item--comments-link"><i class="fa fa-comments"></i> %4$s</li>
+		</ul>',
 		sprintf(
 			'%1$s', $time_string
 		),
@@ -113,12 +196,17 @@ function anva_posted_on() {
 			esc_html( get_the_author() )
 		),
 		sprintf(
-			'%1$s', get_the_category_list( ', ' )
+			'%1$s',
+			get_the_category_list( ', ' )
 		),
 		sprintf(
-			'%1$s', $write_comments
+			'%1$s',
+			$write_comments
 		),
-		sprintf( '%1$s', $sep )
+		sprintf(
+			'%1$s',
+			$sep
+		)
 	);
 }
 
@@ -127,18 +215,18 @@ function anva_posted_on() {
  */
 function anva_social_media() {
 	
-	$html 			= '';
-	$facebook 	= anva_get_option('social_facebook');
-	$twitter 		= anva_get_option('social_twitter');
-	$instagram 	= anva_get_option('social_instagram');
-	$gplus 			= anva_get_option('social_gplus');
-	$youtube 		= anva_get_option('social_youtube');
-	$linkedin 	= anva_get_option('social_linkedin');	
-	$vimeo 			= anva_get_option('social_vimeo');
-	$pinterest 	= anva_get_option('social_pinterest');
-	$digg 			= anva_get_option('social_digg');
-	$dribbble 	= anva_get_option('social_dribbble');
-	$rss 				= anva_get_option('social_rss');
+	$html      = '';
+	$facebook  = anva_get_option('social_facebook');
+	$twitter   = anva_get_option('social_twitter');
+	$instagram = anva_get_option('social_instagram');
+	$gplus     = anva_get_option('social_gplus');
+	$youtube   = anva_get_option('social_youtube');
+	$linkedin  = anva_get_option('social_linkedin');	
+	$vimeo     = anva_get_option('social_vimeo');
+	$pinterest = anva_get_option('social_pinterest');
+	$digg      = anva_get_option('social_digg');
+	$dribbble  = anva_get_option('social_dribbble');
+	$rss       = anva_get_option('social_rss');
 
 	if ( ! empty( $facebook ) ) {
 		$html .= '<li><a href="'. esc_url( $facebook ) .'" class="social social-facebook"><span class="sr-only">Facebook</span></a></li>';
@@ -192,11 +280,17 @@ function anva_social_media() {
  * Header search
  */
 function anva_site_search() {
-	if ( class_exists( 'Woocommerce' ) ) :
-		anva_get_product_search_form();
-	else :
-		anva_get_search_form();
-	endif;
+	?>
+	<li class="header-addon__item">
+	<?php
+		if ( class_exists( 'WooCommerce' ) ) :
+			anva_get_product_search_form();
+		else :
+			anva_get_search_form();
+		endif;
+	?>
+	</li>
+	<?php
 }
 
 /**
@@ -211,14 +305,12 @@ function anva_post_nav() {
 		return;
 	}
 	?>
-	<nav class="post-navigation" role="navigation">
-		<div class="post-navigation-inner">
-			<div class="pager navigation-content">
-				<?php
-					previous_post_link( '<div class="previous">%link</div>', anva_get_local( 'prev' ) );
-					next_post_link( '<div class="next">%link</div>', anva_get_local( 'next' ) );
-				?>
-			</div>
+	<nav class="post-navigation">
+		<div class="post-navigation__wrap clearfix">
+			<?php
+				previous_post_link( '<div class="post-navigation__previous">%link</div>', anva_get_local( 'prev' ) );
+				next_post_link( '<div class="post-navigation__next">%link</div>', anva_get_local( 'next' ) );
+			?>
 		</div>
 	</nav><!-- .post-navigation (end) -->
 	<?php
@@ -329,92 +421,122 @@ function anva_contact_form() {
 	$answer = $s;
 	
 	?>
-	<div class="contact-form-container">
+	<div class="contact-form">
 		
 		<?php if ( ! empty( $email_sended_message ) ) : ?>
-			<div id="email_message" class="alert alert-block"><?php echo $email_sended_message; ?></div>
+			<div id="email_message" class="alert alert-success">
+				<?php echo $email_sended_message; ?>
+			</div>
 		<?php endif; ?>
 
-		<form id="contactform" class="contact-form"  role="form" method="post" action="<?php the_permalink(); ?>#contactform">
+		<form id="contactform" class="contact-form__form" method="post" action="<?php the_permalink(); ?>#contactform">
 
-			<div class="form-name form-group">
-				<label for="cname" class="control-label"><?php echo anva_get_local( 'name' ); ?>:</label>
-				<input id="name" type="text" placeholder="<?php echo anva_get_local( 'name_place' ); ?>" name="cname" class="form-control requiredField" value="<?php if ( isset( $_POST['cname'] ) ) echo esc_attr( $_POST['cname'] ); ?>">
+			<div class="grid_4">
+				<div class="contact-form__group contact-form__group--name">
+					<label for="cname" class="contact-form__label">
+						<?php echo anva_get_local( 'name' ); ?>:
+					</label>
+					<input id="name" type="text" name="cname" class="contact-form__field contact-form__field--text contact-form__field--required" placeholder="<?php echo anva_get_local( 'name_place' ); ?>" value="<?php if ( isset( $_POST['cname'] ) ) echo esc_attr( $_POST['cname'] ); ?>">
+				</div>
 			</div>
 			
-			<div class="form-email form-group">
-				<label for="cemail" class="control-label"><?php echo anva_get_local( 'email' ); ?>:</label>
-				<input id="email" type="email" placeholder="<?php _e('Correo Electr&oacute;nico', ANVA_DOMAIN); ?>" name="cemail" class="form-control requiredField" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
+			<div class="grid_4">
+				<div class="contact-form__group contact-form__group--email">
+					<label for="cemail" class="contact-form__label">
+						<?php echo anva_get_local( 'email' ); ?>:
+					</label>
+					<input id="email" type="email" name="cemail" class="contact-form__field  contact-form__field--email contact-form__field--required" placeholder="<?php _e('Correo Electr&oacute;nico', 'anva-start'); ?>" value="<?php if ( isset( $_POST['cemail'] ) ) echo esc_attr( $_POST['cemail'] );?>">
+				</div>
 			</div>
 
-			<div class="form-subject form-group">						
-				<label for="csubject" class="control-label"><?php echo anva_get_local( 'subject' ); ?>:</label>
-				<input id="subject" type="text" placeholder="<?php echo anva_get_local( 'subject' ); ?>" name="csubject" class="form-control requiredField" value="<?php if ( isset( $_POST['csubject'] ) ) echo esc_attr( $_POST['csubject'] ); ?>">
+			<div class="grid_4 grid_last">
+				<div class="contact-form__group contact-form__group--subject">
+					<label for="csubject" class="contact-form__label">
+						<?php echo anva_get_local( 'subject' ); ?>:
+					</label>
+					<input id="subject" type="text" name="csubject" class="contact-form__field contact-form__field--text contact-form__field--required" placeholder="<?php echo anva_get_local( 'subject' ); ?>" value="<?php if ( isset( $_POST['csubject'] ) ) echo esc_attr( $_POST['csubject'] ); ?>">
+				</div>
 			</div>
+
+			<div class="clear"></div>
 			
-			<div class="form-message form-group">
-				<label for="cmessage" class="control-label"><?php echo anva_get_local( 'message' ); ?>:</label>
-				<textarea id="message" name="cmessage" class="form-control" placeholder="<?php echo anva_get_local( 'message_place' ); ?>"><?php if ( isset( $_POST['cmessage'] ) ) echo esc_textarea( $_POST['cmessage'] ); ?></textarea>
+			<div class="grid_12">
+				<div class="contact-form__group contact-form__group--message">
+					<label for="cmessage" class="contact-form__label">
+						<?php echo anva_get_local( 'message' ); ?>:
+					</label>
+					<textarea id="message" name="cmessage" class="contact-form__field contact-form__field--textarea" placeholder="<?php echo anva_get_local( 'message_place' ); ?>"><?php if ( isset( $_POST['cmessage'] ) ) echo esc_textarea( $_POST['cmessage'] ); ?></textarea>
+				</div>
 			</div>
+
+			<div class="clear"></div>
 			
-			<div class="form-captcha form-group">
-				<label for="captcha" class="control-label"><?php echo $a . ' + '. $b . ' = ?'; ?>:</label>
-				<input type="text" name="ccaptcha" placeholder="<?php echo anva_get_local( 'captcha_place' ); ?>" class="form-control requiredField" value="<?php if ( isset( $_POST['ccaptcha'] ) ) echo $_POST['ccaptcha'];?>">
-				<input type="hidden" id="answer" name="canswer" value="<?php echo esc_attr( $answer ); ?>">
+			<div class="grid_4 grid_last">
+				<div class="contact-form__group contact-form__group--captcha">
+					<label for="captcha" class="contact-form__label">
+						<?php echo $a . ' + '. $b . ' = ?'; ?>:
+					</label>
+					<input type="text" name="ccaptcha" class="contact-form__field contact-form__field--text contact-form__field--required" placeholder="<?php echo anva_get_local( 'captcha_place' ); ?>" value="<?php if ( isset( $_POST['ccaptcha'] ) ) echo $_POST['ccaptcha'];?>">
+					<input type="hidden" id="answer" name="canswer" value="<?php echo esc_attr( $answer ); ?>">
+				</div>
 			</div>
+
+			<div class="clear"></div>
 			
-			<div class="form-submit form-group">
-				<input type="hidden" id="submitted" name="contact-submission" value="1">
-				<input id="submit-contact-form" type="submit" class="btn btn-primary" value="<?php echo anva_get_local( 'submit' ); ?>">
+			<div class="grid_12">
+				<div class="contact-form__group contact-form__group--submit">
+					<input type="hidden" id="submitted" name="contact-submission" value="1">
+					<input id="submit-contact-form" type="submit" class="btn btn-primary" value="<?php echo anva_get_local( 'submit' ); ?>">
+				</div>
 			</div>
 		</form>
 	</div><!-- .contact-form-wrapper -->
 
-	<script>
-	jQuery(document).ready(function(){ 
-		
-		setTimeout(function(){
-			jQuery("#email_message").fadeOut("slow");
-		}, 3000);
+	<script type="text/javascript">
+		jQuery(document).ready(function($) { 
+			
+			setTimeout(function(){
+				$("#email_message").fadeOut("slow");
+			}, 3000);
 
-		jQuery('#contactform input[type="text"]').attr('autocomplete', 'off');
-		jQuery('#contactform').validate({
-			rules: {
-				cname: "required",
-				csubject: "required",
-				cemail: {
-					required: true,
-					email: true
+			$('#contactform input[type="text"]').attr('autocomplete', 'off');
+			$('#contactform').validate({
+				rules: {
+					cname: "required",
+					csubject: "required",
+					cemail: {
+						required: true,
+						email: true
+					},
+					cmessage: {
+						required: true,
+						minlength: 10
+					},
+					ccaptcha: {
+						required: true,
+						number: true,
+						equalTo: "#answer"
+					}
 				},
-				cmessage: {
-					required: true,
-					minlength: 10
-				},
-				ccaptcha: {
-					required: true,
-					number: true,
-					equalTo: "#answer"
+				messages: {			
+					cname: "<?php echo anva_get_local( 'name_required' ); ?>",
+					csubject: "<?php echo anva_get_local( 'subject_required' ); ?>",
+					cemail: {
+						required: "<?php echo anva_get_local( 'email_required' ); ?>",
+						email: "<?php echo anva_get_local( 'email_error' );  ?>"
+					},
+					cmessage: {
+						required: "<?php echo anva_get_local( 'message_required' ); ?>",
+						minlength: "<?php echo anva_get_local( 'message_min' ); ?>"
+					},
+					ccaptcha: {
+						required: "<?php echo anva_get_local( 'captcha_required' ); ?>",
+						number: "<?php echo anva_get_local( 'captcha_number' ); ?>",
+						equalTo: "<?php echo anva_get_local( 'captcha_equalto' );  ?>"
+					}
 				}
-			},
-			messages: {			
-				cname: "<?php echo anva_get_local( 'name_required' ); ?>",
-				csubject: "<?php echo anva_get_local( 'subject_required' ); ?>",
-				cemail: {
-					required: "<?php echo anva_get_local( 'email_required' ); ?>",
-					email: "<?php echo anva_get_local( 'email_error' );  ?>"
-				},
-				cmessage: {
-					required: "<?php echo anva_get_local( 'message_required' ); ?>",
-					minlength: "<?php echo anva_get_local( 'message_min' ); ?>"
-				},
-				ccaptcha: {
-					required: "<?php echo anva_get_local( 'captcha_required' ); ?>",
-					number: "<?php echo anva_get_local( 'captcha_number' ); ?>",
-					equalTo: "<?php echo anva_get_local( 'captcha_equalto' );  ?>"
-				}
-			}
+			});
 		});
-	});
 	</script>
 	<?php
 }
@@ -448,7 +570,7 @@ function anva_get_product_search_form() {
 		<input type="text" id="s" name="s" class="search-field form-control" value="<?php echo get_search_query(); ?>"  placeholder="<?php _e( 'Search for products', 'woocommerce' ); ?>" />
 			<span class="input-group-btn">
 				<button type="submit" id="searchsubmit" class="btn btn-default search-submit">
-					<span class="sr-only"><?php echo esc_attr__( 'Search' ); ?></span>
+					<span class="sr-only"><?php echo esc_attr__( 'Search', 'anva-start' ); ?></span>
 					<i class="fa fa-search"></i>
 				</button>
 				<input type="hidden" name="post_type" value="product" />
@@ -472,58 +594,61 @@ function anva_comment_list( $comment, $args, $depth ) {
 		$tag = 'li';
 		$add_below = 'div-comment';
 	}
-?>
-	<<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+
+	$classes  = empty( $args['has_children'] ) ? '' : 'parent';
+	$classes .= ' comment__item';
+	?>
+
+	<<?php echo $tag ?> <?php comment_class( $classes ) ?> id="comment-<?php comment_ID() ?>">
 	
 	<?php if ( 'div' != $args['style'] ) : ?>
-		<div id="div-comment-<?php comment_ID() ?>" class="comment-wrapper">
-			<div class="row">
+		<div id="div-comment-<?php comment_ID() ?>" class="comment__wrap">
 	<?php endif; ?>
-	
-	<div class="comment-avatar col-xs-3 col-sm-2">
-		<a href="<?php echo comment_author_url( $comment->comment_ID ); ?>">
-			<?php
-				if ( $args['avatar_size'] != 0 ) {
-					echo get_avatar( $comment, 64 );
-				}
-			?>
-		</a>
+
+	<div class="comment__meta">
+		<div class="comment__avatar">
+			<a href="<?php echo comment_author_url( $comment->comment_ID ); ?>" class="comment__avatar-link">
+				<?php
+					if ( $args['avatar_size'] != 0 ) {
+						echo get_avatar( $comment, 60 );
+					}
+				?>
+			</a>
+		</div>
 	</div>
 
-	<div class="comment-body col-xs-9 col-sm-10">
-		<h4 class="comment-author vcard">
-		<?php
-			printf(
-				'<cite class="fn">%s</cite> <span class="says sr-only">says:</span>',
-				get_comment_author_link()
-			);
-		?>
-		</h4>
+	<div class="comment__body">
 
-		<div class="comment-meta">
-			<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
-				<?php printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?>
-				<?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
-			</a>
+		<div class="comment__author vcard">
+			<span class="comment__author-name">
+				<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+			</span>
+			<span class="comment__date">
+				<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+					<?php printf( '%1$s %3$s %2$s', get_comment_date(),  get_comment_time(), __( 'at', 'anva-start' ) ); ?>
+					<?php edit_comment_link( __( 'Edit', 'anva-start' ), '  ', '' ); ?>
+				</a>
+			</span>
 		</div>
 
 		<?php if ( $comment->comment_approved == '0' ) : ?>
-		<em class="comment-awaiting-moderation well well-sm"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+			<em class="comment__awaiting-moderation well well-sm">
+				<?php _e( 'Your comment is awaiting moderation.', 'anva-start' ); ?>
+			</em>
 		<?php endif; ?>
 		
-		<div class="comment-text">
+		<div class="comment__text">
 			<?php comment_text(); ?>
 		</div>
-		
-		<div class="reply">
+
+		<div class="comment__reply">
 			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 		</div>
 	
 	</div>
 
 	<?php if ( 'div' != $args['style'] ) : ?>
-	</div>
-	</div>
+		</div>
 	<?php endif; ?>
 
 <?php

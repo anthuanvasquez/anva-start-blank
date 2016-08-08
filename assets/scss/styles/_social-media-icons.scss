@@ -1,0 +1,15 @@
+.social-media-icons {
+	list-style: none;
+	margin: 10px 0;
+	padding-left: 0;
+	
+	li {
+		@include inline-block();
+		margin-left: 3px;
+		
+		a {
+			display: block;
+			position: relative;
+		}
+	}
+}

@@ -13,101 +13,101 @@ $options = array(
 
 	// Section Tab Layout
 	array(
-		"type" 		=> "open",
-		"title"		=> "Header",
-		"tab"			=> "layout"
+		"type"  => "open",
+		"title" => "Header",
+		"tab"   => "layout"
 	),
 
 	array(
-		"name" 		=> "Logo",  
-		"desc" 		=> __("Introduzca la URL del logo que desea mostrar.", ANVA_DOMAIN),  
-		"id" 			=> "logo",
-		"type" 		=> "image",
-		"std" 		=> ANVA_LOGO,
-		"tab"			=> "layout"
+		"name" => "Logo",  
+		"desc" => __("Introduzca la URL del logo que desea mostrar.", 'anva-start' ),  
+		"id"   => "logo",
+		"type" => "image",
+		"std"  => ANVA_LOGO,
+		"tab"  => "layout"
 	),
 
 	array(
-		"name" 		=> "CSS Personalizado",
-		"desc" 		=> __("Si necesitas realizar algunos cambios menores con estilos CSS, puedes ponerlos aqui para anular los estilos por omision del tema. Sin embargo, si vas a hacer muchos cambios de estilos CSS, lo mejor seria crear un archivo adicional de CSS o crear un Child Theme.", ANVA_DOMAIN),  
-		"id" 			=> "custom_css",
-		"type" 		=> "textarea",
-		"std" 		=> "",
-		"tab"			=> "layout"
+		"name" => "CSS Personalizado",
+		"desc" => __("Si necesitas realizar algunos cambios menores con estilos CSS, puedes ponerlos aqui para anular los estilos por omision del tema. Sin embargo, si vas a hacer muchos cambios de estilos CSS, lo mejor seria crear un archivo adicional de CSS o crear un Child Theme.", 'anva-start' ),  
+		"id"   => "custom_css",
+		"type" => "textarea",
+		"std"  => "",
+		"tab"  => "layout"
 	),
 
 	array(
-		"type" 		=> "close",
-		"tab"			=> "layout"
+		"type" => "close",
+		"tab"  => "layout"
 	),
 
 	array(
-		"type" 		=> "open",
-		"title"		=> "Slider",
-		"tab"			=> "layout"
+		"type"  => "open",
+		"title" => "Slider",
+		"tab"   => "layout"
 	),
 
 	array(
-		"name" 		=> "Slider Speed",  
-		"desc" 		=> __("Introduzca un valor en milisegundos para determinar el tiempo de cada slide.", ANVA_DOMAIN),  
-		"id" 			=> "slider_speed",
-		"type" 		=> "text",
-		"std" 		=> '7000',
-		"tab"			=> "layout"
+		"name" => "Slider Speed",  
+		"desc" => __("Introduzca un valor en milisegundos para determinar el tiempo de cada slide.", 'anva-start' ),  
+		"id"   => "slider_speed",
+		"type" => "text",
+		"std"  => '7000',
+		"tab"  => "layout"
 	),
 
 	array(
-		"name" 		=> "Slider Control",  
-		"desc" 		=> __("Seleccione si desea ocultar la navegación manual slider.", ANVA_DOMAIN),  
-		"id" 			=> "slider_control",
-		"type" 		=> "radio",
-		"std" 		=> '1',
+		"name"    => "Slider Control",  
+		"desc"    => __("Seleccione si desea ocultar la navegación manual slider.", 'anva-start' ),  
+		"id"      => "slider_control",
+		"type"    => "radio",
+		"std"     => '1',
 		"options" => array(
 			'1' => "Mostrar control.",
 			'0' => "Ocultar control."
 		),
-		"tab"			=> "layout"
+		"tab"	  => "layout"
 	),
 
 	array(
-		"name" 		=> "Slider Direction",  
-		"desc" 		=> __("Seleccione si desea ocultar la navegación de dirección del slider.", ANVA_DOMAIN),  
-		"id" 			=> "slider_direction",
-		"type" 		=> "radio",
-		"std" 		=> '1',
+		"name"    => "Slider Direction",  
+		"desc"    => __("Seleccione si desea ocultar la navegación de dirección del slider.", 'anva-start' ),  
+		"id"      => "slider_direction",
+		"type"    => "radio",
+		"std"     => '1',
 		"options" => array(
 			'1' => "Mostrar dirección.",
 			'0' => "Ocultar dirección."
 		),
-		"tab"			=> "layout"
+		"tab"	  => "layout"
 	),
 
 	array(
-		"name" 		=> "Slider Play",  
-		"desc" 		=> __("Seleccione si desea ocultar el botón de play y pausa.", ANVA_DOMAIN),  
-		"id" 			=> "slider_play",
-		"type" 		=> "radio",
-		"std" 		=> '1',
+		"name"    => "Slider Play",  
+		"desc"    => __("Seleccione si desea ocultar el botón de play y pausa.", 'anva-start' ),  
+		"id"      => "slider_play",
+		"type"    => "radio",
+		"std"     => '1',
 		"options" => array(
 			'1' => "Mostrar play/pausa.",
 			'0' => "Ocultar play/pausa."
 		),
-		"tab"			=> "layout"
+		"tab"	  => "layout"
 	),
 
 	array(
-		"name" 		=> "Footer Columns",  
-		"desc" 		=> __("Selecciona la cantidad de columnas que deseas mostrar en el footer.", ANVA_DOMAIN),  
-		"id" 			=> "footer_cols",
-		"type" 		=> "radio",
-		"std" 		=> '4',
+		"name"    => "Footer Columns",  
+		"desc"    => __("Selecciona la cantidad de columnas que deseas mostrar en el footer.", 'anva-start' ),  
+		"id"      => "footer_cols",
+		"type"    => "radio",
+		"std"     => '4',
 		"options" => array(
 			'12' => "1 Columna.",
 			'6'  => "2 Columnas.",
 			'4'  => "3 Columnas.",
 			'3'  => "4 Columnas."
 		),
-		"tab"			=> "layout"
+		"tab"	  => "layout"
 	),
 
 	array(
@@ -123,7 +123,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Facebook",  
-		"desc" 		=> __("Introduzca la URL de su perfil o pagina de facebook.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil o pagina de facebook.", 'anva-start' ),  
 		"id" 			=> "social_facebook",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -132,7 +132,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Twitter",  
-		"desc" 		=> __("Introduzca la URL de su perfil de twitter.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de twitter.", 'anva-start' ),  
 		"id" 			=> "social_twitter",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -141,7 +141,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Instagram",  
-		"desc" 		=> __("Introduzca la URL de su perfil de instagram.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de instagram.", 'anva-start' ),  
 		"id" 			=> "social_instagram",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -150,7 +150,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Google+",  
-		"desc" 		=> __("Introduzca la URL de su perfil de google+.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de google+.", 'anva-start' ),  
 		"id" 			=> "social_gplus",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -159,7 +159,7 @@ $options = array(
 
 	array(
 		"name" 		=> "LinkedIn",  
-		"desc" 		=> __("Introduzca la URL de su perfil de linkedin.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de linkedin.", 'anva-start' ),  
 		"id" 			=> "social_linkedin",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -168,7 +168,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Youtube",  
-		"desc" 		=> __("Introduzca la URL de su perfil de youtube.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de youtube.", 'anva-start' ),  
 		"id" 			=> "social_youtube",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -177,7 +177,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Vimeo",  
-		"desc" 		=> __("Introduzca la URL de su perfil de vimeo.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de vimeo.", 'anva-start' ),  
 		"id" 			=> "social_vimeo",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -186,7 +186,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Pinterest",  
-		"desc" 		=> __("Introduzca la URL de su perfil de pinterest.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de pinterest.", 'anva-start' ),  
 		"id" 			=> "social_pinterest",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -195,7 +195,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Digg",  
-		"desc" 		=> __("Introduzca la URL de su perfil de digg.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de digg.", 'anva-start' ),  
 		"id" 			=> "social_digg",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -204,7 +204,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Dribbble",  
-		"desc" 		=> __("Introduzca la URL de su perfil de dribbble.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su perfil de dribbble.", 'anva-start' ),  
 		"id" 			=> "social_dribbble",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -213,7 +213,7 @@ $options = array(
 
 	array(
 		"name" 		=> "RSS",  
-		"desc" 		=> __("Introduzca la URL de su feed.", ANVA_DOMAIN),  
+		"desc" 		=> __("Introduzca la URL de su feed.", 'anva-start' ),  
 		"id" 			=> "social_rss",
 		"type" 		=> "text",
 		"std" 		=> "#",
@@ -230,13 +230,13 @@ $options = array(
 	array(
 		"type" 		=> "open",
 		"title"		=> "Single Post",
-		"msg"			=> __("Estos ajustes solo se aplicaran a los posts individuales. Lo que quiere decir que no afectaran a los posts que se muestran en la parte frontal del blog.", ANVA_DOMAIN),
+		"msg"			=> __("Estos ajustes solo se aplicaran a los posts individuales. Lo que quiere decir que no afectaran a los posts que se muestran en la parte frontal del blog.", 'anva-start' ),
 		"tab"			=> "content"
 	),
 
 	array(
 		"name" 		=> "Mostrar informacion meta en la parte superior de los posts?",  
-		"desc" 		=> __("Seleccione si desea que la informacion meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", ANVA_DOMAIN),  
+		"desc" 		=> __("Seleccione si desea que la informacion meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", 'anva-start' ),  
 		"id" 			=> "single_meta",
 		"type" 		=> "radio",
 		"std" 		=> "1",
@@ -249,7 +249,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Mostrar imagenes destacadas en la parte superior de los posts?",  
-		"desc" 		=> __("Elija como desea que se muestren las imagenes destacadas en la parte superior de los posts.", ANVA_DOMAIN),  
+		"desc" 		=> __("Elija como desea que se muestren las imagenes destacadas en la parte superior de los posts.", 'anva-start' ),  
 		"id" 			=> "single_thumb",
 		"type" 		=> "radio",
 		"std" 		=> "1",
@@ -263,7 +263,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Mostrar comentarios debajo de los posts?",  
-		"desc" 		=> __("Seleccione si desea ocultar completamente los comentarios o no debajo de los posts.", ANVA_DOMAIN),  
+		"desc" 		=> __("Seleccione si desea ocultar completamente los comentarios o no debajo de los posts.", 'anva-start' ),  
 		"id" 			=> "single_comment",
 		"type" 		=> "radio",
 		"std" 		=> "1",
@@ -276,7 +276,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Mostrar breadcrumbs?",  
-		"desc" 		=> __("Seleccione si desea ocultar o mostrar los breadcrumbs.", ANVA_DOMAIN),  
+		"desc" 		=> __("Seleccione si desea ocultar o mostrar los breadcrumbs.", 'anva-start' ),  
 		"id" 			=> "single_breadcrumb",
 		"type" 		=> "radio",
 		"std" 		=> "1",
@@ -296,13 +296,13 @@ $options = array(
 	array(
 		"type" 		=> "open",
 		"title"		=> "Primary Posts",
-		"msg"			=> __("Estos ajustes solo se aplicaran a los posts que se muestran en la parte frontal del blog.", ANVA_DOMAIN),
+		"msg"			=> __("Estos ajustes solo se aplicaran a los posts que se muestran en la parte frontal del blog.", 'anva-start' ),
 		"tab"			=> "content"
 	),
 
 	array(
 		"name" 		=> "Mostrar informacion meta en la parte superior de los posts?",  
-		"desc" 		=> __("Seleccione si desea que la informacion de meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", ANVA_DOMAIN),  
+		"desc" 		=> __("Seleccione si desea que la informacion de meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", 'anva-start' ),  
 		"id" 			=> "posts_meta",
 		"type" 		=> "radio",
 		"std" 		=> "1",
@@ -315,7 +315,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Mostrar imagenes destacadas en la parte superior de los posts?",  
-		"desc" 		=> __("Elija como desea que muestren las imagenes destacadas en la parte superior de los posts.", ANVA_DOMAIN),  
+		"desc" 		=> __("Elija como desea que muestren las imagenes destacadas en la parte superior de los posts.", 'anva-start' ),  
 		"id" 			=> "posts_thumb",
 		"type" 		=> "radio",
 		"std" 		=> "1",
@@ -341,7 +341,7 @@ $options = array(
 	
 	array(
 		"name" 		=> "Tabletas y Moviles",
-		"desc" 		=> __("Este tema viene con una hoja de estilo especial que se centrara en la resolucion de la pantalla de sus visitantes para mostrarles un diseno ligeramente modificado si su resolucion de pantalla coincide con tamanos comunes de una tableta o un dispositivo movil.", ANVA_DOMAIN),  
+		"desc" 		=> __("Este tema viene con una hoja de estilo especial que se centrara en la resolucion de la pantalla de sus visitantes para mostrarles un diseno ligeramente modificado si su resolucion de pantalla coincide con tamanos comunes de una tableta o un dispositivo movil.", 'anva-start' ),  
 		"id" 			=> "responsive",
 		"type" 		=> "radio",
 		"std" 		=> "1",
@@ -354,7 +354,7 @@ $options = array(
 
 	array(
 		"name" 		=> "Navegacion",
-		"desc" 		=> __("Seleccione como desea mostrar la navegacion principal en los dispositivos moviles.", ANVA_DOMAIN),  
+		"desc" 		=> __("Seleccione como desea mostrar la navegacion principal en los dispositivos moviles.", 'anva-start' ),  
 		"id" 			=> "navigation",
 		"type" 		=> "radio",
 		"std" 		=> "toggle_navigation",

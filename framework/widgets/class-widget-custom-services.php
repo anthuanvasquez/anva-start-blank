@@ -8,7 +8,7 @@ class Custom_Services extends WP_Widget {
 
 		$widget_ops = array(
 			'classname' => 'widget_services',
-			'description' => __( 'Muestra una imagen con un texto personalizado.', ANVA_DOMAIN )
+			'description' => __( 'Muestra una imagen con un texto personalizado.', 'anva-start' )
 		);
 
 		$this->WP_Widget( 'Custom_Services', 'Custom Image', $widget_ops);

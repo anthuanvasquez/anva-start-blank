@@ -8,7 +8,7 @@ class Custom_Social_Media extends WP_Widget {
 
 		$widget_ops = array(
 			'classname' => 'widget_social_media',
-			'description' => __('Muestra los iconos de las redes mas populares y una descripcion.', ANVA_DOMAIN)
+			'description' => __('Muestra los iconos de las redes mas populares y una descripcion.', 'anva-start' )
 		);
 
 		$this->WP_Widget('Custom_Social_Media', 'Custom Social Media', $widget_ops);

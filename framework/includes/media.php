@@ -19,55 +19,55 @@ function anva_get_image_sizes() {
 	// Crop sizes
 	$sizes = array(
 		'blog_large' => array(
-			'name' 		=> __( 'Blog Large', ANVA_DOMAIN ),
+			'name' 		=> __( 'Blog Large', 'anva-start' ),
 			'width' 	=> $content_width,
 			'height' 	=> 9999,
 			'crop' 		=> false
 		),
 		'blog_medium' => array(
-			'name' 		=> __( 'Blog Medium', ANVA_DOMAIN ),
+			'name' 		=> __( 'Blog Medium', 'anva-start' ),
 			'width' 	=> 320,
 			'height'	=> 320,
 			'crop' 		=> false
 		),
 		'blog_small' => array(
-			'name' 		=> __( 'Blog Small', ANVA_DOMAIN ),
+			'name' 		=> __( 'Blog Small', 'anva-start' ),
 			'width' 	=> 195,
 			'height' 	=> 195,
 			'crop' 		=> false
 		),
 		'slider_big' => array(
-			'name' 		=> __( 'Slider Big', ANVA_DOMAIN ),
+			'name' 		=> __( 'Slider Big', 'anva-start' ),
 			'width' 	=> 1600,
 			'height' 	=> 500,
 			'crop' 		=> true
 		),
 		'slider_large' => array(
-			'name' 		=> __( 'Slider Large', ANVA_DOMAIN ),
+			'name' 		=> __( 'Slider Large', 'anva-start' ),
 			'width' 	=> $content_width,
 			'height' 	=> 400,
 			'crop' 		=> true
 		),
 		'slider_medium' => array(
-			'name' 		=> __( 'Slider Medium', ANVA_DOMAIN ),
+			'name' 		=> __( 'Slider Medium', 'anva-start' ),
 			'width' 	=> 564,
 			'height' 	=> 400,
 			'crop' 		=> true
 		),
 		'grid_2' => array(
-			'name' 		=> __( '2 Column of Grid', ANVA_DOMAIN ),
+			'name' 		=> __( '2 Column of Grid', 'anva-start' ),
 			'width' 	=> 472,
 			'height' 	=> 295,
 			'crop' 		=> true
 		),
 		'grid_3' => array(
-			'name' 		=> __( '3 Column of Grid', ANVA_DOMAIN ),
+			'name' 		=> __( '3 Column of Grid', 'anva-start' ),
 			'width' 	=> 320,
 			'height' 	=> 200,
 			'crop' 		=> true
 		),
 		'grid_4' => array(
-			'name' 		=> __( '4 Column of Grid', ANVA_DOMAIN ),
+			'name' 		=> __( '4 Column of Grid', 'anva-start' ),
 			'width' 	=> 240,
 			'height' 	=> 150,
 			'crop' 		=> true
@@ -142,23 +142,23 @@ function anva_post_thumbnails( $thumb ) {
 
 	// Default
 	$size = 'blog_large';
-	$classes = 'large-thumbnail';
+	$classes = 'entry__thumbnail--large';
 
 	if ( 0 == $thumb ) {
-		$classes = 'medium-thumbnail';
+		$classes = 'entry__thumbnail--medium';
 		$size = 'blog_medium';
 
 	} elseif ( 1 == $thumb ) {
-		$classes = 'large-thumbnail';
+		$classes = 'entry__thumbnail--large';
 		$size = 'blog_large';
 	}
 
 	if ( $thumb != 2 && has_post_thumbnail() ) {
-		$output .= '<div class="entry-thumbnail ' . $classes . ' thumbnail">';
+		$output .= '<div class="entry__thumbnail ' . $classes . ' thumbnail">';
 		if ( is_single() ) {
-			$output .= '<a href="' . anva_get_featured_image( $post->ID, 'large' ) . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+			$output .= '<a class="entry__thumbnail-link" href="' . anva_get_featured_image( $post->ID, 'large' ) . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size, array( 'class' => 'entry__image' ) ) . '</a>';
 		} else {
-			$output .= '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+			$output .= '<a class="entry__thumbnail-link" href="' . get_permalink() . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size, array( 'class' => 'entry__image' ) ) . '</a>';
 		}
 		$output .= '</div>';
 	}
@@ -176,8 +176,8 @@ function anva_post_grid_thumbnails( $size ) {
 	$output  = '';
 
 	if ( has_post_thumbnail() ) {
-		$output .= '<div class="entry-thumbnail large-thumbnail thumbnail">';
-		$output .= '<a href="' . get_permalink( $post->ID ) . '" title="' . get_the_title( $post->ID ) . '">' .get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+		$output .= '<div class="entry__thumbnail entry__thumbnail--large thumbnail">';
+		$output .= '<a class="entry__thumbnail-link" href="' . get_permalink( $post->ID ) . '" title="' . get_the_title( $post->ID ) . '">' .get_the_post_thumbnail( $post->ID, $size ) . '</a>';
 		$output .= '</div>';
 	}
 	

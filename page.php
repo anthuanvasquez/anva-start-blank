@@ -6,37 +6,42 @@
 $classes = '';
 $sidebar = anva_get_post_meta( '_sidebar_column' );
 
-if ( 'left' == $sidebar || 'right' == $sidebar ) {
-	$classes = 'col-sm-8';
+if ( 'left' == $sidebar ) {
+	$classes = 'content-area--sidebar-left';
 
-} elseif ( 'double' == $sidebar || 'double_left' == $sidebar || 'double_right' == $sidebar  ) {
-	$classes = 'col-sm-6';
+} elseif ( 'right' == $sidebar ) {
+	$classes = 'content-area--sidebar-right';
+
+} elseif ( 'double' == $sidebar ) {
+	$classes = 'content-area--both';
+
+} elseif ( 'double_left' == $sidebar ) {
+	$classes = 'content-area--both content-area--both-left';
+
+} elseif ( 'double_right' == $sidebar ) {
+	$classes = 'content-area--both content-area--both-right';
 
 } elseif ( 'fullwidth' == $sidebar ) {
-	$classes = 'col-sm-12';
+	$classes = 'content-area--full';
 
-} else {
-	$classes = 'col-sm-8';
-	
 }
 
 get_header();
 ?>
 
-<div class="row grid-columns">
+<div class="container">
 
-	<?php anva_sidebar_layout_before(); ?>
+	<?php do_action( 'anva_sidebar_layout_before' ); ?>
 
-	<div class="content-area <?php echo esc_attr($classes); ?>">
-		<div class="main">
+	<div class="content-area <?php echo esc_attr( $classes ); ?>">
 
-			<?php anva_post_before(); ?>
+			<?php do_action( 'anva_post_before' ); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
 			
-			<?php anva_post_after(); ?>
+				<?php do_action( 'anva_post_after' ); ?>
 
 				<?php
 					$single_comment = anva_get_option( 'single_comment' );
@@ -49,11 +54,10 @@ get_header();
 
 			<?php endwhile; ?>
 
-		</div><!-- .main (end) -->
 	</div><!-- .content-area (end) -->
 	
-	<?php anva_sidebar_layout_after(); ?>
-	
-</div><!-- .grid-columns (end) -->
+	<?php do_action( 'anva_sidebar_layout_after' ); ?>
+		
+</div>
 
 <?php get_footer(); ?>

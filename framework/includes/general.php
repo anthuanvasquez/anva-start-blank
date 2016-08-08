@@ -19,7 +19,7 @@ function anva_get_option( $id, $default = false ) {
  * Make theme available for translations
  */
 function anva_theme_texdomain() {
-	load_theme_textdomain( ANVA_DOMAIN, get_template_directory() . '/languages' );
+	load_theme_textdomain( 'anva-start', get_template_directory() . '/languages' );
 }
 
 function anva_add_theme_support() {
@@ -42,36 +42,47 @@ function anva_register_menus() {
  * Sidebar locations
  */
 function anva_get_sidebar_locations() {
-	$cols = anva_get_option( 'footer_cols', '4' );
 	$locations = array(
 		'sidebar_right' => array(
 			'args' => array(
 				'id' => 'sidebar_right',
-				'name' => __( 'Sidebar Right', ANVA_DOMAIN ),
-				'description' => __( 'Sidebar right.', ANVA_DOMAIN ),
+				'name' => __( 'Sidebar Right', 'anva-start' ),
+				'description' => __( 'Sidebar right.', 'anva-start' ),
 			)
 		),
 		'sidebar_left' => array(
 			'args' => array(
 				'id' => 'sidebar_left',
-				'name' => __( 'Sidebar Left', ANVA_DOMAIN ),
-				'description' => __( 'Sidebar left.', ANVA_DOMAIN ),
+				'name' => __( 'Sidebar Left', 'anva-start' ),
+				'description' => __( 'Sidebar left.', 'anva-start' ),
 			)
 		),
-		'homepage' => array(
+		'footer_1' => array(
 			'args' => array(
-				'id' => 'homepage',
-				'name' => __( 'Homepage', ANVA_DOMAIN ),
-				'description' => __( 'Homepage sidebar below content.', ANVA_DOMAIN ),
-				'class' => 'grid_4',
+				'id' => 'footer_1',
+				'name' => __( 'Footer 1', 'anva-start' ),
+				'description' => __( 'Footer 1 sidebar.', 'anva-start' ),
 			)
 		),
-		'footer' => array(
+		'footer_2' => array(
 			'args' => array(
-				'id' => 'footer',
-				'name' => __( 'Footer', ANVA_DOMAIN ),
-				'description' => __( 'Footer sidebar.', ANVA_DOMAIN ),
-				'class' => 'grid_' . $cols,
+				'id' => 'footer_2',
+				'name' => __( 'Footer 2', 'anva-start' ),
+				'description' => __( 'Footer 2 sidebar.', 'anva-start' ),
+			)
+		),
+		'footer_3' => array(
+			'args' => array(
+				'id' => 'footer_3',
+				'name' => __( 'Footer 3', 'anva-start' ),
+				'description' => __( 'Footer 3 sidebar.', 'anva-start' ),
+			)
+		),
+		'footer_4' => array(
+			'args' => array(
+				'id' => 'footer_4',
+				'name' => __( 'Footer 4', 'anva-start' ),
+				'description' => __( 'Footer 4 sidebar.', 'anva-start' ),
 			)
 		),
 	);
@@ -107,10 +118,10 @@ function anva_get_sidebar_args( $id, $name, $description, $classes ) {
 	$args = array(
 		'id'            => $id,
 		'name'          => $name,
-		'description'		=> $description,
-		'before_widget' => '<aside id="%1$s" class="widget %2$s '.$classes.'"><div class="widget-inner">',
-		'after_widget'  => '</div></aside>',
-		'before_title'  => '<h3 class="widget-title">',
+		'description'   => $description,
+		'before_widget' => '<div id="%1$s" class="widget %2$s ' . $classes . '"><div class="widget__wrap">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<h3 class="widget__title">',
 		'after_title'   => '</h3>',
 	);
 
@@ -123,13 +134,10 @@ function anva_get_sidebar_args( $id, $name, $description, $classes ) {
 function anva_load_scripts() {
 	
 	// Stylesheets
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css' );
-	wp_enqueue_style( 'boostrap', get_template_directory_uri() . '/assets/css/bootstrap.css' );
-	wp_enqueue_style( 'screen', get_template_directory_uri() . '/assets/css/screen.css' );
-	
-	if ( 1 == anva_get_option( 'responsive' ) ) {
-		wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/screen-responsive.css', array( 'screen' ), false, 'all' );
-	}
+	wp_enqueue_style( 'font-google', '//fonts.googleapis.com/css?family=Raleway:400,700,600' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css', array(), '4.6.3' );
+	wp_enqueue_style( 'boostrap', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), '3.3.6' );
+	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css', array(), ANVA_FRAMEWORK_VERSION );
 	
 	// Scripts
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -137,12 +145,12 @@ function anva_load_scripts() {
 	}
 
 	if ( is_page_template( 'template_contact-us.php' ) ) {
-		wp_enqueue_script( 'validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'jquery-validate', get_template_directory_uri() . '/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), '1.12.0', true );
 	}
 
-	wp_enqueue_script( 'boostrap-js', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.min.js', array( 'jquery', 'plugins' ), '', true );
+	wp_enqueue_script( 'boostrap-js', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
+	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array( 'jquery' ), ANVA_FRAMEWORK_VERSION, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.min.js', array( 'jquery', 'plugins' ), ANVA_FRAMEWORK_VERSION, true );
 	wp_localize_script( 'main', 'ANVAJS', anva_get_js_locals() );
 
 }

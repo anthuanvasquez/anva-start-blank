@@ -1,0 +1,91 @@
+/*
+ * Links
+ */
+a,
+.link {
+	color: $color__link;
+	
+	&:hover {
+		color: $color__link--hover;
+	}
+}
+
+p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
+	margin-bottom: $trim;
+}
+
+/*
+ * Lists
+ */
+dl, dt, dd, ol, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+/*
+ * Fix font headings size
+ */
+h1, .h1 {
+	font-size: $heading__h1;
+}
+
+h2, .h2 {
+	font-size: $heading__h2;
+}
+
+h3, .h3 {
+	font-size: $heading__h3;
+}
+
+h4, .h4 {
+	font-size: $heading__h4;
+}
+
+h5, .h5 {
+	font-size: $heading__h5;
+}
+
+h6, .h6 {
+	font-size: $heading__h6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	color: $heading__font-color;
+	line-height: 1.5;
+	margin: 0 0 $trim 0;
+	@include font-stack-headers();
+
+	a {
+		color: $heading__font-color;
+		
+		&:hover {
+			color: $color__primary;
+		}
+	}
+}
+
+/*
+ * Quotes
+ */
+blockquote {
+	font-size: $base__font-size;
+	margin-bottom: $trim;
+}
+
+/*
+ * Paragraphs
+ */
+p, pre {
+	margin-bottom: $trim;
+}

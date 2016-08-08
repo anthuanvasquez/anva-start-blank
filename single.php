@@ -6,21 +6,20 @@
 get_header();
 ?>
 
-<div class="row grid-columns">
-	<div class="content-area col-sm-8">
-		<div class="main" role="main">
+<div class="container clearfix">
+	<div class="content-area">
 		
-		<?php anva_post_before(); ?>
+		<?php do_action( 'anva_post_before' ); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 		
 			<?php get_template_part( 'content', 'single' ); ?>
 		
-		<?php anva_post_after(); ?>
+			<?php do_action( 'anva_post_after' ); ?>
 
 			<?php
 				$single_comment = anva_get_option( 'single_comment' );
-				if( 1 == $single_comment ) :
+				if ( 1 == $single_comment ) :
 					if( comments_open() || '0' != get_comments_number() ) :
 						comments_template();
 					endif;
@@ -29,11 +28,10 @@ get_header();
 
 		<?php endwhile; ?>
 
-		</div><!-- .main (end) -->
 	</div><!-- .content-area (end) -->
 	
 	<?php anva_sidebars( 'right', '4' ); ?>
 	
-</div><!-- .grid-columns (end) -->
+</div><!-- .container (end) -->
 
 <?php get_footer(); ?>
