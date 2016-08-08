@@ -8,6 +8,7 @@ define( 'ANVA_DIR', get_template_directory() );
 define( 'ANVA_URI', get_template_directory_uri() );
 define( 'ANVA_FRAMEWORK_DIR', get_template_directory() . '/framework' );
 define( 'ANVA_FRAMEWORK_URI', get_template_directory_uri() . '/framework' );
+define( 'ANVA_FRAMEWORK_VERSION', '1.0.0' );
 define( 'ANVA_SETTINGS', serialize( $theme_settings ) );
 
 // Inlclude files

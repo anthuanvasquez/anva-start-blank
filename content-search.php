@@ -5,14 +5,11 @@
 ?>
 <div class="entry">
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry__article' ); ?>>
-		<div class="entry-content">
-			<div class="entry-summary">
-				<?php anva_excerpt(); ?>
-				<a class="btn btn-default" href="<?php the_permalink(); ?>">
-					<?php echo anva_get_local( 'read_more' ); ?>
-				</a>
-			</div><!-- .entry-summary (end) -->
-			<div class="clearfix"></div>
-		</div><!-- .entry-content (end) -->
-	</article><!-- #post-<?php the_ID(); ?> -->
-</div><!-- .article-wrapper (end) -->
+		<div class="entry__content">
+			<?php anva_excerpt(); ?>
+			<a class="button button-blue" href="<?php the_permalink(); ?>">
+				<?php echo anva_get_local( 'read_more' ); ?>
+			</a>
+		</div><!-- .entry__content (end) -->
+	</article><!-- #post-<?php the_ID(); ?> (end) -->
+</div><!-- .entry (end) -->

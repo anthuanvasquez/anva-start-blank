@@ -11,7 +11,9 @@
  * Load Woocoomerce Mod Stylesheet
  */
 function anva_woo_styles() {
+	
 	wp_enqueue_style( 'anva-woocommerce-styles', get_template_directory_uri() . '/assets/css/styles-woocommerce.css' );
+
 }
 add_action( 'wp_enqueue_scripts', 'anva_woo_styles' ); 
 
@@ -39,13 +41,6 @@ function anva_woo_add_sidebar_locations( $locations ) {
 	);
 
 	return $locations;
+
 }
 add_filter( 'anva_get_sidebar_locations', 'anva_woo_add_sidebar_locations' );
-
-/*
- * Change text onsale
- */
-// function anva_woo_custom_sale_flash( $text, $post, $_product ) {
-// 	return '<span class="onsale">Sale!</span>';  
-// }
-// add_filter('woocommerce_sale_flash', 'anva_woo_custom_sale_flash', 10, 3);

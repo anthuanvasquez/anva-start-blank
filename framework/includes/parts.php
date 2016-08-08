@@ -33,10 +33,7 @@ function anva_get_page_title() {
     elseif ( is_singular( 'post' ) ) :
         $title = __( 'Blog', 'anva' );
 
-    elseif ( is_singular( 'portfolio' ) ) :
-        $title = get_the_title();
-
-    elseif ( is_singular( 'galleries' ) ) :
+    elseif ( is_singular( array( 'portfolio', 'galleries', 'team', 'slideshows' ) ) ) :
         $title = get_the_title();
 
     elseif ( is_page() ) :
@@ -139,7 +136,7 @@ function anva_get_page_title() {
     endif;
 
     // Filter page title
-    return apply_filters( 'anva_page_title', $title);
+    return apply_filters( 'anva_page_title', $title );
 
 }
 
@@ -573,7 +570,7 @@ function anva_get_product_search_form() {
 		<input type="text" id="s" name="s" class="search-field form-control" value="<?php echo get_search_query(); ?>"  placeholder="<?php _e( 'Search for products', 'woocommerce' ); ?>" />
 			<span class="input-group-btn">
 				<button type="submit" id="searchsubmit" class="btn btn-default search-submit">
-					<span class="sr-only"><?php echo esc_attr__( 'Search' ); ?></span>
+					<span class="sr-only"><?php echo esc_attr__( 'Search', 'anva-start' ); ?></span>
 					<i class="fa fa-search"></i>
 				</button>
 				<input type="hidden" name="post_type" value="product" />
@@ -628,8 +625,8 @@ function anva_comment_list( $comment, $args, $depth ) {
 			</span>
 			<span class="comment__date">
 				<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
-					<?php printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?>
-					<?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+					<?php printf( '%1$s %3$s %2$s', get_comment_date(),  get_comment_time(), __( 'at', 'anva-start' ) ); ?>
+					<?php edit_comment_link( __( 'Edit', 'anva-start' ), '  ', '' ); ?>
 				</a>
 			</span>
 		</div>

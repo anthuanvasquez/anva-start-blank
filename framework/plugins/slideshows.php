@@ -4,12 +4,8 @@
  * Setup slideshows 
  */
 function anva_slideshows_setup() {
-	add_action( 'init', 'anva_slideshows_register' );
-	add_action( 'admin_head', 'anva_slideshows_admin_icon' );	
 	add_action( 'add_meta_boxes', 'anva_slideshows_add_meta' );
 	add_action( 'save_post', 'anva_slideshows_save_meta', 1, 2 );
-	add_action( 'manage_slideshows_posts_custom_column', 'anva_slideshows_add_columns' );
-	add_filter( 'manage_edit-slideshows_columns', 'anva_slideshows_columns' );
 	add_shortcode( 'slideshows', 'anva_slideshows_shortcode' );
 }
 
@@ -65,52 +61,6 @@ function anva_get_slideshows() {
 }
 
 /*
- * Register post type slideshows
- */
-function anva_slideshows_register() {
-
-	$labels = array(
-		'name'               => __( 'Slideshows', 'anva-start' ),
-		'singular_name'      => __( 'Slide', 'anva-start' ),
-		'all_items'          => __( 'Todos los Slides', 'anva-start' ),
-		'add_new'            => __( 'A&ntilde;adir Nuevo Slide', 'anva-start' ),
-		'add_new_item'       => __( 'A&ntilde;adir Nuevo Slide', 'anva-start' ),
-		'edit_item'          => __( 'Editar Slide', 'anva-start' ),
-		'new_item'           => __( 'Nuevo Slide', 'anva-start' ),
-		'view_item'          => __( 'Ver Slide', 'anva-start' ),
-		'search_items'       => __( 'Buscar Slides', 'anva-start' ),
-		'not_found'          => __( 'Slide no Encontrado', 'anva-start' ),
-		'not_found_in_trash' => __( 'No se Encontraron Slides en la Papelera', 'anva-start' ),
-		'parent_item_colon'  => '' );
-	
-	$args = array(
-		'labels'               	=> $labels,
-		'public'               	=> false,
-		'publicly_queryable'   	=> false,
-		'_builtin'             	=> false,
-		'show_ui'              	=> true, 
-		'query_var'            	=> false,
-		'rewrite'              	=> false,
-		'capability_type'      	=> 'post',
-		'hierarchical'         	=> false,
-		'menu_position'        	=> 26.6,
-		'supports'             	=> array( 'title', 'thumbnail', 'excerpt', 'page-attributes' ),
-		'taxonomies'           	=> array(),
-		'has_archive'          	=> false,
-		'show_in_nav_menus'    	=> false
-	);
-
-	register_post_type( 'slideshows', $args );
-}
-
-/*
- * Admin menu icon
- */
-function anva_slideshows_admin_icon() {
-	echo '<style>#adminmenu #menu-posts-slideshows div.wp-menu-image:before { content: "\f233"; }</style>';	
-}
-
-/*
  * Output slides from slideshows array
  */
 function anva_slideshows_featured( $slug ) {
@@ -147,7 +97,7 @@ function anva_slideshows_featured( $slug ) {
 	// Output
 	$html = "";
 	
-	$the_query = anva_get_post_query( apply_filters( 'anva_slideshows_query_args', $query_args ) );
+	$the_query = anva_get_post( apply_filters( 'anva_slideshows_query_args', $query_args ) );
 
 	if ( $the_query->have_posts() ) {
 		$html .= '<div id="slider-wrap-' . $slug . '" class="slider__wrap slider__wrap--' . $slug . '">';
@@ -360,47 +310,6 @@ function anva_slideshows_save_meta( $post_id, $post ) {
 		update_post_meta( $post_id, '_slider_data', strip_tags( $_POST['slider_data'] ) );
 	}
 
-}
-
-/*
- * Admin columns
- */
-function anva_slideshows_columns( $columns ) {
-	$columns = array(
-		'cb'       => '<input type="checkbox" />',
-		'image'    => anva_get_local( 'image' ),
-		'title'    => anva_get_local( 'title' ),
-		'ID'       => anva_get_local( 'slide_id' ),
-		'order'    => anva_get_local( 'order' ),
-		'link'     => anva_get_local( 'link' ),
-		'date'     => anva_get_local( 'date' )
-	);
-	return $columns;
-}
-
-/*
- * Add admin coumns
- */
-function anva_slideshows_add_columns( $column ) {
-	
-	global $post;
-	
-	$edit_link 		= get_edit_post_link( $post->ID );
-	$meta 				= anva_get_post_custom();
-	$slider_link 	= $meta['_slider_link_url'][0];
-	$slider_id 		= $meta['_slider_id'][0];
-
-	if ( $column == 'image' )
-		echo '<a href="' . $edit_link . '" title="' . $post->post_title . '">' . get_the_post_thumbnail( $post->ID, 'thumbnail', array( 'alt' => $post->post_title  )  ) . '</a>';
-	
-	if ( $column == 'order' )
-		echo '<a href="' . $edit_link . '">' . $post->menu_order . '</a>';
-	
-	if ( $column == 'ID' )
-		echo $slider_id;
-	
-	if ( $column == 'link' )
-		echo '<a href="' . $slider_link . '" target="_blank" >' . $slider_link . '</a>';		
 }
 
 /*

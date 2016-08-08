@@ -8,7 +8,7 @@ class Custom_Posts extends WP_Widget {
 
 		$widget_ops = array(
 			'classname' => 'widget_custom_posts',
-			'description' => __('Muestra una lista de los posts mas recientes con una imagen destacada.', anva-start)
+			'description' => __('Muestra una lista de los posts mas recientes con una imagen destacada.', 'anva-start' )
 		);
 
 		$this->WP_Widget('Custom_Posts', 'Custom Posts', $widget_ops);
@@ -72,19 +72,19 @@ class Custom_Posts extends WP_Widget {
 		
 		<!-- Title -->
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Titulo:', anva-start); ?></label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Titulo:', 'anva-start' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 
 		<!-- Number -->
 		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Numero de Posts:', anva-start); ?></label>
+			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Numero de Posts:', 'anva-start' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="number" value="<?php echo esc_attr($number); ?>" />
 		</p>
 
 		<!-- Order -->
 		<p>
-			<label for="<?php echo $this->get_field_id('order'); ?>"><?php _e('Orden:', anva-start); ?></label>
+			<label for="<?php echo $this->get_field_id('order'); ?>"><?php _e('Orden:', 'anva-start' ); ?></label>
 			<select class="widefat" id="<?php echo $this->get_field_id('order'); ?>" name="<?php echo $this->get_field_name('order'); ?>">
 				<option <?php if ( 'asc' == $order ) echo 'selected="selected"'; ?> value="asc">ASC</option>
 				<option <?php if ( 'desc' == $order ) echo 'selected="selected"'; ?> value="desc">DESC</option>
@@ -94,7 +94,7 @@ class Custom_Posts extends WP_Widget {
 		
 		<!-- Orderby -->
 		<p>
-			<label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e('Ordenar Por:', anva-start); ?></label>
+			<label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e('Ordenar Por:', 'anva-start' ); ?></label>
 			<select class="widefat" id="<?php echo $this->get_field_id('orderby'); ?>" name="<?php echo $this->get_field_name('orderby'); ?>">
 				<option <?php if ( 'date' == $orderby ) echo 'selected="selected"'; ?> value="date">Fecha</option>
 				<option <?php if ( 'rand' == $orderby ) echo 'selected="selected"'; ?> value="rand">Random</option>
@@ -106,7 +106,7 @@ class Custom_Posts extends WP_Widget {
 		<p>			
 			<input class="widefat" <?php checked( $thumbnail, 'on'); ?> id="<?php echo $this->get_field_id('thumbnail'); ?>" name="<?php echo $this->get_field_name('thumbnail'); ?>" type="checkbox" />
 
-			<label for="<?php echo $this->get_field_id('thumbnail'); ?>"><?php _e('Mostrar miniaturas', anva-start); ?></label>
+			<label for="<?php echo $this->get_field_id('thumbnail'); ?>"><?php _e('Mostrar miniaturas', 'anva-start' ); ?></label>
 		</p>
 
 		<?php

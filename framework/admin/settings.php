@@ -174,7 +174,7 @@ function anva_settings_page() {
 		
 		<?php
 			if( isset( $_GET['updated'] ) && 'true' == esc_attr( $_GET['updated'] ) ) {
-				echo '<div id="updated" class="updated" ><p>'.__('Cambios Realizados.', anva-start).'</p></div>';
+				echo '<div id="updated" class="updated" ><p>'.__('Cambios Realizados.', 'anva-start' ).'</p></div>';
 			}
 			
 			if( isset ( $_GET['tab'] ) )
@@ -228,7 +228,7 @@ function anva_settings_page() {
 				
 				<div class="options-submit postbox">
 					<p class="submit" style="clear:both;">
-						<input type="submit" class="button-primary" name="settings-submit" value="<?php _e('Guardar Opciones', anva-start); ?>" />
+						<input type="submit" class="button-primary" name="settings-submit" value="<?php _e('Guardar Opciones', 'anva-start' ); ?>" />
 					</p>
 					<p class="copyright-text">
 					<?php

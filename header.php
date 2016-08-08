@@ -56,7 +56,7 @@
 	</header><!-- #header (end) -->	
 	
 	<?php if ( is_front_page() ) : ?>
-		<!-- FEATURED (start) -->
+		<!-- SLIDER (start) -->
 		<section id="slider" class="slider">
 			<div class="container clearfix">
 				<?php
@@ -65,7 +65,7 @@
 					endif;
 				?>
 			</div>
-		</section><!-- FEATURED (end) -->
+		</section><!-- SLIDER (end) -->
 	<?php endif; ?>
 
 	<?php if ( ! is_front_page() ) : ?>

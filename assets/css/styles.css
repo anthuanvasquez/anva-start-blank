@@ -245,7 +245,17 @@ p, pre {
   background-color: #ffffff;
   min-width: 320px;
   position: relative;
-  width: 100%;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper::after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .off_canvas_navigation .wrapper {

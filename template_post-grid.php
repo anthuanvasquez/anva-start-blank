@@ -25,7 +25,7 @@ if ( 2 == $grid_columns ) {
 $count = 0;
 
 // Get posts
-$the_query = anva_get_post_query();
+$the_query = anva_get_post();
 
 ?>
 

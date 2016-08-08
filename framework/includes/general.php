@@ -135,9 +135,9 @@ function anva_load_scripts() {
 	
 	// Stylesheets
 	wp_enqueue_style( 'font-google', '//fonts.googleapis.com/css?family=Raleway:400,700,600' );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css' );
-	wp_enqueue_style( 'boostrap', get_template_directory_uri() . '/assets/css/bootstrap.css' );
-	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css', array(), '4.6.3' );
+	wp_enqueue_style( 'boostrap', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), '3.3.6' );
+	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css', array(), ANVA_FRAMEWORK_VERSION );
 	
 	// Scripts
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -145,12 +145,12 @@ function anva_load_scripts() {
 	}
 
 	if ( is_page_template( 'template_contact-us.php' ) ) {
-		wp_enqueue_script( 'jquery-validate', get_template_directory_uri() . '/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'jquery-validate', get_template_directory_uri() . '/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), '1.12.0', true );
 	}
 
-	wp_enqueue_script( 'boostrap-js', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.min.js', array( 'jquery', 'plugins' ), '', true );
+	wp_enqueue_script( 'boostrap-js', get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
+	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array( 'jquery' ), ANVA_FRAMEWORK_VERSION, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.min.js', array( 'jquery', 'plugins' ), ANVA_FRAMEWORK_VERSION, true );
 	wp_localize_script( 'main', 'ANVAJS', anva_get_js_locals() );
 
 }

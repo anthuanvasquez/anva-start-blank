@@ -82,15 +82,15 @@
 
 // Group inputs
 @mixin group-inputs() {
-	input[type="text"],
 	input[type="datetime"],
 	input[type="date"],
-	input[type="tel"],
 	input[type="email"],
-	input[type="url"],
 	input[type="number"],
 	input[type="password"],
 	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="url"],
 	select,
 	textarea {
 		@content;

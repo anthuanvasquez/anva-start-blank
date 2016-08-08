@@ -30,6 +30,6 @@ get_header();
 	
 	<?php anva_sidebars( 'right', '4' ); ?>
 	
-</div><!-- .grid-columns (end) -->
+</div><!-- .container (end) -->
 
 <?php get_footer(); ?>

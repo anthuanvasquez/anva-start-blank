@@ -52,19 +52,19 @@ if ( post_password_required() ) {
 
 			'comment_field' =>  '
 				<p class="comment-form__comment comment-form__group">
-				<label for="comment" class="comment-form__label hidden">' . _x( 'Comment', 'noun' ) . '</label>
+				<label for="comment" class="comment-form__label hidden">' . _x( 'Comment', 'noun', 'anva-start' ) . '</label>
 				<textarea id="comment" name="comment" class="comment-form__field comment-form__field--textarea" cols="45" rows="8" aria-required="true">' . '</textarea>
 				</p>',
 
 			'must_log_in' => '<p class="comment-form__must-log-in">' .
 				sprintf(
-					__( 'You must be <a href="%s">logged in</a> to post a comment.' ),
+					__( 'You must be <a href="%s">logged in</a> to post a comment.', 'anva-start' ),
 					wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
 				) . '</p>',
 
 			'logged_in_as' => '<p class="comment-form__logged-in-as">' .
 				sprintf(
-				__( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ),
+				__( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'anva-start' ),
 					admin_url( 'profile.php' ),
 					$user_identity,
 					wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
@@ -86,21 +86,21 @@ if ( post_password_required() ) {
 					'<p class="comment-form__author comment-form__group">' .
 					'<input id="author" name="author" type="text" class="comment-form__field" value="' . esc_attr( $commenter['comment_author'] ) .
 					'" size="30"' . $aria_req . ' />' .
-					'<label for="author" class="comment-form__label">' . __( 'Name', 'domainreference' ) . '</label> ' .
+					'<label for="author" class="comment-form__label">' . __( 'Name', 'anva-start' ) . '</label> ' .
 					( $req ? '<span class="comment-form__required">*</span>' : '' ) .
 					'</p>',
 
 				'email' =>
 					'<p class="comment-form__email comment-form-group">
 					<input id="email" name="email" type="text" class="comment-form__field" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' />
-					<label for="email" class="comment-form__label">' . __( 'Email', 'domainreference' ) . '</label> ' . ( $req ? '<span class="comment-form__required">*</span>' : '' ) .
+					<label for="email" class="comment-form__label">' . __( 'Email', 'anva-start' ) . '</label> ' . ( $req ? '<span class="comment-form__required">*</span>' : '' ) .
 					'</p>',
 
 				'url' =>
 					'<p class="comment-form__url comment-form__group">
 					<input id="url" name="url" type="text" class="comment-form__field" value="' . esc_attr( $commenter['comment_author_url'] ) .
 					'" size="30" />
-					<label for="url" class="comment-form__label">' . __( 'Website', 'domainreference' ) . '</label>' .
+					<label for="url" class="comment-form__label">' . __( 'Website', 'anva-start' ) . '</label>' .
 					'</p>'
 				)
 			),
