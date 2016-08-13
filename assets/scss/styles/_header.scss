@@ -30,14 +30,14 @@
 	}
 
 	@include media($laptop) {
+	    border: 0;
+	    float: none;
 		display: block;
 	    height: 100px;
-	    float: none;
 	    margin: 0 auto;
 	    max-width: none;
-	    text-align: center;
-	    border: 0;
 	    padding: 0;
+	    text-align: center;
 	}
 }
 
@@ -49,10 +49,10 @@
 
 	&__item {
 		float: left;
-	    margin-left: 20px;
 	    height: 40px;
-	    overflow: hidden;
 	    list-style: none;
+	    margin-left: 20px;
+	    overflow: hidden;
 
 	    &:first-child {
 	    	margin-left: 0;

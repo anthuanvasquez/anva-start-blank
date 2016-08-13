@@ -6,17 +6,27 @@
 function anva_slideshows_setup() {
 	add_action( 'add_meta_boxes', 'anva_slideshows_add_meta' );
 	add_action( 'save_post', 'anva_slideshows_save_meta', 1, 2 );
-	add_shortcode( 'slideshows', 'anva_slideshows_shortcode' );
+}
+
+function anva_slideshows_default() {
+	if ( is_front_page() ) : ?>
+		<!-- SLIDER (start) -->
+		<section id="slider" class="slider">
+			<div class="container clearfix">
+				<?php echo anva_slideshows_display( 'homepage' ); ?>
+			</div>
+		</section><!-- SLIDER (end) -->
+	<?php endif;
 }
 
 function anva_get_slideshows() {
 	
-	$args = array();
-	$slider_speed = anva_get_option( 'slider_speed' );
-	$slider_control = anva_get_option( 'slider_control' );
-	$slider_direction = anva_get_option( 'slider_direction' );
-	$slider_play = anva_get_option( 'slider_play' );
-	$slide_animation = 'slide';
+	$args                  = array();
+	$slider_speed          = anva_get_option( 'slider_speed' );
+	$slider_control        = anva_get_option( 'slider_control' );
+	$slider_direction      = anva_get_option( 'slider_direction' );
+	$slider_play           = anva_get_option( 'slider_play' );
+	$slide_animation       = 'slide';
 	$slide_animation_speed = '1000';
 
 	// Main Slider
@@ -63,7 +73,7 @@ function anva_get_slideshows() {
 /*
  * Output slides from slideshows array
  */
-function anva_slideshows_featured( $slug ) {
+function anva_slideshows_display( $slug ) {
 	
 	// Get slides area
 	$slideshows = anva_get_slideshows();
@@ -310,22 +320,4 @@ function anva_slideshows_save_meta( $post_id, $post ) {
 		update_post_meta( $post_id, '_slider_data', strip_tags( $_POST['slider_data'] ) );
 	}
 
-}
-
-/*
- * Create slideshows shortcode
- */
-function anva_slideshows_shortcode( $atts, $content = null ) {
-
-	extract(shortcode_atts( array(
-		'slug' => 'attachments',
-	), $atts ));
-	
-	$string = anva_get_local( 'slide_shortcode' );
-	
-	if ( empty( $slug ) ) {
-		return apply_filters( 'anva_slideshows_empty_shortcode', $string );
-	}
-
-	return anva_slideshows_featured( $slug );
 }

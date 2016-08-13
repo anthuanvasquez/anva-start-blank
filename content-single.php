@@ -19,7 +19,7 @@
 				endif;
 			?>
 		</div>
-		<div class="entry__content">
+		<div class="entry__content clearfix">
 			<?php the_content(); ?>
 			<?php anva_post_nav(); ?>
 		</div>
