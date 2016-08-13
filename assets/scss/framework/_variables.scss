@@ -70,13 +70,13 @@ $base__font-weight: 400;
 $heading__font-color:  $color__text;
 $heading__font-family: $raleway;
 $heading__font-weight: 600;
-$heading__line-height: 1.1;
-$heading__h1: 27px;
-$heading__h2: 24px;
-$heading__h3: 18px;
-$heading__h4: 14px;
-$heading__h5: 13px;
-$heading__h6: 11px;
+$heading__line-height: 1.5;
+$heading__h1: 36px;
+$heading__h2: 30px;
+$heading__h3: 24px;
+$heading__h4: 18px;
+$heading__h5: 14px;
+$heading__h6: 12px;
 
 // Menu
 
@@ -106,12 +106,14 @@ $widget__heading-font-weight: 600;
 // ------------------------------------------------
 
 $button__bg-color:      $color__primary;
-$button__border-radius: 4px;
+$button__border-radius: 3px;
 $button__border-color:  darken($button__bg-color, 8%);
 $button__font-color:    #FFF;
-$button__font-size:     14px;
-$button__font-weight:   normal;
-$button__padding-box:   6px 12px;
+$button__font-size:     $base__font-size;
+$button__font-weight:   600;
+$button__line-height:   40px;
+$button__padding:       0 22px;
+$button__text-transform: uppercase;
 
 // ------------------------------------------------
 // Default Variables

@@ -44,7 +44,7 @@ if ( post_password_required() ) {
 		$args = array(
 			'id_form'           => 'commentform',
 			'id_submit'         => 'submit',
-			'class_submit'      => 'btn btn-default',
+			'class_submit'      => 'button button--3d button--large',
 			'title_reply'       => __( 'Leave a Reply', 'anva-start' ),
 			'title_reply_to'    => __( 'Leave a Reply to %s', 'anva-start' ),
 			'cancel_reply_link' => __( 'Cancel Reply', 'anva-start' ),

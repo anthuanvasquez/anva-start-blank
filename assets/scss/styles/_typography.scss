@@ -14,17 +14,15 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
 	margin-bottom: $trim;
 }
 
-/*
- * Lists
- */
+blockquote {
+	font-size: $base__font-size;
+}
+
 dl, dt, dd, ol, ul, li {
 	margin: 0;
 	padding: 0;
 }
 
-/*
- * Fix font headings size
- */
 h1, .h1 {
 	font-size: $heading__h1;
 }
@@ -49,43 +47,19 @@ h6, .h6 {
 	font-size: $heading__h6;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-	color: $heading__font-color;
-	line-height: 1.5;
-	margin: 0 0 $trim 0;
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	@include font-stack-headers();
-
-	a {
-		color: $heading__font-color;
-		
-		&:hover {
-			color: $color__primary;
-		}
-	}
+	color: $heading__font-color;
+	line-height: $heading__line-height;
+	margin: 0 0 $trim 0;
 }
 
-/*
- * Quotes
- */
-blockquote {
-	font-size: $base__font-size;
-	margin-bottom: $trim;
+h4 {
+	font-weight: 600;
 }
 
-/*
- * Paragraphs
- */
-p, pre {
-	margin-bottom: $trim;
+h5,
+h6 {
+	font-weight: bold;
+	margin-bottom: $padding;
 }

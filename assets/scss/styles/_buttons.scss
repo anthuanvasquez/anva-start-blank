@@ -4,40 +4,70 @@
 @include group-buttons() {
 	background-color: $button__bg-color;
 	background-image: none;
-	border: 1px solid transparent;
-	border-color: $button__border-color;
-	border-radius: $button__border-radius;
 	color: $button__font-color;
 	cursor: pointer;
 	display: inline-block;
 	font-size: $button__font-size;
-	font-weight: normal;
-	line-height: 1.428571429;
-	margin-bottom: 0;
-	padding: 6px 12px;
+	font-weight: $button__font-weight;
+	letter-spacing: 1px;
+	line-height: $button__line-height;
+	height: $button__line-height;
+	margin: 5px;
+	padding: $button__padding;
 	transition: background 0.1s linear;
 	text-align: center;
 	user-select: none;
 	white-space: nowrap;
-	vertical-align: middle;
-	-webkit-font-smoothing: antialiased;
+	transition: opacity 0.2s ease;
+	position: relative;
+	outline: none;
+	border: 0;
+	text-shadow: 1px 1px 1px rgba(black, 0.2);
+	text-transform: $button__text-transform;
 
 	&:hover {
-		background-color: #ebebeb;
-		border-color: #adadad;
-		color: $color__text;
+		background-color: $color__primary--black;
+		border-color: $color__primary--black;
+		color: $color__primary--white;
+		text-shadow: 1px 1px 1px rgba(black, 0.2);
 	}
-}
 
-.btn-primary {
-	background-color: $button__bg-color;
-	background-image: none;
-	border-color: $button__border-color;
-	color: $button__font-color;
+	&--rounded {
+		border-radius: $button__border-radius;
+	}
 
-	&:hover {
-		background-color: darken($button__bg-color, 10%);
-		border-color: $button__border-color;
-		color: $button__font-color;
+	&--3d {
+		border-radius: $button__border-radius;
+		border-bottom: 3px solid rgba(black, 0.15);
+    	transition: none;
+
+    	&:hover {
+			opacity: 0.9;
+    	}
+	}
+
+	&--mini {
+    	font-size: 11px;
+    	height: 28px;
+    	line-height: 28px;
+		padding: 0 14px;
+	}
+
+	&--small {
+    	font-size: 12px;
+    	height: 34px;
+    	line-height: 34px;
+		padding: 0 17px;
+	}
+
+	&--large {
+    	font-size: 16px;
+    	height: 46px;
+    	line-height: 46px;
+		padding: 0 26px;
+	}
+
+	&--read-more {
+		margin: 0;
 	}
 }

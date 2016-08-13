@@ -17,7 +17,7 @@
 		// Lightbox
 		// ---------------------------------------------------------
 		
-		Popup: function(target) {
+		popup: function(target) {
 			$(target).magnificPopup({
 				delegate: 'a',
 				removalDelay: 300,
@@ -34,7 +34,7 @@
 		// Scroll go top button
 		// ---------------------------------------------------------
 		
-		Scroll: function() {
+		scroll: function() {
 			$(window).on( 'scroll', function() {
 				if ($(this).scrollTop() > 200) {
 					$('#gotop').fadeIn(200);
@@ -53,7 +53,7 @@
 		// Superfish Menu
 		// ---------------------------------------------------------
 		
-		Menu: function(target, rows) {
+		menu: function(target, rows) {
 			$(target).superfish({
 				delay: 500,
 				animation:   {
@@ -69,7 +69,7 @@
 		// Remove empty elements
 		// ---------------------------------------------------------
 		
-		RemoveEmpty: function(target) {
+		removeEmptyElements: function(target) {
 			$(target + ':empty').remove();
 			$(target).filter( function() {
 				return $.trim( $(this).html() ) == '';
@@ -80,7 +80,7 @@
 		// Toogle for shortcodes
 		// ---------------------------------------------------------
 		
-		Toggle: function() {
+		toggle: function() {
 			$('div.toggle-info').hide();
 			$('h3.toggle-trigger').click(function(e) {
 				e.preventDefault();
@@ -94,7 +94,7 @@
 		// Enquire JS
 		// ---------------------------------------------------------
 		
-    	Responsive: function() {
+    	responsive: function() {
     		enquire.register("screen and (max-width: " + bp.laptop + "px)", {match : function() {
 					
 				},
@@ -108,20 +108,24 @@
 		// Init Function
 		// ---------------------------------------------------------
 		
-		Init: function() {
+		init: function() {
 
-			ANVASTART.Popup('.gallery > .gallery-item, .single .entry__image');
-			ANVASTART.Menu('.navigation-menu, .off-canvas-menu');
-			ANVASTART.RemoveEmpty('div.fl-thumbnail');
-			ANVASTART.RemoveEmpty('p');
-			ANVASTART.Toggle();
-			ANVASTART.Scroll();
-			ANVASTART.Responsive();
+			var $lightbox = '.gallery > .gallery-item, .single .entry__image',
+				$menu     = '.navigation-menu, .off-canvas-menu',
+				$thumb    = '.fl-thumbnail';
+
+			ANVASTART.popup($lightbox);
+			ANVASTART.menu($menu);
+			ANVASTART.removeEmptyElements($thumb);
+			ANVASTART.removeEmptyElements('p');
+			ANVASTART.toggle();
+			ANVASTART.scroll();
+			ANVASTART.responsive();
 
 		}
 
 	};
 
-	ANVASTART.Init();
+	ANVASTART.init();
 
 })(jQuery);

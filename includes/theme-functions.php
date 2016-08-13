@@ -5,7 +5,16 @@
 /*-----------------------------------------------------------------------------------*/
 
 // Define post types to be used int theme.
-define( 'ANVA_POST_TYPES_USED', serialize( array( 'portfolio', 'galleries', 'slideshows', 'team' ) ) );
+$post_types = array(
+	'portfolio',
+	'galleries',
+	'events',
+	'team',
+	'clients',
+	'slideshows',
+);
+
+define( 'ANVA_POST_TYPES_USED', serialize( $post_types ) );
 
 /**
  * Add theme support features

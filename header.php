@@ -55,18 +55,7 @@
 		</div>
 	</header><!-- #header (end) -->	
 	
-	<?php if ( is_front_page() ) : ?>
-		<!-- SLIDER (start) -->
-		<section id="slider" class="slider">
-			<div class="container clearfix">
-				<?php
-					if ( function_exists( 'anva_slideshows_featured' ) ) :
-						echo anva_slideshows_featured( 'homepage' );
-					endif;
-				?>
-			</div>
-		</section><!-- SLIDER (end) -->
-	<?php endif; ?>
+	<?php do_action( 'anva_slider' ); ?>
 
 	<?php if ( ! is_front_page() ) : ?>
 		<section class="page-title">

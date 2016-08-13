@@ -23,7 +23,7 @@
 		</div>
 		<div class="entry__content clearfix">
 			<?php anva_excerpt(); ?>
-			<a class="button" href="<?php the_permalink(); ?>">
+			<a class="button button--read-more" href="<?php the_permalink(); ?>">
 				<?php echo anva_get_local( 'read_more' ); ?>
 			</a>
 		</div>
