@@ -4,15 +4,9 @@
 /* Theme Functions
 /*-----------------------------------------------------------------------------------*/
 
-// Define post types to be used int theme.
-$post_types = array(
-	'portfolio',
-	'galleries',
-	'events',
-	'team',
-	'clients',
-	'slideshows',
-);
+// Define post types to be used in the theme.
+// ex. portfolio, galleries, events, team, clients, slideshows
+$post_types = array( 'slideshows' );
 
 define( 'ANVA_POST_TYPES_USED', serialize( $post_types ) );
 

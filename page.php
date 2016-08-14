@@ -29,7 +29,7 @@ if ( 'left' == $sidebar ) {
 get_header();
 ?>
 
-<div class="container">
+<div class="container clearfix">
 
 	<?php do_action( 'anva_sidebar_layout_before' ); ?>
 
