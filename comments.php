@@ -22,7 +22,7 @@ if ( post_password_required() ) {
 
 		<?php anva_comment_pagination(); ?>
 
-		<ol class="comment__list">
+		<ol class="comments__list">
 			<?php
 				wp_list_comments( 'type=comment&callback=anva_comment_list' );
 			?>
@@ -45,13 +45,13 @@ if ( post_password_required() ) {
 			'id_form'           => 'commentform',
 			'id_submit'         => 'submit',
 			'class_submit'      => 'button button--3d button--large',
+			'label_submit'      => __( 'Post Comment', 'anva-start' ),
 			'title_reply'       => __( 'Leave a Reply', 'anva-start' ),
 			'title_reply_to'    => __( 'Leave a Reply to %s', 'anva-start' ),
 			'cancel_reply_link' => __( 'Cancel Reply', 'anva-start' ),
-			'label_submit'      => __( 'Post Comment', 'anva-start' ),
 
 			'comment_field' =>  '
-				<p class="comment-form__comment comment-form__group">
+				<p class="comment-form__group comment-form__group--comment">
 				<label for="comment" class="comment-form__label hidden">' . _x( 'Comment', 'noun', 'anva-start' ) . '</label>
 				<textarea id="comment" name="comment" class="comment-form__field comment-form__field--textarea" cols="45" rows="8" aria-required="true">' . '</textarea>
 				</p>',
@@ -83,7 +83,7 @@ if ( post_password_required() ) {
 			'fields' => apply_filters( 'comment_form_default_fields', array(
 
 				'author' =>
-					'<p class="comment-form__author comment-form__group">' .
+					'<p class="comment-form__group comment-form__group--author">' .
 					'<input id="author" name="author" type="text" class="comment-form__field" value="' . esc_attr( $commenter['comment_author'] ) .
 					'" size="30"' . $aria_req . ' />' .
 					'<label for="author" class="comment-form__label">' . __( 'Name', 'anva-start' ) . '</label> ' .
@@ -91,13 +91,13 @@ if ( post_password_required() ) {
 					'</p>',
 
 				'email' =>
-					'<p class="comment-form__email comment-form-group">
+					'<p class="comment-form__group comment-form__group--email">
 					<input id="email" name="email" type="text" class="comment-form__field" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' />
 					<label for="email" class="comment-form__label">' . __( 'Email', 'anva-start' ) . '</label> ' . ( $req ? '<span class="comment-form__required">*</span>' : '' ) .
 					'</p>',
 
 				'url' =>
-					'<p class="comment-form__url comment-form__group">
+					'<p class="comment-form__group comment-form__group--url">
 					<input id="url" name="url" type="text" class="comment-form__field" value="' . esc_attr( $commenter['comment_author_url'] ) .
 					'" size="30" />
 					<label for="url" class="comment-form__label">' . __( 'Website', 'anva-start' ) . '</label>' .
@@ -106,7 +106,7 @@ if ( post_password_required() ) {
 			),
 		);
 
-		comment_form($args);
+		comment_form( $args );
 	?>
 
 </section><!-- #comments (end) -->

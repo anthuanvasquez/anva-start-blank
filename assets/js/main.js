@@ -30,6 +30,17 @@
 			});
 		},
 
+		gallery: function() {
+			var gallery = $('.gallery');
+			if ( gallery.length > 0 ) {
+				var columns = $.grep(gallery.attr('class').split(' '), function(v, i) {
+			    	return v.indexOf('gallery-columns') === 0;
+				}).join();
+			
+				gallery.find('.gallery-item').width( 100 / parseInt( columns.replace('gallery-columns-', '' ) ) + '%' );
+			}
+		},
+
 		// ---------------------------------------------------------
 		// Scroll go top button
 		// ---------------------------------------------------------
@@ -110,7 +121,7 @@
 		
 		init: function() {
 
-			var $lightbox = '.gallery > .gallery-item, .single .entry__image',
+			var $lightbox = '.gallery .gallery-item, .single .entry__thumbnail',
 				$menu     = '.navigation-menu, .off-canvas-menu',
 				$thumb    = '.fl-thumbnail';
 
@@ -120,6 +131,7 @@
 			ANVASTART.removeEmptyElements('p');
 			ANVASTART.toggle();
 			ANVASTART.scroll();
+			ANVASTART.gallery();
 			ANVASTART.responsive();
 
 		}

@@ -44,7 +44,7 @@ add_filter( 'anva_footer_credits', 'anva_theme_footer_credits' );
  * Change footer author.
  */
 function anva_theme_footer_author() {
-	return  '<a href="'. esc_url( 'http://anthuanvasquez.het/') .'">'. __( 'Anthuan Vasquez', 'anva-start' ) .'</a>.';
+	return  '<a href="'. esc_url( 'http://anthuanvasquez.net/') .'">'. __( 'Anthuan Vásquez', 'anva-start' ) .'</a>.';
 }
 add_filter( 'anva_footer_author', 'anva_theme_footer_author' );
 add_filter( 'anva_login_author', 'anva_theme_footer_author' );

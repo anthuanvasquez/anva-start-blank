@@ -14,7 +14,7 @@ function anva_get_image_sizes() {
 
 	// Content Width
 	// Default width of primary content area
-	$content_width = apply_filters( 'anva_content_width', 940 );
+	$content_width = apply_filters( 'anva_content_width', 1170 );
 
 	// Crop sizes
 	$sizes = array(
@@ -37,7 +37,7 @@ function anva_get_image_sizes() {
 			'crop' 		=> false
 		),
 		'slider_big' => array(
-			'name' 		=> __( 'Slider Big', 'anva-start' ),
+			'name' 		=> __( 'Slider Fullwidth', 'anva-start' ),
 			'width' 	=> 1600,
 			'height' 	=> 500,
 			'crop' 		=> true
@@ -154,7 +154,7 @@ function anva_post_thumbnails( $thumb ) {
 	}
 
 	if ( $thumb != 2 && has_post_thumbnail() ) {
-		$output .= '<div class="entry__thumbnail ' . $classes . ' thumbnail">';
+		$output .= '<div class="entry__thumbnail ' . $classes . '">';
 		if ( is_single() ) {
 			$output .= '<a class="entry__thumbnail-link" href="' . anva_get_featured_image( $post->ID, 'large' ) . '" title="' . get_the_title() . '">' . get_the_post_thumbnail( $post->ID, $size, array( 'class' => 'entry__image' ) ) . '</a>';
 		} else {

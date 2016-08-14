@@ -271,13 +271,19 @@ h6 {
 
 .header-addon {
   float: right;
+  list-style: none;
   margin: 30px 0 0;
+}
+
+.header-addon::after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .header-addon__item {
   float: left;
   height: 40px;
-  list-style: none;
   margin-left: 20px;
   overflow: hidden;
 }
@@ -692,15 +698,29 @@ h6 {
   margin-bottom: 30px;
 }
 
-.post-navigation__previous, .post-navigation__next {
-  float: left;
-  margin-right: 4%;
-  width: 48%;
+@media screen and (min-width: 480px) {
+  .post-navigation__previous, .post-navigation__next {
+    float: left;
+    margin-right: 4%;
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .post-navigation__previous, .post-navigation__next {
+    margin-top: 10px;
+    text-align: center;
+  }
 }
 
 .post-navigation__next {
   margin-right: 0;
-  text-align: right;
+}
+
+@media screen and (min-width: 480px) {
+  .post-navigation__next {
+    text-align: right;
+  }
 }
 
 .pagination {
@@ -903,6 +923,10 @@ h6 {
   color: #FF0000;
 }
 
+.comment-form__group {
+  margin-bottom: 25px;
+}
+
 .comment-form__field {
   background-image: none;
   background-color: #fff;
@@ -930,31 +954,35 @@ h6 {
   width: 100%;
 }
 
+.comment-form__allowed-tags {
+  display: none;
+}
+
 .comment-subscription-form {
   font-size: 90%;
   margin: 0;
 }
 
-/*
- * Gallery
- */
-.gallery dl img {
-  border: 0 !important;
-  /* Remove border from gallery inline style */
-  -webkit-border-radius: 4px;
-          border-radius: 4px;
-  opacity: 1;
-  -webkit-transition: opacity .2s linear;
-  transition: opacity .2s linear;
+.gallery {
+  margin: 0 auto 30px;
 }
 
-.gallery dl img:hover {
-  opacity: .6;
+.gallery::after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
-/*
- * I need grid for gallery with html5 support
- */
+.gallery .gallery-item {
+  float: left;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.gallery .gallery-caption {
+  margin-left: 0;
+}
+
 /*
  * Shortcodes
  */
@@ -1276,8 +1304,13 @@ a img.aligncenter {
   padding: 0 26px;
 }
 
-.button--read-more {
+.button--read-more, .button--post-link {
   margin: 0;
+}
+
+.button--post-link {
+  min-width: 140px;
+  text-align: center;
 }
 
 .contact-form__label {

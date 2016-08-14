@@ -99,14 +99,24 @@
 
 	&__previous,
 	&__next {
-		float: left;
-		margin-right: 4%;
-		width: 48%;
+		@include media($handheld--min) {
+			float: left;
+			margin-right: 4%;
+			width: 48%;
+		}
+
+		@include media($handheld) {
+			margin-top: 10px;
+			text-align: center;
+		}
+
 	}
 
 	&__next {
 		margin-right: 0;
-		text-align: right;
+		@include media($handheld--min) {
+			text-align: right;
+		}
 	}
 }
 

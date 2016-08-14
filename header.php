@@ -46,9 +46,9 @@
 			<div id="logo" class="logo">
 				<?php do_action( 'anva_header_logo' ); ?>
 			</div>
-			<div class="header-addon">
+			<ul class="header-addon">
 				<?php do_action( 'anva_header_addon' ); ?>
-			</div>
+			</ul>
 		</div>
 		<div class="header__wrap">
 			<?php do_action( 'anva_main_navigation' ); ?>

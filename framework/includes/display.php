@@ -154,7 +154,7 @@ function anva_footer_text_default() {
 		get_bloginfo( 'name' ),
 		anva_get_local( 'footer_copyright' ),
 		apply_filters( 'anva_footer_credits', anva_get_local( 'footer_text' ) ),
-		apply_filters( 'anva_footer_author', '<a href="'. esc_url( 'http://anthuanvasquez.net/') .'">Anthuan Vasquez</a>' )
+		apply_filters( 'anva_footer_author', '<a href="'. esc_url( 'http://anthuanvasquez.net/') .'">Anthuan Vásquez</a>' )
 	);
 }
 

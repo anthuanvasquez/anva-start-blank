@@ -76,8 +76,13 @@
   padding: 0 26px;
 }
 
-.button--read-more {
+.button--read-more, .button--post-link {
   margin: 0;
+}
+
+.button--post-link {
+  min-width: 140px;
+  text-align: center;
 }
 
 body.woocommerce-demo-store {

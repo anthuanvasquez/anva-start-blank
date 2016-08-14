@@ -320,11 +320,11 @@ function anva_post_nav() {
  * Add class to posts_link_next() and previous.
  */
 function anva_posts_link_attr() {
-	return 'class="btn btn-default button-link"';
+	return 'class="button button--3d button--post-link"';
 }
 
 function anva_post_link_attr( $output ) {
-	$class = 'class="btn btn-default button-link"';
+	$class = 'class="button button--3d button--post-link"';
 	return str_replace('<a href=', '<a '. $class .' href=', $output);
 }
 
@@ -332,21 +332,25 @@ function anva_post_link_attr( $output ) {
  * Pagination
  */
 function anva_pagination( $query = '' ) {
-
-	if ( empty( $query ) ) :
 	?>
-	<ul id="nav-posts" class="pager clearfix">
-		<li class="previous"><?php previous_posts_link( anva_get_local( 'prev' ) ); ?></li>
-		<li class="next"><?php next_posts_link( anva_get_local( 'next' ) ); ?></li>
+	<ul id="pager" class="pager clearfix">
+		<?php if ( empty( $query ) ) : ?>
+			<li class="pager__previous">
+				<?php previous_posts_link( anva_get_local( 'prev' ) ); ?>
+			</li>
+			<li class="pager__next">
+				<?php next_posts_link( anva_get_local( 'next' ) ); ?>
+			</li>
+		<?php else : ?>
+			<li class="pager__previous">
+				<?php previous_posts_link( anva_get_local( 'prev'  ), $query->max_num_pages ); ?>
+			</li>
+			<li class="pager__next">
+				<?php next_posts_link( anva_get_local( 'next'  ), $query->max_num_pages ); ?>
+			</li>
+		<?php endif; ?>
 	</ul>
 	<?php
-	else : ?>
-	<ul id="nav-posts" class="pager clearfix">
-		<li class="previous"><?php previous_posts_link( anva_get_local( 'prev'  ), $query->max_num_pages ); ?></li>
-		<li class="next"><?php next_posts_link( anva_get_local( 'next'  ), $query->max_num_pages ); ?></li>
-	</ul>
-	<?php
-	endif;
 }
 
 /**
