@@ -94,7 +94,7 @@ class Anva
 
 		// Admin
 		if ( is_admin() ) {
-			include_once( ANVA_FRAMEWORK_DIR . '/admin/settings.php' );
+			include_once( ANVA_FRAMEWORK_DIR . '/admin/panel.php' );
 		}
 	}
 

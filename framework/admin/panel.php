@@ -1,19 +1,8 @@
 <?php
 
-/**
- * Anva WordPress Framework
- * Admin Options Page
- */
-
-// Constants
-define( 'ANVA_ADMIN_NAME', 'Anva WordPress Framework' );
-define( 'ANVA_ADMIN_VERSION', '1.0.0' );
-
 // Default options
-include_once( get_template_directory() . '/framework/admin/options.php' );
-
-// Interface inputs
-include_once( get_template_directory() . '/framework/admin/options-interface.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/admin/options.php' );
+include_once( ANVA_FRAMEWORK_DIR . '/admin/interface.php' );
 
 // Hooks
 add_action( 'init', 'anva_admin_init' );
@@ -26,15 +15,19 @@ add_action( 'admin_enqueue_scripts', 'anva_settings_scripts' );
  * @since 1.3.1
  */
 function anva_admin_init() {
-	global $options;
+	
+	$options  = anva_get_options();
 	$settings = unserialize( ANVA_SETTINGS );
+	
 	if ( empty( $settings ) ) {
+		
 		foreach( $options as $value ) {
-			if( isset( $value['id'] ) ) {
-				$settings[$value['id']] = $value['std'];
+			if ( isset( $value['id'] ) ) {
+				$settings[ $value['id'] ] = $value['std'];
 			}
 		}
-		add_option( "anva_settings", $settings, '', 'yes' );
+
+		add_option( 'anva_settings', $settings, '', 'yes' );
 	}
 }
 
@@ -43,13 +36,15 @@ function anva_admin_init() {
  * @since 1.3.1
  */
 function anva_settings_page_init() {
+	
 	$settings_page = add_theme_page(
-		__( 'Opciones', 'anva-start' ),
-		__( 'Opciones', 'anva-start' ),
+		__( 'Options', 'anva-start' ),
+		__( 'Options', 'anva-start' ),
 		'edit_theme_options',
 		'theme-settings',
 		'anva_settings_page'
 	);
+
 	add_action( "load-{$settings_page}", 'anva_load_settings_page' );
 }
 
@@ -58,7 +53,7 @@ function anva_settings_page_init() {
  */
 function anva_load_settings_page() {
 
-	if( isset( $_POST["settings-submit"] ) ) {
+	if ( isset( $_POST["settings-submit"] ) ) {
 		
 		check_admin_referer( "tm-settings-page" );
 		
@@ -102,7 +97,7 @@ function anva_save_theme_settings() {
 	
 	$settings = unserialize( ANVA_SETTINGS );
 	
-	if( $pagenow == 'themes.php' && $_GET['page'] == 'theme-settings' ) { 
+	if ( $pagenow == 'themes.php' && $_GET['page'] == 'theme-settings' ) { 
 		
 		if ( isset ( $_GET['tab'] ) ) {
 			$tab = $_GET['tab'];
@@ -133,7 +128,7 @@ function anva_save_theme_settings() {
 		}
 	}
 
-	$updated = update_option( "anva_settings", $settings );
+	$updated = update_option( 'anva_settings', $settings );
 
 }
 
@@ -233,9 +228,9 @@ function anva_settings_page() {
 					<p class="copyright-text">
 					<?php
 						printf(
-							'%s <strong>%s</strong>. Desarrollado por <a href="%s">%s</a>.',
-							ANVA_ADMIN_NAME,
-							ANVA_ADMIN_VERSION,
+							'%s <strong>%s</strong>. Development by <a href="%s">%s</a>.',
+							ANVA_FRAMEWORK_NAME,
+							ANVA_FRAMEWORK_VERSION,
 							esc_url( 'http://anthuanvasquez.net/' ),
 							'Anthuan Vasquez'
 						);
@@ -243,9 +238,7 @@ function anva_settings_page() {
 					</p>
 				</div>
 			</form>
-			
 		</div>
-
 	</div>
 <?php
 }

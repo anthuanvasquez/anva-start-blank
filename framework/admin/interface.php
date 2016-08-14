@@ -6,11 +6,9 @@
  */
 function anva_settings_inputs( $tab ) {
 	
-	global $options;
-	
-	$settings = unserialize(ANVA_SETTINGS);
-
-	$output = '';
+	$output   = '';
+	$options  = anva_get_options();
+	$settings = unserialize( ANVA_SETTINGS );
 
 	foreach( $options as $value ) {
 
