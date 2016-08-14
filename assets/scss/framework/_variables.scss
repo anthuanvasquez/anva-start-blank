@@ -141,7 +141,7 @@ $column:            60px !default;
 
 // Responsive Breakpoints
 
-$all-breakpoints: (
+$breakpoints: (
     'smallest': 320px,
     'handheld': 480px,
     'tablet':   768px,
@@ -151,28 +151,31 @@ $all-breakpoints: (
 
 // Layout Columns
 
-$all-layout-columns: (
-    phone: 4,
-    tablet: 8,
-    desktop:  12
+$layout-columns: (
+    'phone':   4,
+    'tablet':  8,
+    'desktop': 12
 );
 
 // Breakpoints
 
-$smallest:      max-width break(smallest) layout-column(phone);
-$smallest--min: min-width break(smallest) layout-column(phone);
+$smallest:      max-width break('smallest') layout('phone');
+$smallest--min: min-width break('smallest') layout('phone');
 
-$handheld:      max-width break(handheld) layout-column(phone);
-$handheld--min: min-width break(handheld) layout-column(phone);
+$handheld:      max-width break('handheld') layout('phone');
+$handheld--min: min-width break('handheld') layout('phone');
 
-$tablet:        max-width break(tablet) layout-column(tablet);
-$tablet--min:   min-width break(tablet) layout-column(tablet);
+$tablet:        max-width break('tablet') layout('tablet');
+$tablet--min:   min-width break('tablet') layout('tablet');
+$tablet--both:  max-width break('tablet') min-width break('handheld') layout('tablet');
 
-$laptop:        max-width break(laptop) layout-column(desktop);
-$laptop--min:   min-width break(laptop) layout-column(desktop);
+$laptop:        max-width break('laptop') layout('desktop');
+$laptop--min:   min-width break('laptop') layout('desktop');
+$laptop--both:  max-width break('laptop') min-width break('tablet') layout('laptop');
 
-$desktop:       max-width break(desktop) layout-column(desktop);
-$desktop--min:  min-width break(desktop) layout-column(desktop);
+$desktop:       max-width break('desktop') layout('desktop');
+$desktop--min:  min-width break('desktop') layout('desktop');
+$desktop--both: max-width break('desktop') min-width break('laptop') layout('desktop');
 
 // Debug Grid Columns
 

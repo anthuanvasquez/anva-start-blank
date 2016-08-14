@@ -606,8 +606,6 @@ h6 {
 
 .entry__thumbnail--medium {
   margin-bottom: 20px;
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 40.30327%;
 }
@@ -1005,7 +1003,7 @@ h6 {
  * Main widgets
  */
 .widget {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #EEe;
   margin-top: 30px;
   margin-bottom: 30px;
   padding-top: 30px;
@@ -1038,6 +1036,18 @@ h6 {
 
 .widget p:last-child {
   margin: 0;
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .widget {
+    border-top: 0;
+    display: inline-block;
+    margin-right: 37px;
+    margin-top: 0;
+    padding-top: 0;
+    vertical-align: top;
+    width: 340px;
+  }
 }
 
 .widget_nav_menu li,
@@ -1074,21 +1084,21 @@ h6 {
 .widget_pages li a:before,
 .widget_rss li a:before,
 .widget_recent_comments li a:before {
-  content: "\f105";
-  color: #ccc;
-  padding-right: 12px;
   font-family: "FontAwesome";
   font-style: normal;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  content: "\f105";
+  color: #ccc;
+  padding-right: 12px;
 }
 
 .recentcomments {
   word-wrap: break-word;
 }
 
-#wp-calendar {
+.calendar_wrap table {
   width: 100%;
 }
 
@@ -1830,6 +1840,7 @@ img.mfp-img {
 }
 
 .content-area--sidebar-left {
+  float: right;
   margin-right: 0;
 }
 
@@ -1837,15 +1848,15 @@ img.mfp-img {
   width: 580px;
 }
 
+.content-area--both--left {
+  margin: 0;
+  margin-left: 40px;
+}
+
 @media screen and (max-width: 1199px) {
   .content-area--both {
     width: 440px;
   }
-}
-
-.content-area--both-left {
-  margin: 0;
-  margin-left: 40px;
 }
 
 @media screen and (max-width: 1199px) {
@@ -1863,12 +1874,20 @@ img.mfp-img {
 }
 
 .widget-area {
-  float: left;
+  float: right;
   width: 240px;
 }
 
 .widget-area--left {
+  float: left;
   margin-right: 40px;
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .widget-area__wrap {
+    margin: 0 -38px -40px 0;
+    position: relative;
+  }
 }
 
 @media screen and (max-width: 1199px) {
@@ -1885,8 +1904,6 @@ img.mfp-img {
 }
 
 .grid_12 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 100%;
   float: none;
@@ -1898,8 +1915,6 @@ img.mfp-img {
 }
 
 .grid_11 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 91.4719%;
 }
@@ -1909,8 +1924,6 @@ img.mfp-img {
 }
 
 .grid_10 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 82.94379%;
 }
@@ -1920,8 +1933,6 @@ img.mfp-img {
 }
 
 .grid_9 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 74.41569%;
 }
@@ -1931,8 +1942,6 @@ img.mfp-img {
 }
 
 .grid_8 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 65.88758%;
 }
@@ -1942,8 +1951,6 @@ img.mfp-img {
 }
 
 .grid_7 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 57.35948%;
 }
@@ -1953,8 +1960,6 @@ img.mfp-img {
 }
 
 .grid_6 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 48.83137%;
 }
@@ -1964,8 +1969,6 @@ img.mfp-img {
 }
 
 .grid_5 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 40.30327%;
 }
@@ -1975,8 +1978,6 @@ img.mfp-img {
 }
 
 .grid_4 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 31.77516%;
 }
@@ -1986,8 +1987,6 @@ img.mfp-img {
 }
 
 .grid_3 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 23.24706%;
 }
@@ -1997,8 +1996,6 @@ img.mfp-img {
 }
 
 .grid_2 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 14.71896%;
 }
@@ -2008,8 +2005,6 @@ img.mfp-img {
 }
 
 .grid_1 {
-  float: left;
-  display: block;
   margin-right: 2.33725%;
   width: 6.19085%;
 }

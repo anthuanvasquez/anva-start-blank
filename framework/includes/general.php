@@ -104,8 +104,7 @@ function anva_register_sidebars() {
 				anva_get_sidebar_args(
 					$sidebar['args']['id'],
 					$sidebar['args']['name'],
-					$sidebar['args']['description'],
-					( isset( $sidebar['args']['class'] ) ? $sidebar['args']['class'] : '' )
+					$sidebar['args']['description']
 				)
 			);
 		}
@@ -120,7 +119,7 @@ function anva_get_sidebar_args( $id, $name, $description, $classes ) {
 		'id'            => $id,
 		'name'          => $name,
 		'description'   => $description,
-		'before_widget' => '<div id="%1$s" class="widget %2$s ' . $classes . '"><div class="widget__wrap">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s clearfix"><div class="widget__wrap">',
 		'after_widget'  => '</div></div>',
 		'before_title'  => '<h3 class="widget__title">',
 		'after_title'   => '</h3>',

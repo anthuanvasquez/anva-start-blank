@@ -2,7 +2,7 @@
  * Main widgets
  */
 .widget {
-    border-top: 1px solid #eee;
+    border-top: 1px solid #EEe;
 	margin-top: $trim;
 	margin-bottom: $trim;
 	padding-top: $trim;
@@ -33,6 +33,16 @@
 	p:last-child {
 		margin: 0;
 	}
+
+	@include media($laptop--both) {
+		border-top: 0;
+		display: inline-block;
+		margin-right: 37px;
+		margin-top: 0;
+		padding-top: 0;
+		vertical-align: top;
+		width: 340px;
+	}
 	
 }
 
@@ -47,15 +57,16 @@
 .widget_recent_comments {
 	li {
 		padding: 4px;
+
 		a {
 			display: inline-block;
 			padding: 0 3px 0 0;
 			
 			&:before {
+				@include font-stack-icon();
 				content: "\f105";
 				color: #ccc;
 				padding-right: 12px;
-				@include font-stack-icon();
 			}
 		}
 	}
@@ -65,8 +76,10 @@
 	word-wrap: break-word;
 }
 
-#wp-calendar {
-	width: 100%;
+.calendar_wrap {
+	table {
+		width: 100%;
+	}
 }
 
 /*

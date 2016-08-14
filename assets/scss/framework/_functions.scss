@@ -33,18 +33,18 @@
 
 // Return value from $all-breakpoints map
 @function break($key) {
-	@if map-has-key($all-breakpoints, $key) {
-		@return map-get($all-breakpoints, $key);
+	@if map-has-key($breakpoints, $key) {
+		@return map-get($breakpoints, $key);
 	}
-	@warn "Unknown `#{$key}` in $all-breakpoints.";
+	@warn "Unknown `#{$key}` in $breakpoints.";
 	@return null;
 }
 
 // Return value from $all-layout-columns map
-@function layout-column($key) {
-	@if map-has-key($all-layout-columns, $key) {
-		@return map-get($all-layout-columns, $key);
+@function layout($key) {
+	@if map-has-key($layout-columns, $key) {
+		@return map-get($layout-columns, $key);
 	}
-	@warn "Unknown `#{$key}` in $all-layout-columns.";
+	@warn "Unknown `#{$key}` in $layout-columns.";
 	@return null;
 }
