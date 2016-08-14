@@ -1,19 +1,12 @@
 @charset "UTF-8";
-html, body {
-  color: #333333;
-  font-size: 14px;
-  height: 100%;
-  line-height: 1.5;
+body {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
+  background-color: #f2f2f2;
+  color: #333333;
+  line-height: 1.5;
 }
 
-body {
-  background: #f2f2f2;
-}
-
-html,
 button,
 input,
 select,
@@ -125,9 +118,6 @@ textarea {
   resize: vertical;
 }
 
-/*
- * Links
- */
 a,
 .link {
   color: #00A0D2;
@@ -404,12 +394,12 @@ h6 {
 }
 
 .navigation-menu__sub-menu--1 {
-  border-top: 0;
   margin: 0;
   padding: 0;
 }
 
 .navigation-menu__sub-menu--2 {
+  border-top: 0;
   left: 100%;
   margin: 0;
   top: 0;

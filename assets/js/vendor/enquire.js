@@ -5,22 +5,22 @@
  */
 
 ;(function (name, context, factory) {
-	var matchMedia = window.matchMedia;
+    var matchMedia = window.matchMedia;
 
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = factory(matchMedia);
-	}
-	else if (typeof define === 'function' && define.amd) {
-		define(function() {
-			return (context[name] = factory(matchMedia));
-		});
-	}
-	else {
-		context[name] = factory(matchMedia);
-	}
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = factory(matchMedia);
+    }
+    else if (typeof define === 'function' && define.amd) {
+        define(function() {
+            return (context[name] = factory(matchMedia));
+        });
+    }
+    else {
+        context[name] = factory(matchMedia);
+    }
 }('enquire', this, function (matchMedia) {
 
-	'use strict';
+    'use strict';
 
     /*jshint unused:false */
     /**
@@ -291,6 +291,6 @@
         }
     };
 
-	return new MediaQueryDispatch();
+    return new MediaQueryDispatch();
 
 }));

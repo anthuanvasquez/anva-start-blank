@@ -1,17 +1,10 @@
-html, body {
-	color: $base__font-color;
-	font-size: $base__font-size;
-	height: 100%;
-	line-height: $base__line-height;
-	@include font-stack-body();
-	overflow-x: hidden;
-}
-
 body {
-	background: $color__body;
+	@include font-stack-body();
+	background-color: $color__body;
+	color: $base__font-color;
+	line-height: $base__line-height;
 }
 
-html,
 button,
 input,
 select,

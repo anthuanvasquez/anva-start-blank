@@ -8,17 +8,14 @@
     	handheld: 480,
     	tablet: 768,
     	laptop: 992,
-    	desktop: 1199
+    	desktop: 1200
 	};
 	
 	var ANVASTART = {
-
-		// ---------------------------------------------------------
-		// Lightbox
-		// ---------------------------------------------------------
 		
-		popup: function(target) {
-			$(target).magnificPopup({
+		lightbox: function() {
+			var $lightbox = $('.gallery .gallery-item, .single .entry__thumbnail');
+			$lightbox.magnificPopup({
 				delegate: 'a',
 				removalDelay: 300,
 				type: 'image',
@@ -41,31 +38,41 @@
 			}
 		},
 
-		// ---------------------------------------------------------
-		// Scroll go top button
-		// ---------------------------------------------------------
-		
-		scroll: function() {
-			$(window).on( 'scroll', function() {
-				if ($(this).scrollTop() > 200) {
-					$('#gotop').fadeIn(200);
-				} else {
-					$('#gotop').fadeOut(200);
-				}
-			});
+		goToTop: function() {
+			var $goToTopEl = $('#gototop'),
+				elementScrollSpeed = $goToTopEl.attr('data-speed');
 
-			$('#gotop').on( 'click', function(e) {
-				e.preventDefault();
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+			if ( ! elementScrollSpeed ) {
+				elementScrollSpeed = 700;
+			}
+
+			$goToTopEl.on( 'click', function() {
+				$('body, html').animate({
+					'scrollTop': 0
+				}, Number( elementScrollSpeed ) );
+				return false;
 			});
 		},
 
-		// ---------------------------------------------------------
-		// Superfish Menu
-		// ---------------------------------------------------------
+		goToTopScroll: function() {
+
+			var $goToTopEl = $('#gototop'),
+				elementOffset = $goToTopEl.attr('data-offset');
+
+			if ( ! elementOffset ) {
+				elementOffset = 450;
+			}
+
+			if ( $(window).scrollTop() > Number( elementOffset ) ) {
+				$goToTopEl.fadeIn();
+			} else {
+				$goToTopEl.fadeOut();
+			}
+		},
 		
-		menu: function(target, rows) {
-			$(target).superfish({
+		menu: function() {
+			var $menu = $('.navigation-menu, .off-canvas-menu');
+			$menu.superfish({
 				delay: 500,
 				animation:   {
 					opacity: 'show',
@@ -75,21 +82,6 @@
 				cssArrows: false
 			});
 		},
-
-		// ---------------------------------------------------------
-		// Remove empty elements
-		// ---------------------------------------------------------
-		
-		removeEmptyElements: function(target) {
-			$(target + ':empty').remove();
-			$(target).filter( function() {
-				return $.trim( $(this).html() ) == '';
-			}).remove();
-		},
-
-		// ---------------------------------------------------------
-		// Toogle for shortcodes
-		// ---------------------------------------------------------
 		
 		toggle: function() {
 			$('div.toggle-info').hide();
@@ -100,44 +92,75 @@
 			$('#mobile-toggle').tooltip();
 
 		},
-
-		// ---------------------------------------------------------
-		// Enquire JS
-		// ---------------------------------------------------------
 		
-    	responsive: function() {
-    		enquire.register("screen and (max-width: " + bp.laptop + "px)", {match : function() {
-					
-				},
-				unmatch : function() {
-					
-				}
-			});
+    	responsiveClasses: function() {
+    		var $body = $('body');
+
+    		// Queries
+    		var	desktopQuery = "(min-width: " + bp.desktop + "px) and (max-width: 10000px)",
+    			laptopQuery  = "(min-width: " + bp.laptop + "px) and (max-width: " + ( bp.desktop - 1 ) + "px)",
+    			tabletQuery  = "(min-width: " + bp.tablet + "px) and (max-width: " + ( bp.laptop - 1 ) + "px)",
+    			handheldQuery  = "(min-width: " + bp.handheld + "px) and (max-width: " + ( bp.tablet - 1 ) + "px)",
+    			smallestQuery  = "(min-width: " + 0 + "px) and (max-width: " + ( bp.handheld - 1 ) + "px)";
+
+    		// Handlers
+    		var desktopHandler = {
+    			match : function() { $body.addClass('device-lg'); },
+        		unmatch : function() { $body.removeClass('device-lg'); }
+    		},
+    		laptopHandler = {
+    			match : function() { $body.addClass('device-md'); },
+        		unmatch : function() { $body.removeClass('device-md'); }
+    		},
+    		tabletHandler = {
+    			match : function() { $body.addClass('device-sm'); },
+        		unmatch : function() { $body.removeClass('device-ms'); }
+    		},
+    		handheldHandler = {
+    			match : function() { $body.addClass('device-xs'); },
+        		unmatch : function() { $body.removeClass('device-xs'); }
+    		},
+    		smallestHandler = {
+    			match : function() { $body.addClass('device-xxs'); },
+        		unmatch : function() { $body.removeClass('device-xxs'); }
+    		};
+
+    		enquire.register(desktopQuery,  desktopHandler);
+			enquire.register(laptopQuery,   laptopHandler);
+			enquire.register(tabletQuery,   tabletHandler);
+			enquire.register(handheldQuery, handheldHandler);
+			enquire.register(smallestQuery, smallestHandler);
+
     	},
 
-		// ---------------------------------------------------------
-		// Init Function
-		// ---------------------------------------------------------
+    	windowResize: function() {
+    		ANVASTART.responsiveClasses();
+
+    		$(window).on( function() {
+    			// Stuff Here
+    		});
+    	},
+
+    	windowScroll: function() {
+    		$(window).on('scroll', function() {
+    			ANVASTART.goToTopScroll();
+    		});
+    	},
 		
 		init: function() {
 
-			var $lightbox = '.gallery .gallery-item, .single .entry__thumbnail',
-				$menu     = '.navigation-menu, .off-canvas-menu',
-				$thumb    = '.fl-thumbnail';
-
-			ANVASTART.popup($lightbox);
-			ANVASTART.menu($menu);
-			ANVASTART.removeEmptyElements($thumb);
-			ANVASTART.removeEmptyElements('p');
+			ANVASTART.lightbox();
+			ANVASTART.menu();
 			ANVASTART.toggle();
-			ANVASTART.scroll();
+			ANVASTART.goToTop();
 			ANVASTART.gallery();
-			ANVASTART.responsive();
+			ANVASTART.windowResize();
+			ANVASTART.windowScroll();
 
 		}
 
 	};
 
-	ANVASTART.init();
+	$(document).ready( ANVASTART.init );
 
 })(jQuery);
