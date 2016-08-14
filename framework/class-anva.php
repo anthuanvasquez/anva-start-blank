@@ -106,7 +106,6 @@ class Anva
 		add_action( 'wp', 'anva_setup_author' );
 		add_action( 'wp_enqueue_scripts', 'anva_load_scripts', 12 );
 		add_action( 'widgets_init', 'anva_register_sidebars' );
-		add_action( 'widgets_init', 'anva_register_widgets' );	
 		add_action( 'admin_bar_menu', 'anva_settings_menu_link', 1000 );
 		add_action( 'after_setup_theme', 'anva_add_image_sizes' );
 		add_action( 'image_size_names_choose', 'anva_image_size_names_choose' );
