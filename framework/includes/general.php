@@ -196,14 +196,14 @@ function anva_wp_mail_from_name( $original_email_from ) {
  */
 function anva_search_filter( $query ) {
 
-	$post_types = array(
+	$post_types = apply_filters( 'anva_search_filter_post_types', array(
 		'post',
 		'page'
-	);
+	) );
 
-	if ( ! class_exists( 'Woocommerce' ) ) {
+	if ( ! class_exists( 'WooCommerce' ) ) {
 		if ( ! $query->is_admin && $query->is_search ) {
-			$query->set( 'post_type', apply_filters( 'anva_search_filter_post_types', $post_types ) );
+			$query->set( 'post_type', $post_types );
 		}
 	}
 	

@@ -308,14 +308,14 @@ h6 {
 }
 
 .wrapper {
-  background-color: #ffffff;
-  min-width: 320px;
-  position: relative;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #ffffff;
+  min-width: 320px;
+  position: relative;
 }
 
 .wrapper::after {
@@ -718,9 +718,10 @@ h6 {
   text-transform: uppercase;
 }
 
-.post-grid_item .entry__title {
-  font-size: 15px;
-  line-height: 1.5em;
+.post-grid__row::after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .updated {
@@ -770,9 +771,6 @@ h6 {
   border-color: #0081a9;
 }
 
-/*
- * Headings
- */
 .comments-title,
 .comment-reply-title {
   font-size: 18px;
@@ -1298,10 +1296,30 @@ a img.aligncenter {
   width: 860px;
 }
 
+@media screen and (max-width: 1199px) {
+  .content-area {
+    width: 690px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .content-area {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
 .content-area--full {
   float: none;
   margin-right: 0;
   width: 100%;
+}
+
+@media screen and (max-width: 1199px) {
+  .content-area--full {
+    width: 100%;
+  }
 }
 
 .content-area--sidebar-left {
@@ -1321,20 +1339,6 @@ a img.aligncenter {
 @media screen and (max-width: 1199px) {
   .content-area--both {
     width: 440px;
-  }
-}
-
-@media screen and (max-width: 1199px) {
-  .content-area {
-    width: 690px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .content-area {
-    float: none;
-    margin-right: 0;
-    width: 100%;
   }
 }
 

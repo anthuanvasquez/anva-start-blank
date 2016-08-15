@@ -176,7 +176,7 @@ function anva_post_grid_thumbnails( $size ) {
 	$output  = '';
 
 	if ( has_post_thumbnail() ) {
-		$output .= '<div class="entry__thumbnail entry__thumbnail--large thumbnail">';
+		$output .= '<div class="entry__thumbnail entry__thumbnail--large">';
 		$output .= '<a class="entry__thumbnail-link" href="' . get_permalink( $post->ID ) . '" title="' . get_the_title( $post->ID ) . '">' .get_the_post_thumbnail( $post->ID, $size ) . '</a>';
 		$output .= '</div>';
 	}

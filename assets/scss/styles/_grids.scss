@@ -3,10 +3,24 @@
 	margin-right: 40px;
 	width: 860px;
 
+	@include media($desktop) {
+		width: 690px;
+	}
+	
+	@include media($laptop) {
+		float: none;
+		margin-right: 0;
+		width: 100%;
+	}
+
 	&--full {
 		float: none;
 		margin-right: 0;
 		width: 100%;
+
+		@include media($desktop) {
+			width: 100%;
+		}
 	}
 
 	&--sidebar-left {
@@ -25,16 +39,6 @@
 		@include media($desktop) {
 			width: 440px;
 		}
-	}
-
-	@include media($desktop) {
-		width: 690px;
-	}
-	
-	@include media($laptop) {
-		float: none;
-		margin-right: 0;
-		width: 100%;
 	}
 }
 

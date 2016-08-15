@@ -83,10 +83,13 @@
     }
 }
 
-.post-grid_item {
-	.entry__title {
-		font-size: 15px;
-		line-height: 1.5em;
+.post-grid {
+	&__row {
+		@include clearfix();
+	}
+
+	&__item {
+		
 	}
 }
 
