@@ -40,8 +40,8 @@
 }
 
 .section-description {
-  border-bottom: 1px solid #dfdfdf;
-  color: #a29e9a;
+  border-bottom: 1px solid #DFDFDF;
+  color: #A29E9A;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 12px;
   font-style: italic;
@@ -49,7 +49,6 @@
   padding: 20px;
 }
 
-/* Options */
 .option-wrapper input[type="text"],
 .option-wrapper input[type="email"],
 .option-wrapper input[type="url"],
@@ -67,18 +66,16 @@
 .option-wrapper input[type="email"],
 .option-wrapper input[type="url"],
 .option-wrapper input[type="datetime"] {
-  -webkit-box-shadow: 0 0 4px #eee;
-  box-shadow: 0 0 4px #eee;
+  -webkit-box-shadow: 0 0 4px #EEE;
+          box-shadow: 0 0 4px #EEE;
   margin-bottom: 10px;
   outline: 0;
 }
 
-/* Inputs */
 .radio-input {
   margin: 0 0 8px;
 }
 
-/* Submit Area */
 .submit {
   border-bottom: 1px solid #dfdfdf;
   margin: 0 !important;

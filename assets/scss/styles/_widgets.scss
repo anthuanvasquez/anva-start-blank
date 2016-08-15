@@ -53,8 +53,7 @@
 .widget_recent_entries,
 .widget_categories,
 .widget_pages,
-.widget_rss,
-.widget_recent_comments {
+.widget_rss {
 	li {
 		padding: 4px;
 
@@ -72,8 +71,11 @@
 	}
 }
 
-.recentcomments {
-	word-wrap: break-word;
+.widget_recent_comments {
+	li {
+		word-wrap: break-word;
+		padding: 4px;
+	}
 }
 
 .calendar_wrap {

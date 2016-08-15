@@ -114,7 +114,7 @@ function anva_register_sidebars() {
 /*
  * Args in registers widget function
  */
-function anva_get_sidebar_args( $id, $name, $description, $classes ) {	
+function anva_get_sidebar_args( $id, $name, $description ) {	
 	$args = array(
 		'id'            => $id,
 		'name'          => $name,
@@ -125,7 +125,7 @@ function anva_get_sidebar_args( $id, $name, $description, $classes ) {
 		'after_title'   => '</h3>',
 	);
 
-	return apply_filters( 'anva_get_sidebar_args', $args );
+	return apply_filters( 'anva_sidebar_args', $args );
 }
 
 /**
