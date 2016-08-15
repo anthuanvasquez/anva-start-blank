@@ -13,6 +13,17 @@
     margin-right: $trim;
 	padding-right: $trim;
 
+	@include media($laptop) {
+	    border: 0;
+	    float: none;
+		display: block;
+	    height: 100px;
+	    margin: 0 auto;
+	    max-width: none;
+	    padding: 0;
+	    text-align: center;
+	}
+
 	&__link,
 	&__image {
 		display: block;
@@ -27,17 +38,6 @@
 		@include media($laptop) {
 			display: inline-block;
 		}
-	}
-
-	@include media($laptop) {
-	    border: 0;
-	    float: none;
-		display: block;
-	    height: 100px;
-	    margin: 0 auto;
-	    max-width: none;
-	    padding: 0;
-	    text-align: center;
 	}
 }
 

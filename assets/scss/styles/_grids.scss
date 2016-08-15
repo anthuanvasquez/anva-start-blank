@@ -46,6 +46,15 @@
 	float: right;
 	width: 240px;
 
+	@include media($desktop) {
+		width: 210px;
+	}
+
+	@include media($laptop) {
+		float: none;
+		width: 100%;
+	}
+
 	&--left {
 		float: left;
 		margin-right: 40px;
@@ -56,15 +65,6 @@
     		margin: 0 -38px -40px 0;
 			position: relative;
 		}
-	}
-
-	@include media($desktop) {
-		width: 210px;
-	}
-
-	@include media($laptop) {
-		float: none;
-		width: 100%;
 	}
 }
 

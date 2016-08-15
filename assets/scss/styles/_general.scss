@@ -12,11 +12,9 @@ textarea {
   color: $base__font-color;
 }
 
-/*
- * Remove underline on links
- */
 a {
 	text-decoration: none;
+
 	&:focus,
 	&:hover {
 		text-decoration: none;
@@ -43,18 +41,11 @@ article {
 
 }
 
-/*
- * Fluid Images
- */
 img {
 	max-width: 100%;
 	height: auto;
 }
 
-/*
- * Remove the gap between images, videos, audio and canvas and the bottom of
- * their containers: h5bp.com/i/440
- */
 audio,
 canvas,
 img,
@@ -62,9 +53,6 @@ video {
 	vertical-align: middle;
 }
 
-/*
- * A better looking default horizontal rule
- */
 hr {
 	display: block;
 	height: 1px;
@@ -74,18 +62,12 @@ hr {
 	padding: 0;
 }
 
-/*
- * Remove default fieldset styles.
- */
 fieldset {
 	border: 0;
 	margin: 0;
 	padding: 0;
 }
 
-/*
- * Selection.
- */
 ::-moz-selection {
 	background: #b3d4fc;
 	text-shadow: none;

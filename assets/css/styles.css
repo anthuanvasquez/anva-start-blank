@@ -13,9 +13,6 @@ textarea {
   color: #333333;
 }
 
-/*
- * Remove underline on links
- */
 a {
   text-decoration: none;
 }
@@ -40,18 +37,11 @@ article ol, article ul ol, article ol ol {
   list-style: decimal;
 }
 
-/*
- * Fluid Images
- */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/*
- * Remove the gap between images, videos, audio and canvas and the bottom of
- * their containers: h5bp.com/i/440
- */
 audio,
 canvas,
 img,
@@ -59,9 +49,6 @@ video {
   vertical-align: middle;
 }
 
-/*
- * A better looking default horizontal rule
- */
 hr {
   display: block;
   height: 1px;
@@ -71,18 +58,12 @@ hr {
   padding: 0;
 }
 
-/*
- * Remove default fieldset styles.
- */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/*
- * Selection.
- */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -93,9 +74,6 @@ fieldset {
   text-shadow: none;
 }
 
-/*
- * color style for Inputs Text
- */
 input[type="search"] {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -108,9 +86,6 @@ input[type="radio"] {
   top: 3px;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
 textarea {
   -webkit-border-radius: 0;
           border-radius: 0;
@@ -196,6 +171,19 @@ h6 {
   padding-right: 30px;
 }
 
+@media screen and (max-width: 992px) {
+  .logo {
+    border: 0;
+    float: none;
+    display: block;
+    height: 100px;
+    margin: 0 auto;
+    max-width: none;
+    padding: 0;
+    text-align: center;
+  }
+}
+
 .logo__link, .logo__image {
   display: block;
   -webkit-transition: height 0.4s ease;
@@ -209,19 +197,6 @@ h6 {
 @media screen and (max-width: 992px) {
   .logo__link {
     display: inline-block;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .logo {
-    border: 0;
-    float: none;
-    display: block;
-    height: 100px;
-    margin: 0 auto;
-    max-width: none;
-    padding: 0;
-    text-align: center;
   }
 }
 
@@ -344,6 +319,18 @@ h6 {
   float: right;
 }
 
+@media screen and (max-width: 992px) {
+  .navigation {
+    float: none;
+  }
+  .off_canvas_navigation .navigation {
+    display: none;
+  }
+  .toggle_navigation .navigation {
+    display: block;
+  }
+}
+
 .navigation--style-2 {
   float: none;
   max-width: none;
@@ -358,18 +345,6 @@ h6 {
 @media screen and (max-width: 992px) {
   .navigation--style-2 .navigation-menu__link {
     padding: 14px 5px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .navigation {
-    float: none;
-  }
-  .off_canvas_navigation .navigation {
-    display: none;
-  }
-  .toggle_navigation .navigation {
-    display: block;
   }
 }
 
@@ -640,9 +615,9 @@ h6 {
 }
 
 .entry__thumbnail--medium {
-  margin-bottom: 20px;
   margin-right: 2.33725%;
   width: 40.30327%;
+  margin-bottom: 20px;
 }
 
 .entry__thumbnail--medium:last-child {
@@ -1100,14 +1075,6 @@ h6 {
   padding-right: 5px;
 }
 
-/*
- * Widget services
- */
-.service-image,
-.service-content {
-  margin-bottom: 10px;
-}
-
 .gallery {
   margin: 0 auto 30px;
 }
@@ -1347,18 +1314,6 @@ a img.aligncenter {
   width: 240px;
 }
 
-.widget-area--left {
-  float: left;
-  margin-right: 40px;
-}
-
-@media screen and (max-width: 992px) and (min-width: 768px) {
-  .widget-area__wrap {
-    margin: 0 -38px -40px 0;
-    position: relative;
-  }
-}
-
 @media screen and (max-width: 1199px) {
   .widget-area {
     width: 210px;
@@ -1369,6 +1324,18 @@ a img.aligncenter {
   .widget-area {
     float: none;
     width: 100%;
+  }
+}
+
+.widget-area--left {
+  float: left;
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .widget-area__wrap {
+    margin: 0 -38px -40px 0;
+    position: relative;
   }
 }
 
@@ -1539,22 +1506,19 @@ a img.aligncenter {
   position: relative;
 }
 
-/*
- * Shortcodes
- */
 .dropcap {
-  display: block;
-  float: left;
-  margin: 0 8px 0 0;
-  font-size: 24px;
-  line-height: 39px;
-  background: black;
-  color: white;
-  width: 40px;
-  height: 40px;
-  text-align: center;
+  background: #111111;
   -webkit-border-radius: 50px;
           border-radius: 50px;
+  color: white;
+  display: block;
+  float: left;
+  font-size: 24px;
+  height: 40px;
+  line-height: 39px;
+  margin: 0 8px 0 0;
+  text-align: center;
+  width: 40px;
 }
 
 .contact-form__label {
@@ -1742,7 +1706,7 @@ html[xmlns] .slides {
   width: 12px;
   height: 12px;
   display: block;
-  border: 1px solid #fff;
+  border: 1px solid #FFF;
   cursor: pointer;
   text-indent: -9999px;
   -webkit-border-radius: 50%;
@@ -1750,11 +1714,11 @@ html[xmlns] .slides {
 }
 
 .flex-control-paging li a:hover {
-  background-color: #fff;
+  background-color: #FFF;
 }
 
 .flex-control-paging li a.flex-active {
-  background-color: #fff;
+  background-color: #FFF;
   cursor: default;
 }
 
@@ -1805,7 +1769,7 @@ html[xmlns] .slides {
 }
 
 .slides__caption {
-  background-color: #fff;
+  background-color: #FFF;
   color: #333;
   font-weight: 400;
   text-shadow: none;
@@ -1836,7 +1800,7 @@ html[xmlns] .slides {
 }
 
 .slides__description {
-  color: #fff;
+  color: #FFF;
   margin-top: 10px;
 }
 

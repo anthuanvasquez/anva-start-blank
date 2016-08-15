@@ -1,5 +1,17 @@
 .navigation {
 	float: right;
+
+	@include media($laptop) {
+		float: none;
+
+		.off_canvas_navigation & {
+			display: none;
+		}
+
+		.toggle_navigation & {
+			display: block;
+		}
+	}
 	
 	&--style-2 {
 		float: none;
@@ -15,19 +27,6 @@
     		}
     	}
 	}
-
-	@include media($laptop) {
-		float: none;
-
-		.off_canvas_navigation & {
-			display: none;
-		}
-
-		.toggle_navigation & {
-			display: block;
-		}
-	}
-
 }
 
 .navigation-menu {
