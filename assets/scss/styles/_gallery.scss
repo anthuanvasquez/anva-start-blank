@@ -1,0 +1,14 @@
+.gallery {
+	@include clearfix();
+	margin: 0 auto $trim;
+
+	.gallery-item {
+  		float: left;
+  		margin-top: 10px;
+  		text-align: center;
+	}
+
+	.gallery-caption {
+  		margin-left: 0;
+	}
+}

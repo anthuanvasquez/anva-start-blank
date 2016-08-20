@@ -1,0 +1,28 @@
+@import "framework";
+@import "styles/buttons";
+
+body.woocommerce-demo-store {
+	margin-top: 49px;
+}
+
+.latest-products {
+	&__heading {
+		
+	}
+}
+
+// Products List
+.woocommerce,
+.woocommerce-page {
+	
+	ul.products {
+		@include reset-list();
+		
+		li.product {
+			border: 1px solid $color__border;
+			border-radius: $border-radius;
+			padding: 15px;
+			position: relative;
+		}
+	}
+}

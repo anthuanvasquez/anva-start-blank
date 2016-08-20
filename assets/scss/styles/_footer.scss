@@ -1,0 +1,45 @@
+.footer {
+	background-color: #eee;
+    border-top: 5px solid rgba(black,.2);
+    color: $footer__font-color;
+
+	&--dark {
+		background-color: #333;
+    	border-top-color: rgba(black, .2);
+    	color: #ccc;
+	}
+
+	a {
+		color: $footer__link-color;
+	}
+}
+
+.footer-widgets {
+	padding: $padding*3 0;
+	position: relative;
+
+	.widget {
+		border: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+
+		&__title {
+			color: $footer__heading-font-color;
+			font-size: $footer__heading-font-size;
+		}
+	}
+}
+
+.copyrights {
+	background-color: rgba(black, 0.2);
+	color: rgba(white, 0.25);
+    font-size: 14px;
+    line-height: 1.8;
+	padding: $padding*2 0;
+    text-shadow: 1px 1px 1px rgba(black, 0.1);
+
+	&__text {
+		margin: 0;
+	}
+}

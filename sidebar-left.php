@@ -1,5 +1,3 @@
-<div class="sidebar-inner">
-	<div class="widget-area widget-area-left">
-		<?php if ( dynamic_sidebar( 'sidebar_left' ) ) : endif; ?>
-	</div>
-</div><!-- .sidebar-inner (end) -->
+<div class="widget-area__wrap">
+	<?php if ( dynamic_sidebar( 'sidebar_left' ) ) : endif; ?>
+</div>

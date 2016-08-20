@@ -1,165 +1,166 @@
-if ( typeof jQuery === 'undefined' ) {
-	throw new Error( 'JavaScript requires jQuery' )
-}
+(function($) {
 
-var bp = {
-	phones: 320,
-	phonem: 480,
-	tablets: 750,
-	tabletm: 768,
-	desktops: 992,
-	desktopm: 1200,
-	desktopl: 1600
-}
+	'use strict';
 
-jQuery.noConflict();
-jQuery(document).ready(function($) {
+	// Breakpoints
+	var bp = {
+		smallest: 320,
+    	handheld: 480,
+    	tablet: 768,
+    	laptop: 992,
+    	desktop: 1200
+	};
 	
-	// ---------------------------------------------------------
-	// Enquire JS
-	// ---------------------------------------------------------
-	enquire.register("screen and (max-width: " + bp.phonem + "px)", {
-		match : function() {
-			
-		},
-		unmatch : function() {
-			
-		}
-	});
-
-});
-
-var initialize = {
-
-	// ---------------------------------------------------------
-	// Lightbox
-	// ---------------------------------------------------------
-	Popup: function(target) {
-		jQuery(target).magnificPopup({
-			delegate: 'a',
-			removalDelay: 300,
-			type: 'image',
-			mainClass: 'mfp-with-zoom',
-			titleSrc: 'title',
-			gallery: {
-				enabled: true
-			}
-		});
-	},
-
-	// ---------------------------------------------------------
-	// Scroll go top button
-	// ---------------------------------------------------------
-	Scroll: function(target) {
-		jQuery(window).scroll(function() {
-			if (jQuery(this).scrollTop() > 200) {
-				jQuery(target).fadeIn(200);
-			} else {
-				jQuery(target).fadeOut(200);
-			}
-		});
-
-		jQuery(target).click(function(e) {
-			e.preventDefault();
-			jQuery('html, body').animate({ scrollTop: 0 }, 'slow');
-		});
-	},
-
-	// ---------------------------------------------------------
-	// Superfish Menu
-	// ---------------------------------------------------------
-	Menu: function(target, rows) {
-		jQuery(target).superfish({
-			delay: 500,
-			animation:   {
-				opacity: 'show',
-				height: 'show'
-			},
-			speed: 'fast',
-			cssArrows: false
-		});
-	},
-
-	// ---------------------------------------------------------
-	// Remove empty elements
-	// ---------------------------------------------------------
-	RemoveEmpty: function(target) {
-		jQuery(target + ':empty').remove();
-		jQuery(target).filter( function() {
-			return jQuery.trim( jQuery(this).html() ) == '';
-		}).remove();
-	},
-
-	// ---------------------------------------------------------
-	// Toogle for shortcodes
-	// ---------------------------------------------------------
-	Toggle: function() {
-		jQuery('div.toggle-info').hide();
-		jQuery('h3.toggle-trigger').click(function(e) {
-			e.preventDefault();
-			jQuery(this).toggleClass("is-active").next().slideToggle("normal");
-		});
-		jQuery('#mobile-toggle').tooltip();
-
-	},
-
-	// ---------------------------------------------------------
-	// TOC
-	// ---------------------------------------------------------
-	TOC: function() {
-		var menu = jQuery("#menu-toc");
-		var target = jQuery(".fl-menu ul > li > div.fl-menu-section > h2");
-		var html = "<nav role='navigation' class='table-of-contents'>" + "<h2 id='toc' class='alt'><i class='fa fa-bars'></i> Menú</h2>" + "<ul class='toc-list group'>";
-		var list, el, title, link;
+	var ANVASTART = {
 		
-		target.each( function() {
-			el = jQuery(this);
-			id = jQuery(this).parent('div.fl-menu-section');
-			title = el.text();
-			link = "#" + id.attr("id");
-			list = "<li class='toc-item'>" + "<a href='" + link + "'>" + title + "</a>" + "</li>";
-			html += list;
-		});
-
-		html += "</ul>" + "</nav>";
-
-		menu.prepend(html);
-
-		jQuery('.fl-menu a[href*=#]:not([href=#])').click(function() {
-			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-				var target = jQuery(this.hash);
-				target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
-				if (target.length) {
-					jQuery('html, body').animate({
-						scrollTop: target.offset().top
-					}, 1000);
-					return false;
+		lightbox: function() {
+			var $lightbox = $('.gallery .gallery-item, .single .entry__thumbnail');
+			$lightbox.magnificPopup({
+				delegate: 'a',
+				removalDelay: 300,
+				type: 'image',
+				mainClass: 'mfp-with-zoom',
+				titleSrc: 'title',
+				gallery: {
+					enabled: true
 				}
+			});
+		},
+
+		gallery: function() {
+			var gallery = $('.gallery');
+			if ( gallery.length > 0 ) {
+				var columns = $.grep(gallery.attr('class').split(' '), function(v, i) {
+			    	return v.indexOf('gallery-columns') === 0;
+				}).join();
+			
+				gallery.find('.gallery-item').width( 100 / parseInt( columns.replace('gallery-columns-', '' ) ) + '%' );
 			}
-		});
-	},
+		},
 
-	// ---------------------------------------------------------
-	// Init Function
-	// ---------------------------------------------------------
-	Init: function() {
+		goToTop: function() {
+			var $goToTopEl = $('#gototop'),
+				elementScrollSpeed = $goToTopEl.attr('data-speed');
 
-		initialize.Popup('.gallery > .gallery-item, .single .featured-image .thumbnail');
-		initialize.Menu('ul.navigation-menu, ul.off-canvas-menu');
-		initialize.RemoveEmpty('div.fl-thumbnail');
-		initialize.RemoveEmpty('p');
-		initialize.Toggle();
+			if ( ! elementScrollSpeed ) {
+				elementScrollSpeed = 700;
+			}
+
+			$goToTopEl.on( 'click', function() {
+				$('body, html').animate({
+					'scrollTop': 0
+				}, Number( elementScrollSpeed ) );
+				return false;
+			});
+		},
+
+		goToTopScroll: function() {
+
+			var $goToTopEl = $('#gototop'),
+				elementOffset = $goToTopEl.attr('data-offset');
+
+			if ( ! elementOffset ) {
+				elementOffset = 450;
+			}
+
+			if ( $(window).scrollTop() > Number( elementOffset ) ) {
+				$goToTopEl.fadeIn();
+			} else {
+				$goToTopEl.fadeOut();
+			}
+		},
 		
-		if ( 1 == ANVAJS.plugin_foodlist ) {
-			initialize.TOC();
+		menu: function() {
+			var $menu = $('.navigation-menu, .off-canvas-menu');
+			$menu.superfish({
+				delay: 500,
+				animation:   {
+					opacity: 'show',
+					height: 'show'
+				},
+				speed: 'fast',
+				cssArrows: false
+			});
+		},
+		
+		toggle: function() {
+			$('div.toggle-info').hide();
+			$('h3.toggle-trigger').click(function(e) {
+				e.preventDefault();
+				$(this).toggleClass("is-active").next().slideToggle("normal");
+			});
+			$('#mobile-toggle').tooltip();
+
+		},
+		
+    	responsiveClasses: function() {
+    		var $body = $('body');
+
+    		// Queries
+    		var	desktopQuery = "(min-width: " + bp.desktop + "px) and (max-width: 10000px)",
+    			laptopQuery  = "(min-width: " + bp.laptop + "px) and (max-width: " + ( bp.desktop - 1 ) + "px)",
+    			tabletQuery  = "(min-width: " + bp.tablet + "px) and (max-width: " + ( bp.laptop - 1 ) + "px)",
+    			handheldQuery  = "(min-width: " + bp.handheld + "px) and (max-width: " + ( bp.tablet - 1 ) + "px)",
+    			smallestQuery  = "(min-width: " + 0 + "px) and (max-width: " + ( bp.handheld - 1 ) + "px)";
+
+    		// Handlers
+    		var desktopHandler = {
+    			match : function() { $body.addClass('device-lg'); },
+        		unmatch : function() { $body.removeClass('device-lg'); }
+    		},
+    		laptopHandler = {
+    			match : function() { $body.addClass('device-md'); },
+        		unmatch : function() { $body.removeClass('device-md'); }
+    		},
+    		tabletHandler = {
+    			match : function() { $body.addClass('device-sm'); },
+        		unmatch : function() { $body.removeClass('device-ms'); }
+    		},
+    		handheldHandler = {
+    			match : function() { $body.addClass('device-xs'); },
+        		unmatch : function() { $body.removeClass('device-xs'); }
+    		},
+    		smallestHandler = {
+    			match : function() { $body.addClass('device-xxs'); },
+        		unmatch : function() { $body.removeClass('device-xxs'); }
+    		};
+
+    		enquire.register(desktopQuery,  desktopHandler);
+			enquire.register(laptopQuery,   laptopHandler);
+			enquire.register(tabletQuery,   tabletHandler);
+			enquire.register(handheldQuery, handheldHandler);
+			enquire.register(smallestQuery, smallestHandler);
+
+    	},
+
+    	windowResize: function() {
+    		ANVASTART.responsiveClasses();
+
+    		$(window).on( function() {
+    			// Stuff Here
+    		});
+    	},
+
+    	windowScroll: function() {
+    		$(window).on('scroll', function() {
+    			ANVASTART.goToTopScroll();
+    		});
+    	},
+		
+		init: function() {
+
+			ANVASTART.lightbox();
+			ANVASTART.menu();
+			ANVASTART.toggle();
+			ANVASTART.goToTop();
+			ANVASTART.gallery();
+			ANVASTART.windowResize();
+			ANVASTART.windowScroll();
+
 		}
 
-		initialize.Scroll('#gotop');
+	};
 
-	}
+	$(document).ready( ANVASTART.init );
 
-};
-
-jQuery(document).ready(function($) {
-	initialize.Init();
-});
+})(jQuery);

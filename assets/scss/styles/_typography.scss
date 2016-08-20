@@ -1,0 +1,62 @@
+a,
+.link {
+	color: $color__link;
+	
+	&:hover {
+		color: $color__link--hover;
+	}
+}
+
+p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
+	margin-bottom: $trim;
+}
+
+blockquote {
+	font-size: $base__font-size;
+}
+
+dl, dt, dd, ol, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+h1, .h1 {
+	font-size: $heading__h1;
+}
+
+h2, .h2 {
+	font-size: $heading__h2;
+}
+
+h3, .h3 {
+	font-size: $heading__h3;
+}
+
+h4, .h4 {
+	font-size: $heading__h4;
+}
+
+h5, .h5 {
+	font-size: $heading__h5;
+}
+
+h6, .h6 {
+	font-size: $heading__h6;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	@include font-stack-headers();
+	color: $heading__font-color;
+	line-height: $heading__line-height;
+	margin: 0 0 $trim 0;
+}
+
+h4 {
+	font-weight: 600;
+}
+
+h5,
+h6 {
+	font-weight: bold;
+	margin-bottom: $padding;
+}

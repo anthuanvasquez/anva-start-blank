@@ -97,7 +97,7 @@ function anva_setup_author() {
 /*
  * WP Query args
  */
-function anva_get_post_query( $query_args = '' ) {
+function anva_get_post( $query_args = '' ) {
 	$number = get_option( 'posts_per_page' );
 	$page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 	$offset = ( $page - 1 ) * $number;

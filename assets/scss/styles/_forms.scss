@@ -1,0 +1,15 @@
+input[type="search"] {
+	box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	padding: 0;
+	position: relative;
+	top: 3px;
+}
+
+textarea {
+	border-radius: 0;
+	resize: vertical;
+}

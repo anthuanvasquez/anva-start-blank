@@ -20,82 +20,54 @@
 
 <body <?php body_class(); ?>>
 
-<?php anva_layout_before(); ?>
+<?php do_action( 'anva_layout_before' ); ?>
 
 <div id="off-canvas" class="off-canvas">	
-	<div  class="off-canvas-inner">
-		<div class="off-canvas-content">
-			<?php
-				if ( has_nav_menu( 'primary' ) ) {
-					wp_nav_menu( array( 
-						'theme_location'  => 'primary',
-						'container'       => 'div',
-						'container_class' => 'off-canvas-menu-wrapper',
-						'container_id'    => '',
-						'menu_class'      => 'off-canvas-menu sf-menu',
-						'menu_id'         => '',
-						'echo'            => true,
-						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>' )
-					);
-				}
-			?>
-		</div>
+	<div  class="off-canvas__wrap">
+		<span class="off-canvas__title">
+			<?php _e( 'Menu', 'anva-start' ); ?>	
+		</span>
+		<?php
+			if ( has_nav_menu( 'primary' ) ) {
+				bem_menu( 'primary', 'off-canvas-menu' );
+			}
+		?>
 	</div>
 </div><!-- #off-canvas (end) -->
 
-<!-- CONTAINER (start) -->
-<div id="container">
+<div id="wrapper" class="wrapper">
 
-	<a href="#" id="off-canvas-toggle" class="off-canvas-toggle">
+	<a href="#" id="off-canvas-trigger" class="off-canvas-trigger">
 		<i class="fa fa-bars"></i>
-		<span class="sr-only"><?php echo anva_get_local( 'menu' ); ?></span>
 	</a>
 
-	<!-- TOP (start) -->
-	<div id="top">
-		<header id="header">
-			<div class="header-inner inner">
-				
-				<div class="header-content">
-					<div class="header-content-inner">
-						
-						<div class="header-content-group group">
-
-							<div id="brand" class="brand">
-								<?php anva_header_logo(); ?>
-							</div><!-- #brand (end) -->
-
-							<div id="addon" class="addon">
-								<?php anva_header_addon(); ?>
-							</div><!-- #addon (end) -->
-
-						</div>
-
-					</div><!-- .header-content-inner (end) -->
-				</div><!-- .header-content (end) -->
-
-				<?php anva_main_navigation(); ?>
-
-			</div><!-- .header-inner (end) -->
-		</header><!-- #header (end) -->
-	</div><!-- TOP (end) -->
+	<header id="header" class="header">
+		<div class="container clearfix">
+			<div id="logo" class="logo">
+				<?php do_action( 'anva_header_logo' ); ?>
+			</div>
+			<ul class="header-addon">
+				<?php do_action( 'anva_header_addon' ); ?>
+			</ul>
+		</div>
+		<div class="header__wrap">
+			<?php do_action( 'anva_main_navigation' ); ?>
+		</div>
+	</header><!-- #header (end) -->	
 	
-	<?php if ( is_front_page() ) : ?>
-		<!-- FEATURED (start) -->
-		<div id="featured">
-			<div class="featured-inner">
-				<?php
-					if ( function_exists( 'anva_slideshows_featured' ) ) {
-						echo anva_slideshows_featured( 'homepage' );
-					}
-				?>
-			</div><!-- .featured-inner (end) -->
-		</div><!-- FEATURED (end) -->
+	<?php do_action( 'anva_slider' ); ?>
+
+	<?php if ( ! is_front_page() ) : ?>
+		<section class="page-title">
+			<div class="container clearfix">
+				<h1 class="page-title__heading">
+					<?php anva_the_page_title(); ?>
+				</h1>
+			</div>
+		</section>
 	<?php endif; ?>
 
-	<!-- MAIN (start) -->
-	<div id="main">
-		<div class="main-inner">
-			<div class="main-content">
-				
-				<?php anva_content_before(); ?>
+	<!-- CONTENT (start) -->
+	<section id="content" class="content">
+		<div class="content__wrap">		
+			<?php do_action( 'anva_content_before' ); ?>

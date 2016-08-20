@@ -10,9 +10,8 @@
 get_header();
 ?>
 
-<div class="row grid-columns">
-	<div class="coontent-area col-sm-12">
-		<div class="main">
+<div class="container clearfix">
+	<div class="coontent-area content-area--full">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -29,17 +28,20 @@ get_header();
 
 		<?php endwhile; ?>
 
-		</div><!-- .main (end) -->
 	</div><!-- .content-area (end) -->
 
-	<div class="latest-products col-sm-12">
-		<div class="special-products">
-			<h2 class="h3"><?php echo anva_get_local( 'product_featured' ) ?></h2>
+	<div class="latest-products">
+		<div class="latest-products__special">
+			<h2 class="latest-products__heading">
+				<?php echo anva_get_local( 'product_featured' ) ?>
+			</h2>
 			<?php echo do_shortcode( '[featured_products per_page="4" columns="4" orderby="rand"]' ); ?>
 		</div>
 
-		<div class="new-products">
-			<h2 class="h3"><?php echo anva_get_local( 'product_latest' ); ?></h2>
+		<div class="latest-products__new">
+			<h2 class="latest-products__heading">
+				<?php echo anva_get_local( 'product_latest' ); ?>
+			</h2>
 			<?php echo do_shortcode( '[recent_products per_page="4" columns="4" orderby="rand"]' ); ?>
 		</div>
 	</div><!-- latest-products (end) -->

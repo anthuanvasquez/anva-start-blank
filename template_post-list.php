@@ -13,7 +13,7 @@
 	<div class="content-area col-sm-8">
 		<div class="main">
 			<?php
-				$the_query = anva_get_post_query();
+				$the_query = anva_get_post();
 				if ( $the_query->have_posts() ) :
 					while ($the_query->have_posts()) : $the_query->the_post();
 						get_template_part( 'content', 'post' );

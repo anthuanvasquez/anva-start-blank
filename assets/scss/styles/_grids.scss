@@ -1,0 +1,147 @@
+.content-area {
+	float: left;
+	margin-right: 40px;
+	width: 860px;
+
+	@include media($desktop) {
+		width: 690px;
+	}
+	
+	@include media($laptop) {
+		float: none;
+		margin-right: 0;
+		width: 100%;
+	}
+
+	&--full {
+		float: none;
+		margin-right: 0;
+		width: 100%;
+
+		@include media($desktop) {
+			width: 100%;
+		}
+	}
+
+	&--sidebar-left {
+		float: right;
+		margin-right: 0;
+	}
+
+	&--both {
+		width: 580px;
+
+		&--left {
+			margin: 0;
+			margin-left: 40px;
+		}
+
+		@include media($desktop) {
+			width: 440px;
+		}
+	}
+}
+
+.widget-area {
+	float: right;
+	width: 240px;
+
+	@include media($desktop) {
+		width: 210px;
+	}
+
+	@include media($laptop) {
+		float: none;
+		width: 100%;
+	}
+
+	&--left {
+		float: left;
+		margin-right: 40px;
+	}
+
+	&__wrap {
+		@include media($laptop--both) {
+    		margin: 0 -38px -40px 0;
+			position: relative;
+		}
+	}
+}
+
+.grid_12 {
+	@include span-columns(12);
+	float: none;
+	margin-right: 0;
+}
+
+.grid_11 {
+	@include span-columns(11);
+}
+
+.grid_10 {
+	@include span-columns(10);
+}
+
+.grid_9 {
+	@include span-columns(9);
+}
+
+.grid_8 {
+	@include span-columns(8);
+}
+
+.grid_7 {
+	@include span-columns(7);
+}
+
+.grid_6 {
+	@include span-columns(6);
+}
+
+.grid_5 {
+	@include span-columns(5);
+}
+
+.grid_4 {
+	@include span-columns(4);
+}
+
+.grid_3 {
+	@include span-columns(3);
+}
+
+.grid_2 {
+	@include span-columns(2);
+}
+
+.grid_1 {
+	@include span-columns(1);
+}	
+
+.grid_last {
+	@include omega();
+}
+
+.grid_12,
+.grid_11,
+.grid_10,
+.grid_9,
+.grid_8,
+.grid_7,
+.grid_6,
+.grid_5,
+.grid_4,
+.grid_3,
+.grid_2,
+.grid_1 {
+	display: block;
+	float: left;
+	min-height: 1px;
+	margin-bottom: 25px;
+
+	@include media($tablet) {
+		float: none;
+		margin-right: 0;
+		width: 100%;
+	}
+}

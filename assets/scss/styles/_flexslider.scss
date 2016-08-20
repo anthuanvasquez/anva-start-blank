@@ -1,0 +1,251 @@
+/*
+ * Reset
+ */
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+	@include reset-list();
+}
+
+.flex-pauseplay span {
+	text-transform: capitalize;
+}
+
+.slides {
+
+	// Clearfix for the .slides element
+	&:after {
+		content: "\0020"; 
+		display: block; 
+		clear: both; 
+		visibility: hidden; 
+		line-height: 0; 
+		height: 0;
+	}
+
+	html[xmlns] & {
+		display: block;
+	}
+
+	* html & {
+		height: 1%;
+	}
+
+	// 
+	// No JavaScript Fallback
+	// If you are not using another script, such as Modernizr, make sure you
+	// include js that eliminates this class on page load
+	// 
+	.no-js & {
+		> li {
+			&:first-child {
+				display: block;
+			}
+		}
+	}
+}
+
+/*
+ * Default Theme
+ */
+.slider {
+	padding-top: $padding*2;
+	position: relative;
+    overflow: hidden;
+    width: 100%;
+	
+	&__wrap {
+		position: relative;
+		zoom: 1;
+	}
+}
+
+.slides {
+	zoom: 1;
+}
+
+.flex-viewport { 
+	max-height: 2000px;
+	transition: all 1s ease;
+	
+	.loading & {
+		max-height: 300px;
+	}
+}
+
+.flex-prev,
+.flex-next {
+	position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    top: 50%;
+    left: 0;
+    margin-top: -26px;
+    background-color: rgba(black, 0.3);
+    width: 52px;
+    height: 52px;
+    border: 0;
+    border-radius: 0 3px 3px 0;
+    transition: background-color .3s ease-in-out;
+
+    &:hover {
+    	background-color: rgba(black, 0.6);
+    }
+}
+
+.flex-next {
+	left: auto;
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.flex-prev i,
+.flex-next i {
+	line-height: 50px;
+    width: 34px;
+    height: 52px;
+    color: #DDD;
+    color: rgba(255,255,255,.8);
+    text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    font-size: 34px;
+    text-align: center;
+    margin-left: 7px;
+}
+
+.flex-prev i {
+    margin-left: 9px;
+}
+
+.flex-next i {
+    margin-left: 11px;
+}
+
+.flex-direction-nav {
+	*height: 0;
+}
+
+.flex-disabled {
+	cursor: default;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.flex-control-nav {
+	padding: 0 0 15px;
+	width: 100%;
+	position: absolute;
+    bottom: 0;
+    z-index: 1;
+    text-align: center;
+
+	li {
+		@include inline-block();
+		margin: 0 3px;
+	}
+}
+
+// Control paging
+.flex-control-paging {
+	li {
+		a {
+			width: 12px;
+			height: 12px;
+			display: block;
+			border: 1px solid #FFF;
+			cursor: pointer; 
+			text-indent: -9999px;
+			border-radius: 50%;
+
+			&:hover {
+				background-color: #FFF;
+			}
+
+			&.flex-active { 
+				background-color: #FFF;
+				cursor: default;
+			}
+		}
+	}
+}
+
+.flex-control-thumbs {
+	margin: 5px 0 0; 
+	position: static; 
+	overflow: hidden;
+
+	li {
+		width: 25%; 
+		float: left; 
+		margin: 0;
+	}
+
+	img {
+		width: 100%; 
+		display: block; 
+		opacity: .7; 
+		cursor: pointer;
+		transition: all .2s ease;
+
+		&:hover {
+			opacity: 1;
+		}
+
+	}
+
+	.flex-active {
+		opacity: 1; 
+		cursor: default;
+	}
+}
+
+.slides {
+
+	&__wrap {
+		position: relative;
+	}
+
+	&__item {
+		display: none; 
+		-webkit-backface-visibility: hidden;
+	}
+
+	&__image {
+		width: 100%;
+		display: block;
+		transition: all .2s ease;
+	}
+	
+	&__caption {
+		background-color: #FFF;
+    	color: #333;
+    	font-weight: 400;
+    	text-shadow: none;
+    	position: absolute;
+    	left: auto;
+    	right: 50px;
+    	top: auto;
+    	bottom: 50px;
+    	z-index: 50;
+    	max-width: 550px;
+    	font-size: 22px;
+    	padding: 5px 12px;
+    	border-radius: 2px;
+    	transition: top 0.2s ease;
+	}
+
+	&__title {
+		color: inherit;
+		font-size: inherit;
+		margin: 0;
+	}
+
+	&__link {
+		display: block;
+		color: inherit;
+	}
+
+	&__description {
+		color: #FFF;
+		margin-top: 10px;
+	}
+}

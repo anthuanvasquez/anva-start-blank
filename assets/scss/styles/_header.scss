@@ -1,0 +1,76 @@
+.header {
+	background-color: #FFF;
+    border-bottom: 1px solid $color__border;
+	position: relative;
+}
+
+// Logo
+
+.logo {
+    float: left;
+    font-size: 36px;
+    line-height: 100%;
+    margin-right: $trim;
+	padding-right: $trim;
+
+	@include media($laptop) {
+	    border: 0;
+	    float: none;
+		display: block;
+	    height: 100px;
+	    margin: 0 auto;
+	    max-width: none;
+	    padding: 0;
+	    text-align: center;
+	}
+
+	&__link,
+	&__image {
+		display: block;
+		transition: height 0.4s ease;
+	}
+
+	&__image {
+		height: $logo-size;
+	}
+
+	&__link {
+		@include media($laptop) {
+			display: inline-block;
+		}
+	}
+}
+
+// Addons
+
+.header-addon {
+	@include clearfix();
+	float: right;
+    list-style: none;
+    margin: 30px 0 0;
+
+	&__item {
+		float: left;
+	    height: 40px;
+	    margin-left: 20px;
+	    overflow: hidden;
+
+	    &:first-child {
+	    	margin-left: 0;
+	    }
+	}
+
+	.social-media {
+		margin: 0 0 5px;
+		text-align: right;
+	}
+
+	.search-form {
+		display: inline-block;
+	}
+
+	.input-group {
+		max-width: 210px;
+	}
+
+}
