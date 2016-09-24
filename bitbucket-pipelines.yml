@@ -28,7 +28,7 @@ pipelines:
                 - sed -i "s/yourpasswordhere//" wp-tests-config.php
                 # Create WordPress database.
                 - service mysql start
-                - mysql -e 'CREATE DATABASE wordpress_test;' -u root
+                - mysql -h localhost -u root -proot -e "CREATE DATABASE wordpress_test;"
                 # Install CodeSniffer for WordPress Coding Standards checks.
                 - mkdir php-codesniffer && curl -L https://github.com/squizlabs/PHP_CodeSniffer/archive/master.tar.gz | tar xz --strip-components=1 -C php-codesniffer
                 # Install WordPress Coding Standards.
