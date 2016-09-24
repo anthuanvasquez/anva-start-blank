@@ -1,16 +1,19 @@
 jQuery(document).ready(function($) {
 	
-	var pageTemplate = $("#page_template");
+	var pageTemplate = $('page_template');
 
 	function validate( val ) {
-		var pageGrid = $("#post_grid");
-		var pageSidebar = $("#sidebar_column");
-		if ( 'template_post-grid.php' == val ) {
+		
+		var pageGrid = $('#post_grid'),
+			pageSidebar = $('#sidebar_column');
+		
+		if ( 'template_post-grid.php' === val ) {
 			pageGrid.show();
 		} else {
 			pageGrid.hide();
 		}
-		if ( 'default' == val ) {
+		
+		if ( 'default' === val ) {
 			pageSidebar.show();
 		} else {
 			pageSidebar.hide();
@@ -18,11 +21,11 @@ jQuery(document).ready(function($) {
 	}
 	
 	// Initial
-	validate( pageTemplate.val() )
+	validate( pageTemplate.val() );
 
 	// On Change
-	pageTemplate.on( "change", function(e) {		
-		validate( $(this).val() )
+	pageTemplate.on( 'change', function() {
+		validate( $(this).val() );
 	});
 
 });

@@ -87,7 +87,7 @@
 			$('div.toggle-info').hide();
 			$('h3.toggle-trigger').click(function(e) {
 				e.preventDefault();
-				$(this).toggleClass("is-active").next().slideToggle("normal");
+				$(this).toggleClass('is-active').next().slideToggle('normal');
 			});
 			$('#mobile-toggle').tooltip();
 
@@ -97,11 +97,11 @@
     		var $body = $('body');
 
     		// Queries
-    		var	desktopQuery = "(min-width: " + bp.desktop + "px) and (max-width: 10000px)",
-    			laptopQuery  = "(min-width: " + bp.laptop + "px) and (max-width: " + ( bp.desktop - 1 ) + "px)",
-    			tabletQuery  = "(min-width: " + bp.tablet + "px) and (max-width: " + ( bp.laptop - 1 ) + "px)",
-    			handheldQuery  = "(min-width: " + bp.handheld + "px) and (max-width: " + ( bp.tablet - 1 ) + "px)",
-    			smallestQuery  = "(min-width: " + 0 + "px) and (max-width: " + ( bp.handheld - 1 ) + "px)";
+    		var	desktopQuery = '(min-width: ' + bp.desktop + 'px) and (max-width: 10000px)',
+    			laptopQuery  = '(min-width: ' + bp.laptop + 'px) and (max-width: ' + ( bp.desktop - 1 ) + 'px)',
+    			tabletQuery  = '(min-width: ' + bp.tablet + 'px) and (max-width: ' + ( bp.laptop - 1 ) + 'px)',
+    			handheldQuery  = '(min-width: ' + bp.handheld + 'px) and (max-width: ' + ( bp.tablet - 1 ) + 'px)',
+    			smallestQuery  = '(min-width: ' + 0 + 'px) and (max-width: ' + ( bp.handheld - 1 ) + 'px)';
 
     		// Handlers
     		var desktopHandler = {
