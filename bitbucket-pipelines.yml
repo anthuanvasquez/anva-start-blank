@@ -41,7 +41,7 @@ pipelines:
                 # Hop into themes directory.
                 - cd $theme_dir
                 # After CodeSniffer install you should refresh your path.
-                - phpenv rehash
+                # - phpenv rehash
                 # Install JSCS: JavaScript Code Style checker
                 # @link http://jscs.info/
                 - npm install -g jscs
