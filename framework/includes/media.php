@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Get Image Sizes
  *
@@ -12,26 +11,26 @@ function anva_get_image_sizes() {
 
 	global $content_width;
 
-	// Content Width
-	// Default width of primary content area
+	// Content Width.
+	// Default width of primary content area.
 	$content_width = apply_filters( 'anva_content_width', 1170 );
 
-	// Crop sizes
+	// Crop sizes.
 	$sizes = array(
 		'blog_large' => array(
 			'name' 		=> __( 'Blog Large', 'anva-start' ),
 			'width' 	=> $content_width,
 			'height' 	=> 9999,
-			'crop' 		=> false
+			'crop' 		=> false,
 		),
 		'blog_medium' => array(
 			'name' 		=> __( 'Blog Medium', 'anva-start' ),
 			'width' 	=> 320,
 			'height'	=> 320,
-			'crop' 		=> false
+			'crop' 		=> false,
 		),
 		'blog_small' => array(
-			'name' 		=> __( 'Blog Small', 'anva-start' ),
+			'name' 		=> __('Blog Small', 'anva-start' ),
 			'width' 	=> 195,
 			'height' 	=> 195,
 			'crop' 		=> false
@@ -108,7 +107,7 @@ function anva_image_size_names_choose( $sizes ) {
 
 	// Format sizes
 	$image_sizes = array();
-	
+
 	foreach ( $raw_sizes as $id => $atts ) {
 		$image_sizes[$id] = $atts['name'];
 	}
@@ -135,7 +134,7 @@ function anva_get_featured_image( $post_id, $thumbnail ) {
  * Get featured image in posts
  */
 function anva_post_thumbnails( $thumb ) {
-	
+
 	global $post;
 
 	$output = '';
@@ -168,11 +167,11 @@ function anva_post_thumbnails( $thumb ) {
 }
 
 /**
- * Get featured image in post grid
+ * Get featured image in post grid.
  */
 function anva_post_grid_thumbnails( $size ) {
 	global $post;
-	
+
 	$output  = '';
 
 	if ( has_post_thumbnail() ) {
@@ -180,6 +179,6 @@ function anva_post_grid_thumbnails( $size ) {
 		$output .= '<a class="entry__thumbnail-link" href="' . get_permalink( $post->ID ) . '" title="' . get_the_title( $post->ID ) . '">' .get_the_post_thumbnail( $post->ID, $size ) . '</a>';
 		$output .= '</div>';
 	}
-	
+
 	return $output;
 }

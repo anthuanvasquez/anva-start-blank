@@ -48,7 +48,7 @@ pipelines:
                 # Install JSHint, a JavaScript Code Quality Tool
                 # @link http://jshint.com/docs/
                 - npm install -g jshint
-                - wget https://develop.svn.wordpress.org/trunk/.jshintrc
+                #- wget https://develop.svn.wordpress.org/trunk/.jshintrc
 
                 # Search theme for PHP syntax errors.
                 - find . \( -name '*.php' \) -exec php -lf {} \;
