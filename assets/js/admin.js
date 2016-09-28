@@ -1,11 +1,11 @@
-jQuery(document).ready(function($) {
+jQuery( document ).ready( function( $ ) {
 
-	var pageTemplate = $('page_template');
+	var pageTemplate = $( 'page_template' );
 
 	function validate( val ) {
 
-		var pageGrid = $('#post_grid'),
-			pageSidebar = $('#sidebar_column');
+		var pageGrid = $( '#post_grid' ),
+			pageSidebar = $( '#sidebar_column' );
 
 		if ( 'template_post-grid.php' === val ) {
 			pageGrid.show();
@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 
 	// On Change
 	pageTemplate.on( 'change', function() {
-		validate( $(this).val() );
+		validate( $( this ).val() );
 	});
 
 });
