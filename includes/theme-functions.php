@@ -8,7 +8,7 @@
 // ex. portfolio, galleries, events, team, clients, slideshows
 $post_types = array( 'slideshows' );
 
-define( 'ANVA_POST_TYPES_USED', serialize( $post_types ) );
+define('ANVA_POST_TYPES_USED', serialize( $post_types ) );
 
 /**
  * Add theme support features
