@@ -1,6 +1,6 @@
-# Anva Start
+# Anva Start Blank
 
-Anva Start is a simple, useful, responsive boilerplate theme.
+Anva Start Blank is a simple, useful, responsive boilerplate theme.
 
 ### License
 

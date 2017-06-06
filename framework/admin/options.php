@@ -7,7 +7,7 @@
  * @link		http://anthuanvasquez.webcindario.com
  * @package		3Mentes WordPress Base Template
  */
- 
+
 // Options Array
 function anva_get_options() {
 
@@ -20,17 +20,17 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" => "Logo",  
-			"desc" => __("Introduzca la URL del logo que desea mostrar.", 'anva-start' ),  
+			"name" => "Logo",
+			"desc" => __("Introduzca la URL del logo que desea mostrar.", 'anva-start' ),
 			"id"   => "logo",
 			"type" => "image",
-			"std"  => ANVA_LOGO,
+			"std"  => get_stylesheet_directory_uri() . '/assets/images/logo.png',
 			"tab"  => "layout"
 		),
 
 		array(
 			"name" => "CSS Personalizado",
-			"desc" => __("Si necesitas realizar algunos cambios menores con estilos CSS, puedes ponerlos aqui para anular los estilos por omision del tema. Sin embargo, si vas a hacer muchos cambios de estilos CSS, lo mejor seria crear un archivo adicional de CSS o crear un Child Theme.", 'anva-start' ),  
+			"desc" => __("Si necesitas realizar algunos cambios menores con estilos CSS, puedes ponerlos aqui para anular los estilos por omision del tema. Sin embargo, si vas a hacer muchos cambios de estilos CSS, lo mejor seria crear un archivo adicional de CSS o crear un Child Theme.", 'anva-start' ),
 			"id"   => "custom_css",
 			"type" => "textarea",
 			"std"  => "",
@@ -49,8 +49,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" => "Slider Speed",  
-			"desc" => __("Introduzca un valor en milisegundos para determinar el tiempo de cada slide.", 'anva-start' ),  
+			"name" => "Slider Speed",
+			"desc" => __("Introduzca un valor en milisegundos para determinar el tiempo de cada slide.", 'anva-start' ),
 			"id"   => "slider_speed",
 			"type" => "text",
 			"std"  => '7000',
@@ -58,8 +58,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name"    => "Slider Control",  
-			"desc"    => __("Seleccione si desea ocultar la navegación manual slider.", 'anva-start' ),  
+			"name"    => "Slider Control",
+			"desc"    => __("Seleccione si desea ocultar la navegación manual slider.", 'anva-start' ),
 			"id"      => "slider_control",
 			"type"    => "radio",
 			"std"     => '1',
@@ -71,8 +71,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name"    => "Slider Direction",  
-			"desc"    => __("Seleccione si desea ocultar la navegación de dirección del slider.", 'anva-start' ),  
+			"name"    => "Slider Direction",
+			"desc"    => __("Seleccione si desea ocultar la navegación de dirección del slider.", 'anva-start' ),
 			"id"      => "slider_direction",
 			"type"    => "radio",
 			"std"     => '1',
@@ -84,8 +84,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name"    => "Slider Play",  
-			"desc"    => __("Seleccione si desea ocultar el botón de play y pausa.", 'anva-start' ),  
+			"name"    => "Slider Play",
+			"desc"    => __("Seleccione si desea ocultar el botón de play y pausa.", 'anva-start' ),
 			"id"      => "slider_play",
 			"type"    => "radio",
 			"std"     => '1',
@@ -97,8 +97,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name"    => "Footer Columns",  
-			"desc"    => __("Selecciona la cantidad de columnas que deseas mostrar en el footer.", 'anva-start' ),  
+			"name"    => "Footer Columns",
+			"desc"    => __("Selecciona la cantidad de columnas que deseas mostrar en el footer.", 'anva-start' ),
 			"id"      => "footer_cols",
 			"type"    => "radio",
 			"std"     => '4',
@@ -123,8 +123,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Facebook",  
-			"desc" 		=> __("Introduzca la URL de su perfil o pagina de facebook.", 'anva-start' ),  
+			"name" 		=> "Facebook",
+			"desc" 		=> __("Introduzca la URL de su perfil o pagina de facebook.", 'anva-start' ),
 			"id" 			=> "social_facebook",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -132,8 +132,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Twitter",  
-			"desc" 		=> __("Introduzca la URL de su perfil de twitter.", 'anva-start' ),  
+			"name" 		=> "Twitter",
+			"desc" 		=> __("Introduzca la URL de su perfil de twitter.", 'anva-start' ),
 			"id" 			=> "social_twitter",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -141,8 +141,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Instagram",  
-			"desc" 		=> __("Introduzca la URL de su perfil de instagram.", 'anva-start' ),  
+			"name" 		=> "Instagram",
+			"desc" 		=> __("Introduzca la URL de su perfil de instagram.", 'anva-start' ),
 			"id" 			=> "social_instagram",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -150,8 +150,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Google+",  
-			"desc" 		=> __("Introduzca la URL de su perfil de google+.", 'anva-start' ),  
+			"name" 		=> "Google+",
+			"desc" 		=> __("Introduzca la URL de su perfil de google+.", 'anva-start' ),
 			"id" 			=> "social_gplus",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -159,8 +159,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "LinkedIn",  
-			"desc" 		=> __("Introduzca la URL de su perfil de linkedin.", 'anva-start' ),  
+			"name" 		=> "LinkedIn",
+			"desc" 		=> __("Introduzca la URL de su perfil de linkedin.", 'anva-start' ),
 			"id" 			=> "social_linkedin",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -168,8 +168,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Youtube",  
-			"desc" 		=> __("Introduzca la URL de su perfil de youtube.", 'anva-start' ),  
+			"name" 		=> "Youtube",
+			"desc" 		=> __("Introduzca la URL de su perfil de youtube.", 'anva-start' ),
 			"id" 			=> "social_youtube",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -177,8 +177,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Vimeo",  
-			"desc" 		=> __("Introduzca la URL de su perfil de vimeo.", 'anva-start' ),  
+			"name" 		=> "Vimeo",
+			"desc" 		=> __("Introduzca la URL de su perfil de vimeo.", 'anva-start' ),
 			"id" 			=> "social_vimeo",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -186,8 +186,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Pinterest",  
-			"desc" 		=> __("Introduzca la URL de su perfil de pinterest.", 'anva-start' ),  
+			"name" 		=> "Pinterest",
+			"desc" 		=> __("Introduzca la URL de su perfil de pinterest.", 'anva-start' ),
 			"id" 			=> "social_pinterest",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -195,8 +195,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Digg",  
-			"desc" 		=> __("Introduzca la URL de su perfil de digg.", 'anva-start' ),  
+			"name" 		=> "Digg",
+			"desc" 		=> __("Introduzca la URL de su perfil de digg.", 'anva-start' ),
 			"id" 			=> "social_digg",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -204,8 +204,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Dribbble",  
-			"desc" 		=> __("Introduzca la URL de su perfil de dribbble.", 'anva-start' ),  
+			"name" 		=> "Dribbble",
+			"desc" 		=> __("Introduzca la URL de su perfil de dribbble.", 'anva-start' ),
 			"id" 			=> "social_dribbble",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -213,8 +213,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "RSS",  
-			"desc" 		=> __("Introduzca la URL de su feed.", 'anva-start' ),  
+			"name" 		=> "RSS",
+			"desc" 		=> __("Introduzca la URL de su feed.", 'anva-start' ),
 			"id" 			=> "social_rss",
 			"type" 		=> "text",
 			"std" 		=> "#",
@@ -236,8 +236,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Mostrar informacion meta en la parte superior de los posts?",  
-			"desc" 		=> __("Seleccione si desea que la informacion meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", 'anva-start' ),  
+			"name" 		=> "Mostrar informacion meta en la parte superior de los posts?",
+			"desc" 		=> __("Seleccione si desea que la informacion meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", 'anva-start' ),
 			"id" 			=> "single_meta",
 			"type" 		=> "radio",
 			"std" 		=> "1",
@@ -249,8 +249,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Mostrar imagenes destacadas en la parte superior de los posts?",  
-			"desc" 		=> __("Elija como desea que se muestren las imagenes destacadas en la parte superior de los posts.", 'anva-start' ),  
+			"name" 		=> "Mostrar imagenes destacadas en la parte superior de los posts?",
+			"desc" 		=> __("Elija como desea que se muestren las imagenes destacadas en la parte superior de los posts.", 'anva-start' ),
 			"id" 			=> "single_thumb",
 			"type" 		=> "radio",
 			"std" 		=> "1",
@@ -263,8 +263,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Mostrar comentarios debajo de los posts?",  
-			"desc" 		=> __("Seleccione si desea ocultar completamente los comentarios o no debajo de los posts.", 'anva-start' ),  
+			"name" 		=> "Mostrar comentarios debajo de los posts?",
+			"desc" 		=> __("Seleccione si desea ocultar completamente los comentarios o no debajo de los posts.", 'anva-start' ),
 			"id" 			=> "single_comment",
 			"type" 		=> "radio",
 			"std" 		=> "1",
@@ -276,8 +276,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Mostrar breadcrumbs?",  
-			"desc" 		=> __("Seleccione si desea ocultar o mostrar los breadcrumbs.", 'anva-start' ),  
+			"name" 		=> "Mostrar breadcrumbs?",
+			"desc" 		=> __("Seleccione si desea ocultar o mostrar los breadcrumbs.", 'anva-start' ),
 			"id" 			=> "single_breadcrumb",
 			"type" 		=> "radio",
 			"std" 		=> "1",
@@ -302,8 +302,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Mostrar informacion meta en la parte superior de los posts?",  
-			"desc" 		=> __("Seleccione si desea que la informacion de meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", 'anva-start' ),  
+			"name" 		=> "Mostrar informacion meta en la parte superior de los posts?",
+			"desc" 		=> __("Seleccione si desea que la informacion de meta (fecha de publicacion, autor, etc) se muestre en la parte superior del post.", 'anva-start' ),
 			"id" 			=> "posts_meta",
 			"type" 		=> "radio",
 			"std" 		=> "1",
@@ -315,8 +315,8 @@ function anva_get_options() {
 		),
 
 		array(
-			"name" 		=> "Mostrar imagenes destacadas en la parte superior de los posts?",  
-			"desc" 		=> __("Elija como desea que muestren las imagenes destacadas en la parte superior de los posts.", 'anva-start' ),  
+			"name" 		=> "Mostrar imagenes destacadas en la parte superior de los posts?",
+			"desc" 		=> __("Elija como desea que muestren las imagenes destacadas en la parte superior de los posts.", 'anva-start' ),
 			"id" 			=> "posts_thumb",
 			"type" 		=> "radio",
 			"std" 		=> "1",
@@ -339,10 +339,10 @@ function anva_get_options() {
 			"title"		=> "Reponsive",
 			"tab"			=> "config"
 		),
-		
+
 		array(
 			"name" 		=> "Tabletas y Moviles",
-			"desc" 		=> __("Este tema viene con una hoja de estilo especial que se centrara en la resolucion de la pantalla de sus visitantes para mostrarles un diseno ligeramente modificado si su resolucion de pantalla coincide con tamanos comunes de una tableta o un dispositivo movil.", 'anva-start' ),  
+			"desc" 		=> __("Este tema viene con una hoja de estilo especial que se centrara en la resolucion de la pantalla de sus visitantes para mostrarles un diseno ligeramente modificado si su resolucion de pantalla coincide con tamanos comunes de una tableta o un dispositivo movil.", 'anva-start' ),
 			"id" 			=> "responsive",
 			"type" 		=> "radio",
 			"std" 		=> "1",
@@ -355,7 +355,7 @@ function anva_get_options() {
 
 		array(
 			"name" 		=> "Navegacion",
-			"desc" 		=> __("Seleccione como desea mostrar la navegacion principal en los dispositivos moviles.", 'anva-start' ),  
+			"desc" 		=> __("Seleccione como desea mostrar la navegacion principal en los dispositivos moviles.", 'anva-start' ),
 			"id" 			=> "navigation",
 			"type" 		=> "radio",
 			"std" 		=> "toggle_navigation",
@@ -372,6 +372,6 @@ function anva_get_options() {
 		)
 
 	);
-	
+
 	return $options;
 }
