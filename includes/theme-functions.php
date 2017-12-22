@@ -4,11 +4,17 @@
 /* Theme Functions
 /*-----------------------------------------------------------------------------------*/
 
-// Define post types to be used in the theme.
-// ex. portfolio, galleries, events, team, clients, slideshows
-$post_types = array( 'slideshows' );
-
-define('ANVA_POST_TYPES_USED', serialize( $post_types ) );
+/**
+ * Post types to be used in the theme.
+ * ex. portfolio, galleries, events, team, clients, slideshows
+ *
+ * @return array
+ */
+function anva_theme_post_types() {
+	$post_types = array( 'anime' );
+	return $post_types;
+}
+add_filter( 'anva_post_types_list', 'anva_theme_post_types', 1 );
 
 /**
  * Add theme support features
